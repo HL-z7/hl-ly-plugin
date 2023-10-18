@@ -1,4 +1,4 @@
-import plugin from '../../lib/plugins/plugin.js'
+import plugin from '../../../lib/plugins/plugin.js' //改为独立js需要删除一个../
 import cfg from '../../lib/config/config.js'
 
 

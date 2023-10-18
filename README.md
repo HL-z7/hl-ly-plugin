@@ -4,7 +4,7 @@
 
 <div align="center">
 
-# HanXuan-Plugin
+# HL-Plugin
 
 [![访问量](https://profile-counter.glitch.me/hl-Plugin/count.svg)](https://hanxuan.cc/)
 

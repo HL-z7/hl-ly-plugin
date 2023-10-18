@@ -27,7 +27,7 @@ export class RandomMP3 extends plugin {
         });
 
         // 读取配置文件
-        const configPath = path.join(__dirname, 'plugins/hanxuan/config/RandomMP3.yaml'); // 配置文件路径
+        const configPath = path.join(__dirname, 'plugins/hl-plugin/config/RandomMP3.yaml'); // 配置文件路径
         const configFile = fs.readFileSync(configPath, 'utf-8'); // 读取配置文件
 
         // 使用yaml库解析配置文件

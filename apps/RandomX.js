@@ -21,7 +21,7 @@ export class RandomX extends plugin {
             rule: [
                 {
                     reg: null,  // 正则表达式初始化为空字符串，稍后从配置文件中读取
-                    fnc: 'Xx'   // 定义函数名为Xx
+                    fnc: 'h'   // 定义函数名为h
                 }
             ]
         });
@@ -37,10 +37,10 @@ export class RandomX extends plugin {
         this.rule[0].reg = new RegExp(`(${reg.join('|')})`);
 
         // 设置图片文件夹路径
-        this.imageDirPath = path.join(__dirname, 'plugins/h-pluginl/resources/Xx'); // 图片文件夹路径
+        this.imageDirPath = path.join(__dirname, 'plugins/hl-pluginl/resources/h'); // 图片文件夹路径
     }
 
-    // 定义处理函数Xx
+    // 定义处理函数h
     async Xx(e) { 
         const files = fs.readdirSync(this.imageDirPath).filter(file => file.endsWith('.png')); // 读取所有图片文件
 

@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://hanxuan.cc/"><img src="https://hanxuan.cc/hero.png" width="45%" /></a>
+  <a href="https://hanxuan.cc/"><img src="https://gchat.qpic.cn/gchatpic_new/0/0-0-C236FC1ED7BC0D572FD596FA43D3C641/0" width="45%" /></a>
 </p>
 
 <div align="center">
@@ -15,7 +15,7 @@
 
 
 ``` bash
-git clone --depth 1 https://gitee.com/fox-glaze/hl-plugin
+git clone --depth 1 https://gitee.com/fox-glaze/hl-plugin ./plugins/hl-plugin
 ```
 
 # 当前功能

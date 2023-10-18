@@ -6,7 +6,7 @@
 
 # HL-Plugin
 
-[![访问量](https://profile-counter.glitch.me/hl-Plugin/count.svg)](https://hanxuan.cc/)
+[![访问量](https://profile-counter.glitch.me/hl-Plugin/count.svg)](https://gitee.com/fox-glaze/hl-plugin    )
 
 </div>
 
@@ -15,7 +15,7 @@
 
 
 ``` bash
-git clone --depth 1 https://gitee.com/hl-plugin/plugin.git ./plugins/hl-plugin/
+git clone --depth 1 https://gitee.com/fox-glaze/hl-plugin
 ```
 
 # 当前功能

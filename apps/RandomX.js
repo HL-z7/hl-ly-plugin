@@ -2,13 +2,15 @@
 import plugin from '../../../lib/plugins/plugin.js'; // 引入父类 plugin
 import fs from "fs"; // 引入 Node.js 内置的文件系统模块
 import path from "path"; // 引入 Node.js 内置的路径模块
-import { fileURLToPath } from 'url'; // 引入 Node.js 内置的转换 URL 到文件路径的模块
+
+// 引入第三方库 YAML
 import YAML from 'yaml'; // 引入 YAML 库解析配置文件
-import segment from 'your-segment-library'; // 请替换为实际的代码段库
+
+// 引入 segment 对象
+import { segment } from "koishi";
 
 // 获取当前目录路径
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __dirname = path.resolve();
 
 // 定义 RandomX 类并继承 plugin 基类
 export class RandomX extends plugin {
@@ -22,32 +24,42 @@ export class RandomX extends plugin {
       rule: [
         {
           reg: null, // 正则表达式初始化为空字符串，稍后从配置文件中读取
-          fnc: 'hhh' // 定义函数名为 hhh
-        }
-      ]
+          fnc: 'hhh', // 定义函数名为hhh
+        },
+      ],
     });
 
     // 读取配置文件
-    const configPath = path.join(__dirname, 'plugins/hl-plugin/config/RandomX.yaml'); // 配置文件路径
+    const configPath = path.join(
+      __dirname,
+      'plugins/hl-plugin/config/RandomX.yaml'
+    ); // 配置文件路径
     const configFile = fs.readFileSync(configPath, 'utf-8'); // 读取配置文件
 
     // 使用 YAML 库解析配置文件
-    const { reg } = YAML.parse(configFile); // 解析出正则表达式
+    const config = YAML.parse(configFile); // 解析配置文件
+    const { reg } = config; // 获取正则表达式
 
-    // 将正则表达式更新为从配置文件中读取的值
-    this.rule[0].reg = new RegExp(`(${reg.join('|')})`);
+    if (Array.isArray(reg)) {
+      // 将正则表达式更新为从配置文件中读取的值
+      this.rule[0].reg = new RegExp(`(${reg.join('|')})`);
+    } else {
+      console.error('配置文件格式错误：reg 应为数组');
+    }
 
     // 设置图片文件夹路径
-    this.imageDirPath = path.join(__dirname, 'plugins/hl-plugin/resources/hhh'); // 图片文件夹路径
+    this.imageDirPath = path.join(__dirname, 'plugins/hl-plugin/resources/hhh');
   }
 
-  // 定义处理函数hhh
+  // 定义处理函数 hhh
   async hhh(e) {
-    const files = fs.readdirSync(this.imageDirPath).filter(file => file.endsWith('.png')); // 读取所有图片文件
+    const files = fs
+      .readdirSync(this.imageDirPath)
+      .filter((file) => file.endsWith('.png')); // 读取所有图片文件
 
-    // 若图片数量为0则返回false
+    // 若图片数量为0则返回 false
     if (files.length === 0) {
-      return false; // 没有找到图片则返回false
+      return false; // 没有找到图片则返回 false
     }
 
     // 随机获取一张图片

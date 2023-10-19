@@ -16,7 +16,7 @@ export class example extends plugin {
   
   async cs (e) {
     logger.info('[都怪寒暄.js插件]')
-    let url = encodeURI(`https://gchat.qpic.cn/gchatpic_new/0/0-0-CBEA903F37EC5143BC0DAC3089AB143F/0`)
+    let url = encodeURI(`https://img.kookapp.cn/attachments/2023-10/raNn0dXq4y0lh12a.jpeg?x-oss-process=style/ld`)
     await this.e.reply(segment.image(url), true)
     return true
   }

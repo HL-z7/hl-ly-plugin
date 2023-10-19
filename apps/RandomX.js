@@ -40,8 +40,8 @@ export class RandomX extends plugin {
         this.imageDirPath = path.join(__dirname, 'plugins/hl-plugin/resources/hhh'); // 图片文件夹路径
     }
 
-    // 定义处理函数h
-    async Xx(e) { 
+    // 定义处理函数hhh
+    async hhh(e) { 
         const files = fs.readdirSync(this.imageDirPath).filter(file => file.endsWith('.png')); // 读取所有图片文件
 
         // 若图片数量为0则返回false

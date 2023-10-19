@@ -37,7 +37,7 @@ export class RandomX extends plugin {
         this.rule[0].reg = new RegExp(`(${reg.join('|')})`);
 
         // 设置图片文件夹路径
-        this.imageDirPath = path.join(__dirname, 'plugins/hl-pluginl/resources/hhh'); // 图片文件夹路径
+        this.imageDirPath = path.join(__dirname, 'plugins/hl-plugin/resources/hhh'); // 图片文件夹路径
     }
 
     // 定义处理函数h

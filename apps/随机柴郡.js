@@ -1,5 +1,5 @@
 import plugin from '../../../lib/plugins/plugin.js'
-import fs from 'node:fs'
+
 /*
 鸣谢桑帛云api
 */

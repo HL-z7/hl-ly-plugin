@@ -6,7 +6,7 @@ export {
 
 let rule = {
   help: {
-    reg: "^#*白纸帮助$",
+    reg: "^#*hl帮助$",
     priority: 5,
     describe: "帮助文档，其实是图片"
   }

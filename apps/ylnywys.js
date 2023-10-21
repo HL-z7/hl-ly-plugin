@@ -7,7 +7,7 @@ export class example extends plugin {
       name: '原来你也玩原神啊',
       dsc: '原来你也玩原神啊',
       event: 'message',
-      priority: -114514,
+      priority: -100000,
       rule: [
         {
           reg: '原神',

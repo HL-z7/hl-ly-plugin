@@ -9,16 +9,16 @@ export class example extends plugin {
       rule: [
         {
           reg: '^#?(美女|小姐姐)$',
-          fnc: 'sjmn'
+          fnc: 'cs'
         }
       ]
     })
   }
   
   async cs (e) {
-    logger.info('[随机美女.js插件]')
+    logger.info('[随机柴郡.js插件]')
     let url = encodeURI(`https://api.lolimi.cn/API/tup/xjj.php`)
-    await this.e.reply(segment.image(url), true,{at:true})
+    await this.e.reply(segment.image(url), true)
     return true
   }
 }

@@ -1,4 +1,3 @@
-import plugin from '../../../lib/plugins/plugin.js'
 import fs from "fs";
 import { segment } from "oicq";
 import { isV3 } from "../components/common.js";

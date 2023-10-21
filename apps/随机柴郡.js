@@ -1,9 +1,4 @@
 import plugin from '../../../lib/plugins/plugin.js'
-
-/*
-鸣谢桑帛云api
-*/
-
 export class example extends plugin {
   constructor () {
     super({

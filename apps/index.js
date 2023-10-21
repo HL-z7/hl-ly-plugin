@@ -1,15 +1,16 @@
-import { help } from "./help.js"
+import { help } from "./help.js";
 
 export {
-  help,
+  help
 };
 
 let rule = {
-  // ...
   help: {
-    reg: "^#*hl帮助$",
+    reg: "^#*白纸帮助$",
     priority: 5,
     describe: "帮助文档，其实是图片"
   }
 };
+
+export { rule };
 

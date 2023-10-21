@@ -9,7 +9,7 @@ export class example extends plugin {
       rule: [
         {
           reg: '柴郡',
-          fnc: 'cj'
+          fnc: 'cs'
         }
       ]
     })
@@ -18,7 +18,7 @@ export class example extends plugin {
   async cs (e) {
     logger.info('[随机柴郡.js插件]')
     let url = encodeURI(`https://api.lolimi.cn/API/chaiq/c.php`)
-    await this.e.reply(segment.image(url), true,{at:true})
+    await this.e.reply(segment.image(url), true)
     return true
   }
 }

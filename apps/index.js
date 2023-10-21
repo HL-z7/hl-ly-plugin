@@ -1,4 +1,3 @@
-import plugin from '../../../lib/plugins/plugin.js'
 import { help } from "./help.js";
 
 export {

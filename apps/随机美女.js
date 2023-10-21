@@ -18,7 +18,7 @@ export class example extends plugin{
   async cs (e) {
     logger.info('[随机柴郡.js插件]')
     let url = encodeURI(`https://api.lolimi.cn/API/tup/xjj.php`)
-    await this.e.reply(segment.image(url), true)
+    await this.e.reply(segment.image(url), true,{at:true})
     return true
   }
 }

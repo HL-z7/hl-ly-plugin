@@ -8,17 +8,17 @@ const helpPath = `${_path}/plugins/miao-plugin/resources/help`
 
 const Help = {
   async render (e) {
-    if (!/喵喵/.test(e.msg) && !Cfg.get('help', false)) {
+    if (!/hl/.test(e.msg) && !Cfg.get('hlhelp', false)) {
       return false
     }
 
     let custom = {}
     let help = {}
     if (fs.existsSync(`${helpPath}/help-cfg.js`)) {
-      console.log('miao-plugin: 检测到存在help-cfg.js配置\n建议将help-cfg.js移为config/help.js或重新复制config/help_default.js进行配置~')
+      console.log('hl-plugin: 检测到存在help-cfg.js配置\n建议将help-cfg.js移为config/help.js或重新复制config/help_default.js进行配置~')
       help = await import(`file://${helpPath}/help-cfg.js?version=${new Date().getTime()}`)
     } else if (fs.existsSync(`${helpPath}/help-list.js`)) {
-      console.log('miao-plugin: 检测到存在help-list.js配置，建议将help-list.js移为config/help.js或重新复制config/help_default.js进行配置~')
+      console.log('hl-plugin: 检测到存在help-list.js配置，建议将help-list.js移为config/help.js或重新复制config/help_default.js进行配置~')
       help = await import(`file://${helpPath}/help-list.js?version=${new Date().getTime()}`)
     }
 

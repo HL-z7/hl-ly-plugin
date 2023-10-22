@@ -3,7 +3,7 @@ import * as lodash from 'lodash';
 import { Common, Data } from '../components/index.js';
 import Theme from './help/theme.js';
 
-export class xiaofei_help extends plugin {
+export class hl_help extends plugin {
   constructor() {
     super({
       /** 功能名称 */

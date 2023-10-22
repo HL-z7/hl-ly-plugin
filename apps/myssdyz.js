@@ -1,5 +1,5 @@
 // 需要最新版喵崽
-import plugin from '../../lib/plugins/plugin.js'
+import plugin from '../../../lib/plugins/plugin.js'
 import fetch from 'node-fetch'
 
 /**

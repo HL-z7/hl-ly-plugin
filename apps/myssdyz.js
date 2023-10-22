@@ -10,7 +10,7 @@ import fetch from 'node-fetch'
  */
 let cfg = {
   verify: 1,
-  verifyAddr: 'https://luoyutianyang-gt-manual.hf.space/GTest/register?key=114514',
+  verifyAddr: 'https://luoyutianyang-gt-manual.hf.space/GTest/register?key=免费开源项目-您如果是交易获得则是被骗-请及时退款并举报',
   blackList: [10001, 10002]
 }
 

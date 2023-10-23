@@ -1,6 +1,7 @@
 import plugin from '../../../lib/plugins/plugin.js'
 import lodash from 'lodash'
-import Theme from './help/theme.js'
+import { Cfg, Version, Common, Data } from '../components/index.js'
+import Theme from './help/help.js'
 
 export class hl_help extends plugin {
   constructor() {

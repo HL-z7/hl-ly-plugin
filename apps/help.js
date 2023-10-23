@@ -25,22 +25,24 @@ export class hl_help extends plugin {
     });
   }
 
-  async message() {
-    return await help(this.e);
-  }
+async help (e) {
 
-}
-
-async function help(e) {
   let custom = {}
   let help = {}
-
   let { diyCfg, sysCfg } = await Data.importCfg('help')
 
-  custom = help
+  if (lodash.isArray(help.helpCfg)) {
+    custom = {
+      helpList: help.helpCfg,
+      helpCfg: {}
+    }
+  } else {
+    custom = help
+  }
 
   let helpConfig = lodash.defaults(diyCfg.helpCfg || {}, custom.helpCfg, sysCfg.helpCfg)
   let helpList = diyCfg.helpList || custom.helpList || sysCfg.helpList
+
   let helpGroup = []
 
   lodash.forEach(helpList, (group) => {
@@ -61,12 +63,20 @@ async function help(e) {
 
     helpGroup.push(group)
   })
-  let themeData = await Theme.getThemeData(diyCfg.helpCfg || {}, sysCfg.helpCfg || {})
-
+  let themeData = await HelpTheme.getThemeData(diyCfg.helpCfg || {}, sysCfg.helpCfg || {})
   return await Common.render('help/index', {
     helpCfg: helpConfig,
     helpGroup,
     ...themeData,
     element: 'default'
-  }, { e, scale: 1 })
+  }, { e, scale: 1.2 })
+}
+
+async versionInfo (e) {
+  return await Common.render('help/version-info', {
+    currentVersion: Version.version,
+    changelogs: Version.changelogs,
+    elem: 'anemo'
+  }, { e, scale: 1.2 })
+}
 }

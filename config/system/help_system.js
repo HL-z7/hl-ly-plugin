@@ -40,7 +40,7 @@ export const helpList = [
       },
       {
         "icon": 66,
-        "title": "美女      小姐姐",
+        "title": "美女 小姐姐",
         "desc": "发美女或小姐姐就会触发（温馨提示：少看点，小心虚了）"
       },
       {
@@ -91,4 +91,4 @@ export const helpList = [
     ]
   }]
 
-export const isSys = true
+export const isSys = true  //

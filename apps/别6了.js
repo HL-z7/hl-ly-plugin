@@ -6,7 +6,7 @@ export class example extends plugin {
       name: '6',
       dsc: '别6了',
       event: 'message',
-      priority: 520,
+      priority: 5200,
       rule: [
         {
           reg: '6',

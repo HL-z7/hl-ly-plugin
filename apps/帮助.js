@@ -1,7 +1,7 @@
 import plugin from '../../../lib/plugins/plugin.js'
 import lodash from 'lodash'
 import { Common, Data } from '../components/index.js'
-import Theme from './theme.js'
+import theme from '/root/TRSS_AllBot/Miao-Yunzai/plugins/hl-plugin/apps/theme.js'
 
 export class xiaofei_help extends plugin {
   constructor() {

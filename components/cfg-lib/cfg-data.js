@@ -1,4 +1,4 @@
-import { cfgSchema } from '../../config/system/cfg_system.js'
+import { cfgSchema } from '../../config/system/help_system.js'
 import lodash from 'lodash'
 import { Data } from '../index.js'
 import fs from 'node:fs'

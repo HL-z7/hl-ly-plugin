@@ -14,7 +14,7 @@ export class RandomX extends plugin {
     constructor() {
         // 调用父类构造函数初始化插件信息
         super({
-            name: '随机表情包',  // 插件名称
+            name: '随机表情',  // 插件名称
             dsc: '表情包',  // 描述信息
             event: 'message',  // 响应事件类型
             priority: 5000,   // 优先级为5000

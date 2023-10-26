@@ -34,7 +34,7 @@ let cfgData = {
         ret.push(`export const ${cfgKey} = ${val.toString()}`, '')
       })
     })
-    fs.writeFileSync(`${process.cwd()}/plugins/akasha-terminal-plugin/config/cfg.js`, ret.join('\n'), 'utf8')
+    fs.writeFileSync(`${process.cwd()}/plugins/hl-plugin/config/cfg.js`, ret.join('\n'), 'utf8')
   },
 
   async getCfg () {

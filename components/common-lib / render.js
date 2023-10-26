@@ -1,5 +1,7 @@
 import { Data, Version, Plugin_Name } from '../index.js'
+import Cfg from '../Cfg.js'
 import fs from 'fs'
+import puppeteer from '../../../../lib/puppeteer/puppeteer.js'
 
 const _path = process.cwd()
 
@@ -24,11 +26,13 @@ export default async function (path, params, cfg) {
       waitUntil: 'networkidle0'
     },
     sys: {
-      scale: 1,
-      copyright: `Created By Yunzai-Bot<span class="version">${Version.yunzai} 🤖</span> & xiaofei-Plugin<span class="version">${Version.ver} 🧩</span>`
+      scale: Cfg.scale(cfg.scale || 1),
+      copyright: `Created By ${Version.name}<span class="version">${Version.yunzai}</span> && hl-plugin<span class="version">${Version.ver}</span>`
     },
     quality: 100
   }
+
+
   if (process.argv.includes('web-debug')) {
     // debug下保存当前页面的渲染数据，方便模板编写与调试
     // 由于只用于调试，开发者只关注自己当时开发的文件即可，暂不考虑app及plugin的命名冲突
@@ -40,11 +44,10 @@ export default async function (path, params, cfg) {
     data._app = app
     fs.writeFileSync(file, JSON.stringify(data))
   }
-  let img = await xiaofei_plugin.puppeteer.screenshot(`${Plugin_Name}/${app}/${tpl}`, data)
+  let base64 = await puppeteer.screenshot(`${Plugin_Name}/${app}/${tpl}`, data)
   let ret = true
-  if (img) {
-    if (img?.type != 'image') img = segment.image(img)
-    ret = await e.reply(img)
+  if (base64) {
+    ret = await e.reply(base64)
   }
   return cfg.retMsgId ? ret : true
 }

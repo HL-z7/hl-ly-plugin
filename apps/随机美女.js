@@ -5,7 +5,7 @@ export class example extends plugin{
       name: '随机美女',
       dsc: '随机美女',
       event: 'message',
-      priority: -114514,
+      priority: -100000,
       rule: [
         {
           reg: '^#?(美女|小姐姐)$',

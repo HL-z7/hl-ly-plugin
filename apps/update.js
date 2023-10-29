@@ -59,7 +59,7 @@ export class Update extends plugin {
             this.gitErr(ret.error, ret.stdout)
             return false
         }
-        let time = await this.getTime('ly-plugin')
+        let time = await this.getTime('hl-plugin')
 
         if (/(Already up[ -]to[ -]date|已经是最新的)/.test(ret.stdout)) {
             await this.reply(`hl插件已经是最新版本\n最后更新时间：${time}`)

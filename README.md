@@ -9,6 +9,8 @@
 
 </div>
 
+# hl-plugin
+
 # 安装教程
 仅Gitee在Yzai根目录执行即可
 

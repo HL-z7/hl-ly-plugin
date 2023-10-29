@@ -4,9 +4,8 @@
 
 <div align="center">
 
-# HL-Plugin
 
-[![访问量](https://count.getloli.com/get/@hl?theme=rule34)](https://gitee.com/fox-glaze/hl-plugin    )
+[![访问量](https://count.getloli.com/get/@hl?theme=rule34)](https://gitee.com/luoyutianyang/ly-plugin    )
 
 </div>
 

@@ -66,7 +66,7 @@ export class Update extends plugin {
         } else {
             await this.reply(`hl插件\n最后更新时间：${time}`)
             this.isUp = true
-            let log = await this.getLog('ly-plugin')
+            let log = await this.getLog('hl-plugin')
             await this.reply(log)
         }
         logger.mark(`${this.e.logFnc} 最后更新时间：${time}`)
@@ -93,7 +93,7 @@ export class Update extends plugin {
         let line = log.length
         log = log.join('\n\n')
         if (log.length <= 0) return ''
-        let end = '更多详细信息，请前往gitee查看\nhttps://gitee.com/luoyutianyang/hl-plugin/repository/stats/master'
+        let end = '更多详细信息，请前往gitee查看\nhttps://gitee.com/fox-glaze/hl-plugin/repository/stats/master'
         log = await common.makeForwardMsg(this.e, [log, end], `${plugin}更新日志，共${line}条`)
         return log
     }

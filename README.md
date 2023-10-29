@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://gitee.com/fox-glaze/hl-plugin/"><img src="https://img.kookapp.cn/attachments/2023-10/29/XeQ4ScuBhP0rs18n.jpeg" width="45%" /></a>
+  <a href="https://gitee.com/luoyutianyang/ly-plugin/"><img src="https://img.kookapp.cn/attachments/2023-10/29/XeQ4ScuBhP0rs18n.jpeg" width="45%" /></a>
 </p>
 
 <div align="center">

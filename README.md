@@ -1,11 +1,11 @@
 <p align="center">
-  <a href="https://gitee.com/luoyutianyang/ly-plugin/"><img src="https://img.kookapp.cn/attachments/2023-10/29/XeQ4ScuBhP0rs18n.jpeg" width="45%" /></a>
+  <a href="https://gitee.com//ly-plugin/"><img src="https://hanxuan.cc" width="45%" /></a>
 </p>
 
 <div align="center">
 
 
-[![访问量](https://count.getloli.com/get/@hl?theme=rule34)](https://gitee.com/luoyutianyang/ly-plugin    )
+[![访问量](https://count.getloli.com/get/@hl?theme=rule34)](https://gitee.com/fox-glaze/hl-plugin    )
 
 </div>
 

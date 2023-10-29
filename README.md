@@ -8,8 +8,7 @@
 
 # 访问量
 
-[![访问量](https://count.getloli.com/get/@hl?theme=rule34)](https://gitee.com/fox-glaze/hl-plugin    )
-
+[![访问量](https://profile-counter.glitch.me/hl-Plugin/count.svg)](https://gitee.com/fox-glaze/hl-plugin    )
 </div>
 
 # 安装教程

@@ -1,4 +1,3 @@
-# hl-plugin
 
 <p align="center">
    <a href="https://gitee.com/fox-glaze/hl-plugin/"><img src="https://hanxuan.cc/hero.png" width="45%" /></a>
@@ -6,7 +5,7 @@
 
 <div align="center">
 
-# 访问量
+# HL-plugin
 
 [![访问量](https://profile-counter.glitch.me/hl-Plugin/count.svg)](https://gitee.com/fox-glaze/hl-plugin    )
 </div>

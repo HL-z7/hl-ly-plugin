@@ -8,7 +8,7 @@ export class example extends plugin {
         name: '遥遥领先',
         dsc: '有很严重的杂音',
         event: 'message',
-        priority: -114514,
+        priority: -100000,
         rule: [
           {
             reg: '遥遥领先',

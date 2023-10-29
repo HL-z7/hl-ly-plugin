@@ -4,7 +4,7 @@
 
 <div align="center">
 
-
+# 访问量
 [![访问量](https://count.getloli.com/get/@hl?theme=rule34)](https://gitee.com/fox-glaze/hl-plugin    )
 
 </div>

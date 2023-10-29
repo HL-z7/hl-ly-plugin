@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://gitee.com//ly-plugin/"><img src="https://hanxuan.cc" width="45%" /></a>
+   <a href="https://gitee.com/fox-glaze/hl-plugin/"><img src="https://hanxuan.cc/hero.png" width="45%" /></a>
 </p>
 
 <div align="center">

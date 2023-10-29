@@ -1,7 +1,7 @@
 # hl-plugin
 
 <p align="center">
-   <a href="https://gitee.com/fox-glaze/hl-plugin/"><img src="https://img.kookapp.cn/attachments/2023-10/29/ysBj2Ldfop0z00y8.jpg" width="45%" /></a>
+   <a href="https://gitee.com/fox-glaze/hl-plugin/"><img src="https://gchat.qpic.cn/gchatpic_new/0/0-0-6AD5A49F00740BC7511E19D597B51815/0" width="45%" /></a>
 </p>
 
 <div align="center">

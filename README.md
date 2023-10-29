@@ -1,3 +1,5 @@
+# hl-plugin
+
 <p align="center">
    <a href="https://gitee.com/fox-glaze/hl-plugin/"><img src="https://hanxuan.cc/hero.png" width="45%" /></a>
 </p>
@@ -5,11 +7,10 @@
 <div align="center">
 
 # 访问量
+
 [![访问量](https://count.getloli.com/get/@hl?theme=rule34)](https://gitee.com/fox-glaze/hl-plugin    )
 
 </div>
-
-# hl-plugin
 
 # 安装教程
 仅Gitee在Yzai根目录执行即可

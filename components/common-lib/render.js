@@ -1,3 +1,4 @@
+import puppeteer from 'puppeteer';
 import { Data, Version, Plugin_Name } from '../index.js'
 import fs from 'fs'
 

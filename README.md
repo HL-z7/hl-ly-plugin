@@ -19,6 +19,10 @@ git clone --depth 1 https://gitee.com/fox-glaze/hl-plugin ./plugins/hl-plugin
 ```
 
 - 一定要配置ffmpeg！不然本插件部分功能会用不了
+- 一定要配置ffmpeg！不然本插件部分功能会用不了
+- 一定要配置ffmpeg！不然本插件部分功能会用不了
+ 
+- 重要的事情说三遍
 
 # 🐔当前功能
 - 随机语音

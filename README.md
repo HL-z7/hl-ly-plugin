@@ -33,7 +33,7 @@ git clone --depth 1 https://gitee.com/fox-glaze/hl-plugin ./plugins/hl-plugin
 
 # 帮助
 <p align="center">
-   <a href="https://gitee.com/fox-glaze/hl-plugin/"><img src="https://gitee.com/luoyutianyang/luoyutianyangdetuchuan/raw/master/help/hl%E5%B8%AE%E5%8A%A9.png" width="45%" /></a>
+   <a href="https://gitee.com/fox-glaze/hl-plugin/"><img src="https://gitee.com/luoyutianyang/tuchuan/raw/master/help/hl%E5%B8%AE%E5%8A%A9.png" width="45%" /></a>
 </p>
 
 ## ⚙️配置文件

@@ -1,6 +1,6 @@
 
 <p align="center">
-   <a href="https://gitee.com/fox-glaze/hl-plugin/"><img src="https://gitee.com/luoyutianyang/tuchuan/blob/master/suijizy.png" width="45%" /></a>
+   <a href="https://gitee.com/fox-glaze/hl-plugin/"><img src="https://hanxuan.cc/hero.png" width="45%" /></a>
 </p>
 
 <div align="center">

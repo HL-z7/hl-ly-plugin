@@ -8,7 +8,7 @@ export class example extends plugin {
       priority: -114514,
       rule: [
         {
-          reg: '原神启动',
+          reg: '原神启动！',
           fnc: 'cs'
         }
       ]

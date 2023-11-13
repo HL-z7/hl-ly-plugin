@@ -10,7 +10,7 @@ export class example extends plugin {
       priority: -100000,
       rule: [
         {
-          reg: '原神启动',
+          reg: '厵神',
           fnc: 'yuanshen'
         }
       ]

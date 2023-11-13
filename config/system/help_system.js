@@ -75,8 +75,8 @@ export const helpList = [
       },
       {
         "icon": 1,
-        "title": "@机器人",
-        "desc": "艾特你的机器人回复消息（有可能会禁言）"
+        "title": "hl列表",
+        "desc": "输入hl列表即可触发"
       },
       {
         "icon": 77,

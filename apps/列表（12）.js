@@ -9,7 +9,7 @@ export class example extends plugin {
       priority: -114514,
       rule: [
         {
-          reg: '1',
+          reg: '白狐脚本',
           fnc: 'cs'
         }
       ]

@@ -9,7 +9,7 @@ export class example extends plugin {
       priority: -114514,
       rule: [
         {
-          reg: '',
+          reg: 'hl列表',
           fnc: 'dggz'
         }
       ]

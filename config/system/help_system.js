@@ -55,12 +55,12 @@ export const helpList = [
       },
       {
         "icon": 64,
-        "title": "原神",
+        "title": "厵神",
         "desc": "会触发一个视频（跟真寻一样，不是随机的）"
       },
       {
         "icon": 67,
-        "title": "原神启动",
+        "title": "原神启动！",
         "desc": "会触发原神启动四字的连续图片（很刷屏）"
       },
       {
@@ -80,8 +80,8 @@ export const helpList = [
       },
       {
         "icon": 77,
-        "title": "随机表情包",
-        "desc": "会触发随机表情包"
+        "title": "随机二次元",
+        "desc": "会触发随机壁纸"
       }]
       },
      {

@@ -4,12 +4,12 @@ export class example extends plugin {
   constructor () {
     super({
       name: '',
-      dsc: 'hl列表',
+      dsc: '问题合集',
       event: 'message',
       priority: -114514,
       rule: [
         {
-          reg: '',
+          reg: '问题合集',
           fnc: 'dggz'
         }
       ]

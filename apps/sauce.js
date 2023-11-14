@@ -36,7 +36,7 @@ export class example extends plugin {
 
     if (this.e.atme && isEmptyMessage) {
       let 酱酱 = encodeURI(
-        `https://gchat.qpic.cn/gchatpic_new/563829463/3943694434-2910457764-B5DEFA9D89747CA1F6F90933A248EC3A/0?term=3&is_origin=1`
+        `https://img.kookapp.cn/attachments/2023-11/14/beP26bvDdD0u00to.jpeg?x-oss-process=style/ld`
       );
       await this.e.reply(segment.image(酱酱), true);
       this.e.group.muteMember(this.e.sender.user_id, 86400);

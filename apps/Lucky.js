@@ -8,10 +8,11 @@ let gameStarted = false;
 
 // 处理玩家发送的消息
 function handleMessage(message) {
-  const lowerCaseMessage = message.toLowerCase();
+  // 确保message对象包含message属性
+  const lowerCaseMessage = (message.message || '').toLowerCase();
   
   // 玩家加入游戏
-  if (lowerCaseMessage === '#加入来一手' && !gameStarted) {
+  if (lowerCaseMessage === '#加入游戏' && !gameStarted) {
     if (!players.includes(message.sender)) {
       players.push(message.sender);
       sendMessage(`${message.sender}加入了游戏！`);
@@ -21,12 +22,12 @@ function handleMessage(message) {
   }
   
   // 发起游戏
-  if (lowerCaseMessage === '#发起来一手' && !gameStarted) {
+  if (lowerCaseMessage === '#发起游戏' && !gameStarted) {
     initiateGame(message.sender);
   }
 
   // 开始游戏
-  if (lowerCaseMessage === '#开始来一手' && !gameStarted) {
+  if (lowerCaseMessage === '#开始游戏' && !gameStarted) {
     if (message.sender === gameInitiator) {
       startGame();
     } else {
@@ -35,7 +36,7 @@ function handleMessage(message) {
   }
   
   // 结束游戏
-  if (lowerCaseMessage === '#结束来一手') {
+  if (lowerCaseMessage === '#结束游戏') {
     if (message.sender === gameInitiator) {
       endGame();
     } else {
@@ -44,7 +45,7 @@ function handleMessage(message) {
   }
   
   // 玩家发抽奖
-  if (gameStarted && lowerCaseMessage.startsWith('来一手') && players.includes(message.sender)) {
+  if (gameStarted && lowerCaseMessage.startsWith('#抽奖') && players.includes(message.sender)) {
     drawLottery(message.sender);
   }
 }

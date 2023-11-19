@@ -26,7 +26,7 @@ export class example extends plugin {
     "更换签名api即可解决\n"+
     "您可以进入下面这个链接抱脸自建\n"+
     "https://github.com/CikeyQi/QQsign_docs/blob/main/index.md\n"+
-    "上面的链接需要科学上网"+
+    "上面的链接需要科学🐔上网"+
     "没有科学上网可以看寒暄喧的教程\n"+
     "https://hanxuan.cc/docs/QSign.html"
     e.reply(msg,true)

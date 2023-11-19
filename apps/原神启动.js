@@ -16,7 +16,7 @@ export class example extends plugin {
   }
   
     async cs (e) {
-    logger.info('[原神启动！.js插件]')
+    logger.info('[hl-plugin]')
       let msg = [
    segment.image('https://img.kookapp.cn/assets/2023-09/kiykjwz3BC0pk1hc.jpg'),
    segment.image('https://img.kookapp.cn/assets/2023-09/Bn6wQuLVdD0pk1hc.jpg'),

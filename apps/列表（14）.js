@@ -21,7 +21,7 @@ export class example extends plugin {
   ps:使用的时候记得把q群和联系人改成自己的，如果出现一天指令两条消息请及时联系
   */
   async dggz (e) {
-    logger.info('[列表.js插件启动成功]')
+    logger.info('[hl-plugin]')
     let msg = "Yunzai-Bot 插件库\n"+
     "https://gitee.com/yhArcadia/Yunzai-Bot-plugins-index\n"+
     "第一个gitee（国内）\n"+

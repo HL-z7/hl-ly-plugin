@@ -4,12 +4,12 @@ export class example extends plugin {
   constructor () {
     super({
       name: '',
-      dsc: 'icqq',
+      dsc: 'icqq仓库',
       event: 'message',
       priority: -114514,
       rule: [
         {
-          reg: 'icqq',
+          reg: 'icqq仓库',
           fnc: 'cs'
         }
       ]

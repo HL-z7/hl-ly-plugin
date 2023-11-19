@@ -21,7 +21,7 @@ export class example extends plugin {
   ps:使用的时候记得把q群和联系人改成自己的，如果出现一天指令两条消息请及时联系
   */
   async dggz (e) {
-    logger.info('[签名指引.js插件启动成功]')
+    logger.info('[hl-plugin]')
     let msg = "关于签名异常\n"+
     "更换签名api即可解决\n"+
     "您可以进入下面这个链接抱脸自建\n"+

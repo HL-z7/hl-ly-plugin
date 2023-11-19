@@ -18,7 +18,7 @@ export class example extends plugin {
       })
     }
     async 60 (e) {
-      logger.info('[遥遥领先.js插件]')
+      logger.info('[hl-plugin]')
       let url = encodeURI(`https://img.kookapp.cn/attachments/2023-09/14/65027028d1a83.mp3`)
       await this.e.reply(segment.record(url))
       return;

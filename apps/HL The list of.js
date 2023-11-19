@@ -30,11 +30,11 @@ export class example extends plugin {
     "3.签名异常\n"+
     "4.千羽插件\n"+
     "5.HL插件\n"+
-    "6.icqq\n"+
+    "6.icqq仓库\n"+
     "7.订阅链接\n"+
     "8.安装软件\n"+
     "9.问题合集\n"+
-    "10.oicq\n"+
+    "10.oicq仓库\n"+
     "11.白狐脚本\n"+
     "12.椰奶文档\n"+
     "13.插件库\n"+

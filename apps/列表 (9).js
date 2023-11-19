@@ -21,7 +21,7 @@ export class example extends plugin {
   ps:使用的时候记得把q群和联系人改成自己的，如果出现一天指令两条消息请及时联系
   */
   async dggz (e) {
-    logger.info('[列表.js插件启动成功]')
+    logger.info('[hl-plugin]')
     let msg = "安卓所需软件\n"+
     "列如\n"+
     "ZeroTermux\n"+

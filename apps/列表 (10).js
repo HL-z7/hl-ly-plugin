@@ -22,7 +22,7 @@ export class example extends plugin {
   */
   async dggz (e) {
     logger.info('[hl-plugin]')
-    let msg = "问问题前先看问题合集：\n"+
+    let msg = "问问题前先看问题🐔合集：\n"+
     "fafa小雨版：\n"+
     "https://www.wolai.com/d87HohAH7zgLNG3u9Z2yJz\n"+
     "LUCK小运版：\n"+

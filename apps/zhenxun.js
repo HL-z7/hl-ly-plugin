@@ -17,7 +17,7 @@ export class example extends plugin {
     })
   }
   async zhenxun (e) {
-    logger.info('[zhenxunHomo.js插件]')
+    logger.info('[hl-plugin]')
     let url = encodeURI(`https://img.kookapp.cn/attachments/2023-10/19/653126dc5fda6.mp4`)
     await this.e.reply(segment.video(url))
   }

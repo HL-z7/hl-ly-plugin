@@ -16,7 +16,7 @@ export class example extends plugin{
   }
   
   async cs (e) {
-    logger.info('[随机美女.js插件]')
+    logger.info('[hl-plugin]')
     let url = encodeURI(`https://api.lolimi.cn/API/tup/xjj.php`)
     await this.e.reply(segment.image(url), true,{at:true})
     return true

@@ -22,7 +22,7 @@ export class example extends plugin {
   */
   async dggz (e) {
     logger.info('[hl-plugin]')
-    let msg = "关于签名异常\n"+
+    let msg = "关于签名api异常\n"+
     "更换签名api即可解决\n"+
     "您可以进入下面这个链接抱脸自建\n"+
     "https://github.com/CikeyQi/QQsign_docs/blob/main/index.md\n"+

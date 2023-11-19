@@ -22,7 +22,7 @@ export class example extends plugin {
   */
   async dggz (e) {
     logger.info('[hl-plugin]')
-    let msg = "Yunzai-Bot 插件库\n"+
+    let msg = "Yunzai-Bot 插件指引\n"+
     "https://gitee.com/yhArcadia/Yunzai-Bot-plugins-index\n"+
     "第一个gitee（国内）\n"+
     "第二个github(国外)\n"+

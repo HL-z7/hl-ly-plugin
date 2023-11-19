@@ -14,7 +14,7 @@ export class RandomMP3 extends plugin {
     constructor() {
         // 调用父类构造函数初始化插件信息
         super({
-            name: '随机本地语音',  // 插件名称
+            name: 'hl-随机语音',  // 插件名称
             dsc: '随机发送本地MP3可配置',  // 描述信息
             event: 'message',  // 响应事件类型
             priority: 5000,   // 优先级为5000（越低越高）

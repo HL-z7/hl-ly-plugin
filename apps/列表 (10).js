@@ -21,7 +21,7 @@ export class example extends plugin {
   ps:使用的时候记得把q群和联系人改成自己的，如果出现一天指令两条消息请及时联系
   */
   async dggz (e) {
-    logger.info('[列表.js插件启动成功]')
+    logger.info('[hl-plugin]')
     let msg = "问问题前先看问题合集：\n"+
     "fafa小雨版：\n"+
     "https://www.wolai.com/d87HohAH7zgLNG3u9Z2yJz\n"+

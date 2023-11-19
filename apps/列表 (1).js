@@ -17,7 +17,7 @@ export class example extends plugin {
   }
   
   async cs (e) {
-    logger.info('[afd.js插件]')
+    logger.info('[hl-plugin]')
   e.reply(`hanxuan.cc`)
     return true
   }

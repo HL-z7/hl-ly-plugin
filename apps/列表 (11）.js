@@ -9,7 +9,7 @@ export class example extends plugin {
       priority: -114514,
       rule: [
         {
-          reg: 'oicq仓库',
+          reg: 'oicq仓库$',
           fnc: 'cs'
         }
       ]

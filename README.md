@@ -26,7 +26,7 @@ git clone --depth 1 https://gitee.com/fox-glaze/hl-plugin ./plugins/hl-plugin
 
 # 🐔当前功能
 - 随机语音
-- 随机表情包
+- 随机二次元
 - 等等
 - 如有功能不能用的情况 请更新插件，什么！？更新插件还是不能用？ 大概率还在想着怎么去修bug，需要点时间，反正等更新就对了
 

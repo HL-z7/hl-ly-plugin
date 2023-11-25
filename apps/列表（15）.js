@@ -9,7 +9,7 @@ export class example extends plugin {
       priority: -114514,
       rule: [
         {
-          reg: '快捷键',
+          reg: '快捷键$',
           fnc: 'dggz'
         }
       ]

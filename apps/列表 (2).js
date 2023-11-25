@@ -9,7 +9,7 @@ export class example extends plugin {
       priority: -114514,
       rule: [
         {
-          reg: '科学上网',
+          reg: '科学上网$',
           fnc: 'dggz'
         }
       ]

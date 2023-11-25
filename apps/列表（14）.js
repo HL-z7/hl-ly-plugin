@@ -9,7 +9,7 @@ export class example extends plugin {
       priority: -114514,
       rule: [
         {
-          reg: '插件库',
+          reg: '插件库$',
           fnc: 'dggz'
         }
       ]

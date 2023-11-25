@@ -9,7 +9,7 @@ export class example extends plugin {
       priority: -114514,
       rule: [
         {
-          reg: '签名异常',
+          reg: '签名异常$',
           fnc: 'dggz'
         }
       ]

@@ -9,7 +9,7 @@ export class example extends plugin {
       priority: -114514,
       rule: [
         {
-          reg: 'HL插件',
+          reg: 'HL插件$',
           fnc: 'cs'
         }
       ]

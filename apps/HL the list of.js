@@ -182,8 +182,6 @@ export class ExamplePlugin extends plugin {
     "https://www.wolai.com/f1M1idtvVGfeHAjcywfwmw\n"+
     "鹤望兰版：\n"+
     "https://chatgptplugin.ikechan8370.com/guide/\n"+
-    "落雨版：\n"+
-    "https://docs.qq.com/doc/DTHlWa2pYYUVUbWN6\n"+
     "逍遥姐姐版：\n"+
     "https://flowus.cn/bhcjwt/share/9fd5845e-89e2-4d06-9d2a-f5a89b391a2c "
     e.reply(msg)

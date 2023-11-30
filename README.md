@@ -1,7 +1,7 @@
 
 <p align="center">
   <a href="https://gitee.com/fox-glaze/hl-plugin/">
-  <img src="./resources/" width="100%" height="100%" alt="useless-plugin">
+  <img src="./resources/Ztb/ZY.png" width="100%" height="100%" alt="useless-plugin">
   </a>
 </p>
 

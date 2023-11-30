@@ -1,6 +1,6 @@
 
 <p align="center">
-   <a href="https://gitee.com/luoyutianyang/random-plugin/"><img src="https://gitee.com/luoyutianyang/tuchuan/raw/master/zy.png" width="45%" /></a>
+   <a href="https://gitee.com/fox-glaze/hl-plugin/"><img src="https://gitee.com/luoyutianyang/tuchuan/raw/master/zy.png" width="45%" /></a>
 </p>
 
 

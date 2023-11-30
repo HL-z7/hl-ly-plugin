@@ -1,6 +1,8 @@
 
 <p align="center">
-   <a href="https://gitee.com/fox-glaze/hl-plugin/"><img src="https://hanxuan.cc/hero.png" width="45%" /></a>
+  <a href="https://gitee.com/fox-glaze/hl-plugin/">
+  <img src="https://img.kookapp.cn/attachments/2023-11/30/iTSqqDtKtR1hc1hc.jpeg?x-oss-process=style/ld" width="100%" height="100%" alt="useless-plugin">
+  </a>
 </p>
 
 <div align="center">

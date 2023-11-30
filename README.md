@@ -1,9 +1,8 @@
 
 <p align="center">
-  <a href="https://gitee.com/fox-glaze/hl-plugin/">
-  <img src="https://gitee.com/fox-glaze/h-library/blob/master/Ztuku/ZY.png" width="100%" height="100%" alt="useless-plugin">
-  </a>
+   <a href="https://gitee.com/luoyutianyang/random-plugin/"><img src="https://gitee.com/luoyutianyang/tuchuan/raw/master/zy.png" width="45%" /></a>
 </p>
+
 
 <div align="center">
 

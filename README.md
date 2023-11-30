@@ -1,7 +1,7 @@
 
 <p align="center">
   <a href="https://gitee.com/fox-glaze/hl-plugin/">
-  <img src="https://img.kookapp.cn/attachments/2023-11/30/iTSqqDtKtR1hc1hc.jpeg?x-oss-process=style/ld" width="100%" height="100%" alt="useless-plugin">
+  <img src="https://gitee.com/fox-glaze/h-library/blob/master/Ztuku/ZY.png" width="100%" height="100%" alt="useless-plugin">
   </a>
 </p>
 

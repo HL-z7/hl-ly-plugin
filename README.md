@@ -15,7 +15,7 @@
 
 <p align="center">
   <a href="https://gitee.com/fox-glaze/hl-plugin/">
-  <img src="./resources/Ztb/DT.git" width="75%" height="75%" alt="useless-plugin">
+  <img src="./resources/Ztb/DT.gif" width="75%" height="75%" alt="useless-plugin">
   </a>
 </p>
 

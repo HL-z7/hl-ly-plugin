@@ -13,6 +13,12 @@
 [![HL](https://profile-counter.glitch.me/hl-Plugin/count.svg)](https://gitee.com/fox-glaze/hl-plugin    )
 </div>
 
+<p align="center">
+  <a href="https://gitee.com/fox-glaze/hl-plugin/">
+  <img src="./resources/Ztb/DT.png" width="75%" height="75%" alt="useless-plugin">
+  </a>
+</p>
+
 # 🚀安装教程
 仅Gitee在Yzai根目录执行即可
 

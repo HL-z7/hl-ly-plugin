@@ -1,3 +1,12 @@
+import path from "path";
+import lodash from 'lodash'
+import cfg from './components/Config.js'
+import Config from "./components/Config.js";
+
+const _path = process.cwd() + "/plugins/hl-plugin";
+//定义一个版本信息的常量,获取默认文件配置文件信息
+const versionData = Config.getdefSet("version", "version");
+
 /**
  *  支持锅巴配置
  */
@@ -12,7 +21,7 @@ export function supportGuoba() {
             link: "https://gitee.com/fox-glaze/hl-plugin",
       isV3: true, //支持V3
       isV2: true, //支持V2
-      description: ` hl-plugin${versionData[0].version}「${versionData[0].name}」]`,
+      description: ` hl-plugin`,
             // 显示图标，此为个性化配置
             // 图标可在 https://icon-sets.iconify.design 这里进行搜索
             icon: "mdi:stove",

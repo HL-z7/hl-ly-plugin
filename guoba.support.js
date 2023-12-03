@@ -23,9 +23,3 @@ export function supportGuoba() {
         }
     }
 }
-/**
-其他配置去哪了？ 我不会写啊
-https://gitee.com/guoba-yunzai/guoba-plugin/blob/master/guoba.support.js
-看锅巴插件的示例吧
-我连配置文件都不会写
-*/

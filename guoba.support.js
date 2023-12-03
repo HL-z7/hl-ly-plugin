@@ -1,20 +1,27 @@
-// 支持锅巴
+/**
+ *  支持锅巴配置
+ */
 export function supportGuoba() {
-  return {
+    return {
     pluginInfo: {
       name: 'hl', //插件名字
       title: 'HL-Plugin', //插件标题
       author: '@狐璃', //作者名字（直接加在@符号后面就行了）
       authorLink: 'https://gitee.com/fox-glaze', //作者的Git主页链接（博客也行）
-      link: 'https://gitee.com/fox-glaze', //插件的Git链接（写错了就读取不到md）
+      link: 'https://gitee.com/fox-glaze/hl-plugin', //插件的Git链接（写错了就读取不到md）
       isV3: true, //支持V3
       isV2: true, //支持V2
-      description: '缝缝补补的小插件', //插件说明（显示在名字下面的那行字）
-      icon: 'svg-spinners:gooey-balls-2', //图标 可在这个网站里找 https://icon-sets.iconify.design （直接复制图片的名字就行）
-      iconColor: 'rgb(135, 206, 235)' //图标颜色 （我只会用RGB 这个也方便一点）
-    },
-      }
+      description: ` hl-plugin${versionData[0].version}「${versionData[0].name}」]`,
+            // 显示图标，此为个性化配置
+            // 图标可在 https://icon-sets.iconify.design 这里进行搜索
+            icon: "mdi:stove",
+            // 图标颜色，例：#FF0000 或 rgb(255, 0, 0)
+            iconColor: "#d19f56",
+            // 如果想要显示成图片，也可以填写图标路径（绝对路径）
+            iconPath: path.join(_path, "img/hl-plugin.png"),
+        }
     }
+}
 /**
 其他配置去哪了？ 我不会写啊
 https://gitee.com/guoba-yunzai/guoba-plugin/blob/master/guoba.support.js

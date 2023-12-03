@@ -4,11 +4,12 @@
 export function supportGuoba() {
     return {
     pluginInfo: {
-      name: 'hl', //插件名字
-      title: 'HL-Plugin', //插件标题
-      author: '@狐璃', //作者名字（直接加在@符号后面就行了）
-      authorLink: 'https://gitee.com/fox-glaze', //作者的Git主页链接（博客也行）
-      link: 'https://gitee.com/fox-glaze/hl-plugin', //插件的Git链接（写错了就读取不到md）
+     pluginInfo: {
+            name: "hl-plugin",
+            title: "狐璃插件",
+            author: "@狐璃",
+            authorLink: "https://gitee.com/fox-glaze",
+            link: "https://gitee.com/fox-glaze/hl-plugin",
       isV3: true, //支持V3
       isV2: true, //支持V2
       description: ` hl-plugin${versionData[0].version}「${versionData[0].name}」]`,

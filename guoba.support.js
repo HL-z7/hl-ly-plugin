@@ -21,7 +21,7 @@ export function supportGuoba() {
             link: "https://gitee.com/fox-glaze/hl-plugin",
       isV3: true, //支持V3
       isV2: true, //支持V2
-      description: ` hl-plugin`,
+      description: ` hl-plugin${versionData[0].version}「${versionData[0].name}」]`,
             // 显示图标，此为个性化配置
             // 图标可在 https://icon-sets.iconify.design 这里进行搜索
             icon: "mdi:stove",

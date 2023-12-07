@@ -2,13 +2,13 @@ import plugin from '../../../lib/plugins/plugin.js'
 export class example extends plugin {
   constructor () {
     super({
-      name: '原神启动！',
-      dsc: '原神启动！',
+      name: '原神启动!',
+      dsc: '原神启动!',
       event: 'message',
       priority: -114514,
       rule: [
         {
-          reg: '原神启动！',
+          reg: '原神启动',
           fnc: 'cs'
         }
       ]

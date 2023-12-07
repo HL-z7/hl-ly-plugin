@@ -1,6 +1,4 @@
 import path from "path";
-import lodash from 'lodash'
-import cfg from './components/Config.js'
 import Config from "./components/Config.js";
 
 const _path = process.cwd() + "/plugins/hl-plugin";
@@ -16,12 +14,12 @@ export function supportGuoba() {
      pluginInfo: {
             name: "hl-plugin",
             title: "狐璃插件",
-            author: "@狐璃",
+            author: "@狐璃 @落雨天阳",
             authorLink: "https://gitee.com/fox-glaze",
             link: "https://gitee.com/fox-glaze/hl-plugin",
       isV3: true, //支持V3
-      isV2: true, //支持V2
-      description: ` hl-plugin${versionData[0].version}「${versionData[0].name}」]`,
+      isV2: false, //不支持V2
+      description: `hl-plugin`,
             // 显示图标，此为个性化配置
             // 图标可在 https://icon-sets.iconify.design 这里进行搜索
             icon: "mdi:stove",

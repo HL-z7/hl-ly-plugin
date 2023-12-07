@@ -1,7 +1,7 @@
 import path from "path";
 import Config from "./components/Config.js";
 
-const _path = process.cwd() + "/plugins/hl-plugin";
+const _path = process.cwd() + "/plugins/xiuxian-emulator-plugin";
 //定义一个版本信息的常量,获取默认文件配置文件信息
 const versionData = Config.getdefSet("version", "version");
 
@@ -10,16 +10,15 @@ const versionData = Config.getdefSet("version", "version");
  */
 export function supportGuoba() {
     return {
-    pluginInfo: {
-     pluginInfo: {
+        pluginInfo: {
             name: "hl-plugin",
-            title: "狐璃插件",
+            title: "hl-plugin",
             author: "@狐璃 @落雨天阳",
             authorLink: "https://gitee.com/fox-glaze",
             link: "https://gitee.com/fox-glaze/hl-plugin",
-      isV3: true, //支持V3
-      isV2: false, //不支持V2
-      description: `hl-plugin`,
+            isV3: true,
+            isV2: false,
+            description: `hl-plugin`,
             // 显示图标，此为个性化配置
             // 图标可在 https://icon-sets.iconify.design 这里进行搜索
             icon: "mdi:stove",

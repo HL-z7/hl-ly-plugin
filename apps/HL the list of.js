@@ -102,7 +102,7 @@ export class ExamplePlugin extends plugin {
 
   async cs (e) {
     logger.info('[hl-plugin]')
-    e.reply(`Yunzai.icu`)
+    e.reply(`hanxuan.cc`)
     return true
   }
 
@@ -131,7 +131,7 @@ export class ExamplePlugin extends plugin {
     "https://github.com/CikeyQi/QQsign_docs/blob/main/index.md\n"+
     "上面的链接需要科学上网"+
     "没有科学上网可以看寒暄喧的教程\n"+
-    "https://yunzai.icu/docs/QSign.html"
+    "https://hanxuan.cc/docs/QSign.html"
     e.reply(msg)
     return true
   }

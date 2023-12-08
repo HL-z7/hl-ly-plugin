@@ -2,8 +2,6 @@ import path from "path";
 import Config from "./components/Config.js";
 
 const _path = process.cwd() + "/plugins/xiuxian-emulator-plugin";
-//定义一个版本信息的常量,获取默认文件配置文件信息
-const versionData = Config.getdefSet("version", "version");
 
 /**
  *  支持锅巴配置

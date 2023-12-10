@@ -10,7 +10,7 @@ export class example extends plugin {
       priority: -114514,
       rule: [
         {
-          reg: '菜',
+          reg: '菜就多练',
           fnc: 'caijiuduolian'
         }
       ]
@@ -21,7 +21,7 @@ export class example extends plugin {
     let url = encodeURI(`https://img.kookapp.cn/attachments/2023-12/10/657593610794b.png`)
     await this.e.reply(segment.video(url))
     let msg = "输不起就别玩"
-    await this.e.reply(msg,true)
+    await this.e.reply(msg,true,{at:true})
     return true
   }
 }

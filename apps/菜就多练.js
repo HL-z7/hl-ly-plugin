@@ -21,6 +21,6 @@ export class example extends plugin {
     let msg = "以前是以前，现在是现在"
     await this.e.reply(msg,true)
     let path = ('plugins/hl-plugin/resources/MP3/菜就多练.mp3')
-    await this.e.reply(segment.video(url))
+    await this.e.reply(segment.video(path))
   }
 }

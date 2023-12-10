@@ -1,7 +1,7 @@
 import path from "path";
 import Config from "./components/Config.js";
 
-const _path = process.cwd() + "/plugins/xiuxian-emulator-plugin";
+const _path = process.cwd() + "/plugins/hl-plugin";
 
 /**
  *  支持锅巴配置

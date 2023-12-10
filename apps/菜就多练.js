@@ -10,7 +10,7 @@ export class example extends plugin {
       priority: -114514,
       rule: [
         {
-          reg: '菜就多练',
+          reg: '菜',
           fnc: 'caijiuduolian'
         }
       ]
@@ -18,10 +18,10 @@ export class example extends plugin {
   }
   async caijiuduolian (e) {
     logger.info('[hl-plugin]')
-    let msg = "以前是以前，现在是现在"
-    await this.e.reply(msg,true)
     let url = encodeURI(`https://img.kookapp.cn/attachments/2023-12/10/657593610794b.png`)
     await this.e.reply(segment.video(url))
+    let msg = "输不起就别玩"
+    await this.e.reply(msg,true)
     return true
   }
 }

@@ -20,7 +20,7 @@ export class example extends plugin {
     logger.info('[hl-plugin]')
     let msg = "以前是以前，现在是现在"
     await this.e.reply(msg,true)
-    let url = encodeURI(`https://gzc-download.weiyun.com/ftn_handler/136c50e7904262cf4c47d1a53de9343f4b11a79d54180e03850741372c3363fc/C022DD073704E89DDD2205521858E523.mp4?fname=C022DD073704E89DDD2205521858E523.mp4&from=30013&version=3.3.3.3`)
+    let url = encodeURI(`https://gitee.com/luoyutianyang/tuchuan/raw/master/%E8%A7%86%E9%A2%91/%E8%8F%9C%E5%B0%B1%E5%A4%9A%E7%BB%83.mp4`)
     await this.e.reply(segment.video(url))
   }
 }

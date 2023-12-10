@@ -20,7 +20,7 @@ export class example extends plugin {
     logger.info('[hl-plugin]')
     let msg = "以前是以前，现在是现在"
     await this.e.reply(msg,true)
-    let url = encodeURI(`https://gitee.com/luoyutianyang/tuchuan/raw/master/%E8%A7%86%E9%A2%91/%E8%8F%9C%E5%B0%B1%E5%A4%9A%E7%BB%83.mp4`)
+    let path = ('plugins/hl-plugin/resources/MP3/菜就多练.mp3')
     await this.e.reply(segment.video(url))
   }
 }

@@ -18,10 +18,10 @@ export class example extends plugin {
   }
   async caijiuduolian (e) {
     logger.info('[hl-plugin]')
-    this.mp3DirPath = path.join(__dirname, 'plugins/hl-plugin/resources/MP3/菜就多练.mp3');
     let msg = "以前是以前，现在是现在"
     await this.e.reply(msg,true)
-    await this.reply(segment.record(mp3Path))
+    let url = encodeURI(`https://img.kookapp.cn/attachments/2023-12/10/657593610794b.png`)
+    await this.e.reply(segment.video(url))
     return true
   }
 }

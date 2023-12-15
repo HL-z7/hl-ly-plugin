@@ -1,5 +1,5 @@
-import MysApi from './mysapi.js'
-import MysSign from './myssign.js'
+import MysApi from './mysApi.js'
+import MysSign from './mysSign.js'
 import WebSocket from 'ws'
 import fs from 'node:fs'
 import YAML from 'yaml'
@@ -97,7 +97,7 @@ class Tools {
     res = await res.json()
     if (!res.data) return false
 
-    await e.reply(` \n查询遇到验证码\n请把下方链接复制到浏览器打开\n${res.data.link}`, true)
+    await e.reply(` \n米游社验证码\n${res.data.link}`, true)
 
     for (let i = 0; i < 80; i++) {
       let validate = await fetch(res.data.result)

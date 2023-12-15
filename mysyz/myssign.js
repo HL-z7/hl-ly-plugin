@@ -1,5 +1,5 @@
 import moment from 'moment'
-import MysApi from './mysapi.js'
+import MysApi from './mysApi.js'
 
 export default class MysSign {
   async doSign (cookie, uidData) {

@@ -1,7 +1,6 @@
-import plugin from'../../../lib/plugins/plugin.js'
 import md5 from 'md5'
 import lodash from 'lodash'
-import Tools from '../mysyz/index.js'
+import Tools from '../model/index.js'
 
 export class bbsVerification extends plugin {
   constructor (e) {
@@ -102,13 +101,13 @@ export class bbsVerification extends plugin {
     Tools.MysUser = e.runtime.MysUser
     let user = await e.runtime.NoteUser.create(e.user_id)
     if (!user.hasCk) {
-      await e.reply('请先绑定你的cookie', true)
+      await e.reply('请先绑定cookie', true)
       return
     }
     this.mysUsers[key] = user.mysUsers
     let payload = this.getUidsData(key, e.user_id)
     let { link } = await Tools.socketSend('createUser', payload, key)
-    if (link) await e.reply(` \n米游社签到\n请复制下方链接到浏览器打开\n${link}`)
+    if (link) await e.reply(` \n米游社签到\n${link}`)
   }
 
   getUidsData (key, user_id) {

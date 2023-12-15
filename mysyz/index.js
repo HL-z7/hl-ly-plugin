@@ -1,5 +1,5 @@
-import MysApi from './mysapi.js'
-import MysSign from './myssign.js'
+import MysApi from './mysApi.js'
+import MysSign from './mysSign.js'
 import WebSocket from 'ws'
 import fs from 'node:fs'
 import YAML from 'yaml'

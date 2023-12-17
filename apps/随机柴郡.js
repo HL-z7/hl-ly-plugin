@@ -17,7 +17,7 @@ export class example extends plugin {
   
   async cs (e) {
     logger.info('[hl-plugin]')
-    let url = encodeURI(`https://api.lolimi.cn/API/chaiq/c.php`)
+    let url = encodeURI(`https://luoyutianyang-pictures-of-the-api.hf.space/api/chaijun/`)
     await this.e.reply(segment.image(url), true,{at:true})
     return true
   }

@@ -1,24 +1,24 @@
 import plugin from '../../../lib/plugins/plugin.js'
-import fs from 'node:fs'
-
-export class example extends plugin {
+export class example extends plugin{
   constructor () {
     super({
-      name: '真寻酱',
-      dsc: '别当欧尼酱了',
+      name: '随机真',
+      dsc: '随机真寻',
       event: 'message',
       priority: -114514,
       rule: [
         {
-          reg: '真寻',
-          fnc: 'zhenxun'
+          reg: '^#?真寻$',
+          fnc: 'zx'
         }
       ]
     })
   }
-  async zhenxun (e) {
+  
+  async zx (e) {
     logger.info('[hl-plugin]')
-    let url = encodeURI(`https://img.kookapp.cn/attachments/2023-10/19/653126dc5fda6.mp4`)
-    await this.e.reply(segment.video(url))
+    let url = encodeURI(`https://luoyutianyang-figure-api.hf.space/api/zhenxun/`)
+    await this.e.reply(segment.image(url), true,{at:true})
+    return true
   }
 }

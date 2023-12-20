@@ -181,9 +181,7 @@ export class ExamplePlugin extends plugin {
     "运佬的看不了的话就看这个：\n"+
     "https://www.wolai.com/f1M1idtvVGfeHAjcywfwmw\n"+
     "鹤望兰版：\n"+
-    "https://chatgptplugin.ikechan8370.com/guide/\n"+
-    "逍遥姐姐版：\n"+
-    "https://flowus.cn/bhcjwt/share/9fd5845e-89e2-4d06-9d2a-f5a89b391a2c "
+    "https://chatgptplugin.ikechan8370.com/guide/\n"
     e.reply(msg)
     return true
   }

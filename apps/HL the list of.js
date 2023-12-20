@@ -81,7 +81,7 @@ export class ExamplePlugin extends plugin {
     let msg = "列表\n" +
       "输入序号右边的关键词即可触发\n" +
       "0.寒暄官网\n" +
-      "1.科学上网\n" +
+      "1.科学一下上网\n" +
       "2.ap文档\n" +
       "3.签名异常\n" +
       "4.千羽插件\n" +

@@ -65,6 +65,12 @@ Yunzai-Bot/plugins/hl-plugin/config
 > [QQ频道](https://pd.qq.com/s/8aaab6ipw)
 
 QQ群158649349
+# QQ机器人
+<p align="center">
+  <a href="https://gitee.com/fox-glaze/hl-plugin/">
+  <img src="./resources/Ztb/HL.png" width="55%" height="55%" alt="useless-plugin">
+  </a>
+</p>
 
 # 🐾关于本插件
 QWQ

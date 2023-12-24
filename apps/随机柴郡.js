@@ -3,7 +3,7 @@ export class example extends plugin {
   constructor () {
     super({
       name: '随机柴郡',
-      dsc: '随机柴郡',
+      dsc: '柴郡$',
       event: 'message',
       priority: -114514,
       rule: [

@@ -9,18 +9,16 @@ export class example extends plugin{
       rule: [
         {
           reg: '^#?(美女|小姐姐)$',
-          fnc: 'cs'
+          fnc: 'xjj'
         }
       ]
     })
   }
   
-  async cs (e) {
+  async xjj (e) {
     logger.info('[hl-plugin]')
     let url = encodeURI(`https://luoyutianyang-pictures-of-the-api.hf.space/api/meinv/`)
     await this.e.reply(segment.image(url), true,{at:true})
-    let msg = '如果看到水印或二维码请别在意，随便搜的图'
-    await this.e.reply(msg, true,{at:true})
     return true
   }
 }

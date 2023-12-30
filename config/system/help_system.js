@@ -75,8 +75,8 @@ export const helpList = [
       },
       {
         "icon": 1,
-        "title": "hl列表",
-        "desc": "输入hl列表即可触发"
+        "title": "H列表",
+        "desc": "输入H列表即可触发"
       },
       {
         "icon": 77,

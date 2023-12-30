@@ -40,11 +40,6 @@ git clone --depth 1 https://gitee.com/fox-glaze/hl-plugin ./plugins/hl-plugin
 - 如有功能不能用的情况 请更新插件，什么！？更新插件还是不能用？ 大概率还在想着怎么去修bug，需要点时间，反正等更新就对了
 
 
-# 帮助
-<p align="center">
-   <a href="https://gitee.com/fox-glaze/hl-plugin/"><img src="./resources/Ztb/BZ.png" width="100%" /></a>
-</p>
-
 ## ⚙️配置文件
 ``` js
 Yunzai-Bot/plugins/hl-plugin/config

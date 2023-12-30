@@ -4,12 +4,12 @@ export class ExamplePlugin extends plugin {
   constructor () {
     super({
       name: '',
-      dsc: 'hl列表',
+      dsc: 'H列表',
       event: 'message',
       priority: -114514,
       rule: [
         {
-          reg: 'hl列表',
+          reg: 'H列表',
           fnc: 'dggz'
         },
         {

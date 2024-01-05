@@ -18,7 +18,7 @@ export class example extends plugin {
   }
   async caijiuduolian (e) {
     logger.info('[hl-plugin]')
-    let url = encodeURI(`https://img.kookapp.cn/attachments/2023-12/10/657593610794b.png`)
+    let url = encodeURI(`https://img.kookapp.cn/attachments/2024-01/04/6596d4960a65a.mp4`)
     await this.e.reply(segment.video(url))
     let msg = "输不起就别玩"
     await this.e.reply(msg,true,{at:true})

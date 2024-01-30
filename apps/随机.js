@@ -66,7 +66,7 @@ export class diaotu extends plugin {
     return true // 返回true 阻挡消息不再往下
   }
 // 甘城
-  async mm (e) {
+  async gc (e) {
     await this.reply(segment.image('https://guge123-mmapi.hf.space/mm'))
     return true // 返回true 阻挡消息不再往下
   }

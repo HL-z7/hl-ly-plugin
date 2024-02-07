@@ -17,7 +17,7 @@ export class example extends plugin {
   }
 
   async yunshi() {
-    const url = 'https://luoyutianyang-api.hf.space/api/yunshi';
+    const url = 'https://image-api.api.luoyutianyang.icu/api/yunshi';
 
     try {
       // 发起 HTTP 请求获取页面内容

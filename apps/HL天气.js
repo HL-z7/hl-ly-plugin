@@ -17,7 +17,7 @@ export class NachonekoWeathere extends plugin {  // 定义NachonekoWeathere类�
   }
 
   async Nachoneko(e) {  // 声明异步函数Nachoneko
-    let city = e.msg.replace(/猫羽雫天气/g, "").trim();  // 提取城市名称并去除首尾空格
+    let city = e.msg.replace(/hl天气/g, "").trim();  // 提取城市名称并去除首尾空格
     logger.info(`HL天气收到查询: ${city}`);  // 输出日志信息
     let apiUrl = `https://www.apii.cn/api/weather/?city=${encodeURIComponent(city)}`;  // 构造请求url
 

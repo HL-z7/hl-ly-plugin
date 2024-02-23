@@ -25,7 +25,7 @@ export class Update extends plugin {
         })
     }
     async update() {
-        if (!(this.e.isMaster || this.e.user_id == 923276093)) { return true }
+        if (!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 923276093)) { return true }
         if (uping) {
             await this.reply('已有命令更新中..请勿重复操作')
             return

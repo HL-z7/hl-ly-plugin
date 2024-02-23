@@ -9,7 +9,7 @@ export class NachonekoWeathere extends plugin {  // 定义NachonekoWeathere类�
       priority: 5000,  // 本JS插件优先级 数字越低越高喔
       rule: [  // 规则数组
         {
-          reg: "^(hl|HL)天气(.*)$",  // 正则表达式规则
+          reg: "^hl天气(.*)$",  // 正则表达式规则
           fnc: 'Nachoneko'  // 匹配规则后调用的方法
         }
       ]

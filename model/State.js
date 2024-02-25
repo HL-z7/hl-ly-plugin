@@ -80,12 +80,12 @@ export default new class {
       return this.si
     } catch (error) {
       if (error.stack?.includes('Cannot find package')) {
-        logger.warn(` 缺少依赖将无法使用 ${logger.yellow('土块状态')}`)
+        logger.warn(` 缺少依赖将无法使用 ${logger.yellow('HL状态')}`)
         logger.warn(`如需使用请运行：${logger.red('pnpm add systeminformation -w')}`)
         logger.warn('---------------------------')
         logger.debug(decodeURI(error.stack))
       } else {
-        logger.error(`土块状态需要安装：${logger.red('systeminformation')}`)
+        logger.error(`HL状态需要安装：${logger.red('systeminformation')}`)
         logger.error(decodeURI(error.stack))
       }
     }
@@ -312,7 +312,7 @@ async execSync (cmd) {
   
     async getFastFetch (e) {
     if (process.platform == 'win32' && !/pro/.test(e.msg)) return ''
-    let ret = await this.execSync( 'bash plugins/earth-k-plugin/resources/html/state/state.sh') 
+    let ret = await this.execSync( 'bash plugins/hl-plugin/resources/html/state/state.sh') 
     if (ret.error) {
       e.reply(`❎ 请检查是否使用git bash启动Yunzai-bot\n错误信息：${ret.stderr}`)
       return ''

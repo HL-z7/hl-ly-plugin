@@ -21,7 +21,7 @@ export class NewState extends plugin {
        {
 
 
-          reg: '^#?HL状态(pro)?$',
+          reg: '^#?(HL|hl)状态(pro)?$',
           fnc: 'state2'
 
         }

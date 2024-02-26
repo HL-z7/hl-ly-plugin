@@ -9,7 +9,7 @@ import  State from '../model/State.js'
 const require = createRequire(import.meta.url)
 
 let interval = false
-
+//借鉴土块插件的‘土块状态’qwq
 
 export class NewState extends plugin {
   constructor() {

@@ -1,4 +1,4 @@
-const htmlDir = `${process.cwd()}/plugins/hl-Plugin/resources/Resources/Code/`
+const htmlDir = `${process.cwd()}/plugins/hl-Plugin/resources/background/Code/`
 const tplFile = `${htmlDir}Code.html`
 
 export class RemoteCommand extends plugin {

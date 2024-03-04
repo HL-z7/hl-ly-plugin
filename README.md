@@ -59,7 +59,8 @@ Yunzai-Bot/plugins/hl-plugin/config
 
 > [QQ频道](https://pd.qq.com/s/8aaab6ipw)
 
-QQ群158649349
+> [QQ群](https://qm.qq.com/q/zZDbAHejvM)
+
 # QQ机器人
 <p align="center">
   <a href="https://gitee.com/fox-glaze/hl-plugin/">

@@ -50,6 +50,11 @@ Yunzai-Bot/plugins/hl-plugin/config
 - 目前使用本地图库
 - 部分使用API形式
 
+# 🌐点击跳转适配官bot HL插件
+<p align="center">
+   <a href="https://gitee.com/fox-glaze/hl-qqbot-plugin/"><img src="./resources/Ztb/zzi.png" width="100%" /></a>
+</p>
+
 # 📞联系方式
 ↓↓↓
 

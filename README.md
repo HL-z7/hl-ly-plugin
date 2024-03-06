@@ -51,8 +51,9 @@ Yunzai-Bot/plugins/hl-plugin/config
 - 部分使用API形式
 
 # 📞联系方式
+↓↓↓
 
-> [点击进入HL官网](zhilaohu.icu)
+> [点击进入HL官网](https//:zhilaohu.icu)
 
 > [Discord](https://discord.gg/a88njEYT)
 

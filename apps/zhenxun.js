@@ -16,7 +16,7 @@ export class example extends plugin{
   }
   
   async zx (e) {
-    logger.info('[hl-plugin]')
+    logger.info('[hl-ly-plugin]')
     let url = encodeURI(`https://luoyutianyang-api.hf.space/api/zhenxun`)
     await this.e.reply(segment.image(url), true,{at:true})
     return true

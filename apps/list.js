@@ -25,7 +25,7 @@ export class RandomX extends plugin {
         });
 
         // 读取配置文件
-        const configPath = path.join(__dirname, 'plugins/hl-plugin/config/list.yaml');
+        const configPath = path.join(__dirname, 'plugins/hl-ly-plugin/config/list.yaml');
         const configFile = fs.readFileSync(configPath, 'utf-8');
 
         // 使用yaml库解析配置文件
@@ -35,7 +35,7 @@ export class RandomX extends plugin {
         this.rule[0].reg = new RegExp(`(${reg.join('|')})`);
 
         // 设置图片文件夹路径
-        this.imageDirPath = path.join(__dirname, 'plugins/hl-plugin/resources/hhh');
+        this.imageDirPath = path.join(__dirname, 'plugins/hl-ly-plugin/resources/hhh');
     }
 
     // 定义处理函数list

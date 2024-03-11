@@ -1,6 +1,6 @@
 
 <p align="center">
-  <a href="https://gitee.com/fox-glaze/hl-plugin/">
+  <a href="https://gitee.com/fox-glaze/hl-ly-plugin/">
   <img src="./resources/Ztb/ZY.png" width="100%" height="100%" alt="useless-plugin">
   </a>
 </p>
@@ -8,14 +8,14 @@
 
 <div align="center">
 
-# HL-plugin
+# HL-LY-plugin
 
-[![HL](https://profile-counter.glitch.me/hl-Plugin/count.svg)](https://gitee.com/fox-glaze/hl-plugin    )
+[![HL](https://profile-counter.glitch.me/hl-ly-Plugin/count.svg)](https://gitee.com/fox-glaze/hl-ly-plugin    )
 </div>
 
 <p align="center">
-  <a href="https://gitee.com/fox-glaze/hl-plugin/">
-  <img src="./resources/Ztb/DT.gif" width="55%" height="55%" alt="useless-plugin">
+  <a href="https://gitee.com/fox-glaze/hl-ly-plugin/">
+  <img src="./resources/Ztb/DT.gif" width="55%" height="55%" alt="hl-ly-plugin">
   </a>
 </p>
 
@@ -24,7 +24,7 @@
 
 
 ``` bash
-git clone --depth 1 https://gitee.com/fox-glaze/hl-plugin ./plugins/hl-plugin
+git clone --depth 1 https://gitee.com/fox-glaze/hl-ly-plugin ./plugins/hl-ly-plugin
 ```
 
 - 一定要配置ffmpeg！不然本插件部分功能会用不了
@@ -42,7 +42,7 @@ git clone --depth 1 https://gitee.com/fox-glaze/hl-plugin ./plugins/hl-plugin
 
 ## ⚙️配置文件
 ``` js
-Yunzai-Bot/plugins/hl-plugin/config
+Yunzai-Bot/plugins/hl-ly-plugin/config
 ```
 
 # 📦上传图片到库
@@ -72,8 +72,8 @@ Yunzai-Bot/plugins/hl-plugin/config
 
 # QQ机器人
 <p align="center">
-  <a href="https://gitee.com/fox-glaze/hl-plugin/">
-  <img src="./resources/Ztb/HL.png" width="55%" height="55%" alt="useless-plugin">
+  <a href="https://gitee.com/fox-glaze/hl-ly-plugin/">
+  <img src="./resources/Ztb/HL.png" width="55%" height="55%" alt="hl-ly-plugin">
   </a>
 </p>
 

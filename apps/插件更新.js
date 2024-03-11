@@ -60,7 +60,7 @@ export class Update extends plugin {
         new Restart(this.e).restart()
     }
     async runUpdate(isForce) {
-        const _path = './plugins/hl-plugin/'
+        const _path = './plugins/hl-ly-plugin/'
         let command = `git -C ${_path} pull --no-rebase`
         if (isForce) {
             command = `git -C ${_path} reset --hard origin && ${command}`

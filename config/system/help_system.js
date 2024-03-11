@@ -6,8 +6,8 @@
 * */
 
 export const helpCfg = {
-  title: 'hl帮助',
-  subTitle: 'Yunzai-Bot & hl-Plugin',
+  title: 'HL帮助',
+  subTitle: 'Yunzai-Bot & hl-ly-Plugin',
   columnCount: 3,
   colWidth: 265,
   theme: 'all',

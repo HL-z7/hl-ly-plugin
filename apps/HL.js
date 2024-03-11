@@ -178,7 +178,7 @@ export class NewState extends plugin {
 
     let ml = process.cwd()
     let data1 = {
-      tplFile: './plugins/hl-plugin/resources/html/state/lyr.html',
+      tplFile: './plugins/hl-ly-plugin/resources/html/state/lyr.html',
       data,
       dz:ml,
       url,

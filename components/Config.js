@@ -4,7 +4,7 @@ import fs from 'node:fs'
 import lodash from 'lodash'
 
 const Path = process.cwd();
-const Plugin_Name = 'hl-plugin'
+const Plugin_Name = 'hl-ly-plugin'
 const Plugin_Path = `${Path}/plugins/${Plugin_Name}`;
 
 if(!Bot.hl_plugin) Bot.hl_plugin = {};

@@ -7,12 +7,12 @@ if (!global.segment) {
 
 //输出提示
 logger.mark('---------HL---------')
-logger.debug('\x1b[36m少女祈祷中...\x1b[0m')
+logger.debug('\x1b[36m崽崽正在加载中...\x1b[0m')
 logger.info('\x1b[33mhl插件初始化~\x1b[0m')
 logger.mark('---------HL---------')
 
 //加载插件
-const files = fs.readdirSync('./plugins/hl-plugin/apps').filter(file => file.endsWith('.js'))
+const files = fs.readdirSync('./plugins/hl-ly-plugin/apps').filter(file => file.endsWith('.js'))
 
 let ret = []
 

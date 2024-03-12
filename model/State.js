@@ -312,7 +312,7 @@ async execSync (cmd) {
   
     async getFastFetch (e) {
     if (process.platform == 'win32' && !/pro/.test(e.msg)) return ''
-    let ret = await this.execSync( 'bash plugins/hl-plugin/resources/html/state/state.sh') 
+    let ret = await this.execSync( 'bash plugins/hl-ly-plugin/resources/html/state/state.sh') 
     if (ret.error) {
       e.reply(`❎ 请检查是否使用git bash启动Yunzai-bot\n错误信息：${ret.stderr}`)
       return ''

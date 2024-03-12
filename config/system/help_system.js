@@ -40,7 +40,7 @@ export const helpList = [
       },
       {
         "icon": 75,
-        "title": "#翻+要翻译的内容",
+        "title": "#h翻+要翻译的内容",
         "desc": "翻译指定文本"
       }
     ]

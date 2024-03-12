@@ -9,7 +9,7 @@ export class GoogleTranslatePlugin extends plugin {  // 定义GoogleTranslatePlu
       priority: 5000,  // 本JS插件优先级 数字越低越高喔
       rule: [  // 规则数组
         {
-          reg: "^#翻(.*)$",  // 正则表达式规则
+          reg: "^#(H|h)翻(.*)$",  // 正则表达式规则
           fnc: 'translateText'  // 匹配规则后调用的方法
         }
       ]

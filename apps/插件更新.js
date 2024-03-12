@@ -68,7 +68,7 @@ export class Update extends plugin {
         } else {
             this.e.reply('正在执行更新操作，请稍等')
         }
-        this.oldCommitId = await this.getcommitId('hl-plugin')
+        this.oldCommitId = await this.getcommitId('hl-ly-plugin')
         uping = true
         let ret = await this.execSync(command)
         uping = false
@@ -78,14 +78,14 @@ export class Update extends plugin {
             this.gitErr(ret.error, ret.stdout)
             return false
         }
-        let time = await this.getTime('hl-plugin')
+        let time = await this.getTime('hl-ly-plugin')
 
         if (/(Already up[ -]to[ -]date|已经是最新的)/.test(ret.stdout)) {
             await this.reply(`hl插件已经是最新版本\n最后更新时间：${time}`)
         } else {
             await this.reply(`hl插件\n最后更新时间：${time}`)
             this.isUp = true
-            let log = await this.getLog('hl-plugin')
+            let log = await this.getLog('hl-ly-plugin')
             await this.reply(log)
         }
         logger.mark(`${this.e.logFnc} 最后更新时间：${time}`)
@@ -112,7 +112,7 @@ export class Update extends plugin {
         let line = log.length
         log = log.join('\n\n')
         if (log.length <= 0) return ''
-        let end = '更多详细信息，请前往gitee查看\nhttps://gitee.com/fox-glaze/hl-plugin/repository/stats/master'
+        let end = '更多详细信息，请前往gitee查看\nhttps://gitee.com/fox-glaze/hl-ly-plugin/repository/stats/master'
         log = await common.makeForwardMsg(this.e, [log, end], `${plugin}更新日志，共${line}条`)
         return log
     }

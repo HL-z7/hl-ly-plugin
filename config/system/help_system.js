@@ -137,12 +137,17 @@ export const helpList = [
     ]
   },
   {
-    "group": "其他查询指令",
+    "group": "其他功能",
     "list": [
       {
         "icon": 72,
         "title": "HL统计",
         "desc": "统计本地图库数量（目前还未更新其他）"
+      },
+      {
+        "icon": 72,
+        "title": "按钮帮助",
+        "desc": "官bot使用"
       }
     ]
   },

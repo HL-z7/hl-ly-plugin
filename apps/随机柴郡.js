@@ -5,7 +5,7 @@ export class example extends plugin {
       name: '随机柴郡',
       dsc: '柴郡$',
       event: 'message',
-      priority: -114514,
+      priority: 5000,
       rule: [
         {
           reg: '柴郡$',

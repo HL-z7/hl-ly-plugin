@@ -146,8 +146,8 @@ export const helpList = [
       },
       {
         "icon": 72,
-        "title": "按钮帮助",
-        "desc": "官bot使用"
+        "title": "#hlb帮助",
+        "desc": "按钮帮助(官bot使用)"
       }
     ]
   },

@@ -6,15 +6,19 @@ export class diaotu extends plugin {
       name: 'HL随机图片',
       dsc: 'HL随机图片',
       event: 'message',
-      priority: 6,
+      priority: -114514,
       rule: [
         {
           reg: '^(#|/)?H随机三次元$',
           fnc: 'scy'
         },
         {
-          reg: '^(#|/)?H随机柴郡$',
+          reg: '^(#|/)?随机柴郡$',
           fnc: 'cj'
+        },
+        {
+          reg: '^(#|/)?(美女|小姐姐)$',
+          fnc: 'mn'
         },
         {
           reg: '^(#|/)?H随机2次元$',
@@ -86,7 +90,13 @@ export class diaotu extends plugin {
 
   // 随机柴郡
   async cj (e) {
-    await this.reply(segment.image('https://guge123-chaiapi.hf.space/chai'))
+    await this.reply(segment.image('https://image-api.api.luoyutianyang.icu/api/chaijun'))
+    return true // 返回true 阻挡消息不再往下
+  }
+
+  // 美女/小姐姐
+  async mn (e) {
+    await this.reply(segment.image('https://image-api.api.luoyutianyang.icu/api/meinv'))
     return true // 返回true 阻挡消息不再往下
   }
 

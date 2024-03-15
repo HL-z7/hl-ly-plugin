@@ -152,7 +152,7 @@ export class NewState extends plugin {
         "botVersion": botVersion
       }) 
     }
-    let url = "https://api.lolimi.cn/API/tup/xjj.php"
+    let url = "https://mm.zhilaohu.icu/"
 
 
 

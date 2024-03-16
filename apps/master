@@ -117,12 +117,12 @@ export class NewState extends plugin {
       // 头像
       const avatar = bot.avatar || `https://q1.qlogo.cn/g?b=qq&s=0&nk=${bot.uin}` 
       // 昵称
-      const nickname = bot.nickname || "未知"
+      const nickname = bot.nickname || "不知道捏"
       // 在线状态
       // 登录平台版本
-      const platform = bot.apk ? `${bot.apk.display} v${bot.apk.version}` : bot.version.version || "未知"
+      const platform = bot.apk ? `${bot.apk.display} v${bot.apk.version}` : bot.version.version || "不知道捏"
       // 收
-      const recv = bot.stat?.recv_msg_cnt || "未知"
+      const recv = bot.stat?.recv_msg_cnt || "不知道捏"
       // 好友数
       const friendQuantity = Array.from(bot.fl.values()).length
       // 群数

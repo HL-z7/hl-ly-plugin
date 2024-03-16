@@ -71,7 +71,7 @@ export class diaotu extends plugin {
   }
 // 甘城
   async gc (e) {
-    await this.reply(segment.image('https://guge123-mmapi.hf.space/mm'))
+    await this.reply(segment.image('https://mm.zhilaohu.icu/'))
     return true // 返回true 阻挡消息不再往下
   }
 
@@ -102,7 +102,7 @@ export class diaotu extends plugin {
 
 // 心脏弱
   async xzr (e) {
-    await this.reply(segment.image('https://guge123-xin.hf.space/xin'))
+    await this.reply(segment.image('https://xin.zhilaohu.icu/'))
     return true // 返回true 阻挡消息不再往下
   }
   

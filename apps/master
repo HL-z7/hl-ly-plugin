@@ -30,7 +30,7 @@ export class example extends plugin {
       const content = await response.text();
 
       // 输出今日运势
-      await this.e.reply(`今日${content}`);
+      await this.e.reply(`今日:${content}`);
     } catch (error) {
       console.error(error);
       await this.e.reply('API 访问出错');

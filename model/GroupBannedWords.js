@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import moment from 'moment'
-import { Data, Plugin_Path } from '../components/index.js'
+import { Data, Plugin_Path } from '../components/in.js'
 
 export default new class {
   constructor () {

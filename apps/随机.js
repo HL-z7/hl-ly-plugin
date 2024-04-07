@@ -9,43 +9,43 @@ export class diaotu extends plugin {
       priority: -114514,
       rule: [
         {
-          reg: '^(#|/)?H随机三次元$',
+          reg: '^H随机三次元$',
           fnc: 'scy'
         },
         {
-          reg: '^(#|/)?随机柴郡$',
+          reg: '^?随机柴郡$',
           fnc: 'cj'
         },
         {
-          reg: '^(#|/)?(美女|小姐姐)$',
+          reg: '^(美女|小姐姐)$',
           fnc: 'mn'
         },
         {
-          reg: '^(#|/)?H随机2次元$',
+          reg: '^H随机2次元$',
           fnc: 'ecy'
         },
         {
-          reg: '^(#|/)?H随机猫猫$',
+          reg: '^H随机猫猫$',
           fnc: 'mm'
         },
         {
-          reg: '^(#|/)?H随机原神$',
+          reg: '^H随机原神$',
           fnc: 'ys'
         },
         {
-          reg: '^(#|/)?(H随机cos|H随机Cos|H随机COS|Hcos)$',
+          reg: '^(H随机cos|H随机Cos|H随机COS|Hcos)$',
           fnc: 'cos'
         },
         {
-          reg: '^(#|/)?H心脏弱$',
+          reg: '^H心脏弱$',
           fnc: 'xzr'
         },
         {
-          reg: '^(#|/)?H随机甘城$',
+          reg: '^H随机甘城$',
           fnc: 'gc'
         },
         {
-          reg: '^(#|/)?(H随机壁纸|H随机bz|Hhs)$',
+          reg: '^(H随机壁纸|H随机bz|Hhs)$',
           fnc: 'bz'
         }
       ]

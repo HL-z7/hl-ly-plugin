@@ -13,7 +13,7 @@ export class diaotu extends plugin {
           fnc: 'scy'
         },
         {
-          reg: '^?随机柴郡$',
+          reg: '^随机柴郡$',
           fnc: 'cj'
         },
         {

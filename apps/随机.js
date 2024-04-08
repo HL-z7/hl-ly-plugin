@@ -40,6 +40,10 @@ export class diaotu extends plugin {
           reg: '^H心脏弱$',
           fnc: 'xzr'
         },
+         {
+          reg: '^(H随机jo|H随机jojo|Hjo|Hjojo|随机jojo|随机jo)$',
+          fnc: 'jojo'
+        },
         {
           reg: '^H随机甘城$',
           fnc: 'gc'
@@ -74,7 +78,11 @@ export class diaotu extends plugin {
     await this.reply(segment.image('https://mm.zhilaohu.icu/'))
     return true // 返回true 阻挡消息不再往下
   }
-
+//jojo
+ async jojo (e) {
+    await this.reply(segment.image('https://jo.zhilaohu.icu/'))
+    return true // 返回true 阻挡消息不再往下
+  }
   
   // 随机三次元
   async scy (e) {

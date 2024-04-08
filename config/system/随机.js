@@ -124,7 +124,7 @@ export const helpList = [
       },
       {
         "icon": 90,
-        "title": "柴郡",
+        "title": "随机柴郡",
         "desc": "随机发送柴郡猫猫图！"
       },
       {

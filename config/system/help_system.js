@@ -6,24 +6,17 @@
 * */
 
 export const helpCfg = {
-  title: 'HL帮助',
-  subTitle: 'Yunzai-Bot & hl-ly-Plugin',
-  columnCount: 3,
-  colWidth: 265,
-  theme: 'all',
-  themeExclude: ['default'],
-  style: {
-    fontColor: '#ceb78b',
-    descColor: '#eee',
-    contBgColor: 'rgba(6, 21, 31, .5)',
-    contBgBlur: 3,
-    headerBgColor: 'rgba(6, 21, 31, .4)',
-    rowBgColor1: 'rgba(6, 21, 31, .2)',
-    rowBgColor2: 'rgba(6, 21, 31, .35)'
-  },
-  bgBlur: false
+  "themeSet": false,
+  "title": "HL帮助",
+  "subTitle": "Yunzai-Bot & hl-ly-Plugin",
+  "colWidth": 265,
+  "theme": "all",
+  "themeExclude": [
+    "default"
+  ],
+  "bgBlur": false,
+  "colCount": 3
 }
-
 export const helpList = [
   {
     "group": "实用功能",
@@ -52,6 +45,11 @@ export const helpList = [
         "icon": 18,
         "title": "#随机kfc",
         "desc": "发送疯狂星期四文案"
+      },
+      {
+        "icon": 71,
+        "title": "emoji戳一戳",
+        "desc": "戳所有人都可触发并发送emoji"
       },
       {
         "icon": 74,
@@ -130,9 +128,39 @@ export const helpList = [
         "desc": "随机发送柴郡猫猫图！"
       },
       {
+        "icon": 9,
+        "title": "H随机jo",
+        "desc": "随机发送jojo奇妙冒险的弔图！"
+      },
+      {
         "icon": 60,
         "title": "Hcos",
         "desc": "发送随机cos图"
+      }
+    ]
+  },
+  {
+    "group": "JOJO！/快捷群管",
+    "list": [
+      {
+        "icon": 91,
+        "title": "时间暂停",
+        "desc": "（假全体禁言，模块可通过+1和特殊方式聊天）"
+      },
+      {
+        "icon": 91,
+        "title": "时间开始流动",
+        "desc": "全体解禁（记住不用加# ！）"
+      },
+      {
+        "icon": 51,
+        "title": "禁+艾特被禁人+禁言时间",
+        "desc": "列如“禁@xxx114514”那么该用户将会被禁言30天（因为QQ上限30天）"
+      },
+      {
+        "icon": 49,
+        "title": "解+被禁人",
+        "desc": "解除被指定被禁言的用户"
       }
     ]
   },
@@ -143,11 +171,6 @@ export const helpList = [
         "icon": 72,
         "title": "HL统计",
         "desc": "统计本地图库数量（目前还未更新其他）"
-      },
-      {
-        "icon": 72,
-        "title": "#hlb帮助",
-        "desc": "按钮帮助(官bot使用)"
       }
     ]
   },
@@ -157,10 +180,16 @@ export const helpList = [
     "list": [
       {
         "icon": 29,
+        "title": "hl设置/HL设置",
+        "desc": "设置HL插件"
+      },
+      {
+        "icon": 29,
         "title": "#hl更新/#hl强制更新",
         "desc": "插件更新"
       }
     ]
-  }]
+  }
+]
 
 export const isSys = true  //

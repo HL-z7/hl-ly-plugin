@@ -145,7 +145,7 @@ export const helpList = [
       {
         "icon": 91,
         "title": "时间暂停",
-        "desc": "（假全体禁言，模块可通过+1和特殊方式聊天）"
+        "desc": "全体禁言（不用加#）"
       },
       {
         "icon": 91,

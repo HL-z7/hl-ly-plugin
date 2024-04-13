@@ -72,9 +72,9 @@ export const helpList = [
         "desc": "菜就多练！输不起就别玩！"
       },
       {
-                  "icon": 18,
-                          "title": "#随机kfc",
-                                  "desc": "发送疯狂星期四文案"
+        "icon": 90,
+        "title": "#运势",
+        "desc": "查询今日运势"
 
       },
       {

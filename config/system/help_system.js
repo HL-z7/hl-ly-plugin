@@ -72,6 +72,12 @@ export const helpList = [
         "desc": "菜就多练！输不起就别玩！"
       },
       {
+                  "icon": 18,
+                          "title": "#随机kfc",
+                                  "desc": "发送疯狂星期四文案"
+
+      },
+      {
         "icon": 84,
         "title": "厵神/真寻",
         "desc": "发送其一即可触发"
@@ -171,6 +177,11 @@ export const helpList = [
         "icon": 72,
         "title": "HL统计",
         "desc": "统计本地图库数量（目前还未更新其他）"
+      },
+      {
+          "icon": 23,
+          "title": "hl/HL状态"
+          "desc": "状态"
       }
     ]
   },

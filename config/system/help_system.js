@@ -180,7 +180,7 @@ export const helpList = [
       },
       {
           "icon": 23,
-          "title": "hl/HL状态"
+          "title": "hl/HL状态",
           "desc": "状态"
       }
     ]

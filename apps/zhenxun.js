@@ -8,7 +8,7 @@ export class example extends plugin{
       priority: -114514,
       rule: [
         {
-          reg: '^#?真寻$',
+          reg: '^#?随机真寻$',
           fnc: 'zx'
         }
       ]

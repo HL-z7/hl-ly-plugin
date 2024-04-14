@@ -79,7 +79,7 @@ export const helpList = [
       },
       {
         "icon": 84,
-        "title": "厵神/真寻",
+        "title": "厵神/随机真寻",
         "desc": "发送其一即可触发"
       }
     ]

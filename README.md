@@ -26,6 +26,11 @@
 ``` bash
 git clone --depth 1 https://gitee.com/fox-glaze/hl-ly-plugin ./plugins/hl-ly-plugin
 ```
+# ❕️安装依赖
+
+``` bash
+pnpm i
+```
 
 - 一定要配置ffmpeg！不然本插件部分功能会用不了
 - 一定要配置ffmpeg！不然本插件部分功能会用不了

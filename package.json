@@ -8,6 +8,7 @@
         "yaml": "^2.2.1",
         "ws": "^8.16.0",
         "@highlightjs/cdn-assets": "^11.9.0",
+        "archiver": "^7.0.1",
         "ansi_up": "^6.0.2",
          "systeminformation":"^5.21.18"
     }

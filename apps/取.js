@@ -84,10 +84,10 @@ export class File extends plugin {
       if (sendToOwner) {
         await this.e.friend.sendFile(filePath);
       }
-      await this.reply(`文件下载完成：${filePath}`, true);
+      await this.reply(`文件执行下载完成：${filePath}`, true);
     } catch (err) {
-      logger.error(`文件下载错误：${logger.red(err.stack)}`);
-      await this.reply(`文件下载错误：${err.stack}`);
+      logger.error(`文件执行下载错误：${logger.red(err.stack)}`);
+      await this.reply(`文件执行下载错误：${err.stack}`);
     }
     Running = false;
   }

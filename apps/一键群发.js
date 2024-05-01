@@ -16,6 +16,10 @@ export class example extends plugin {
   }
   
   async cs (e) {
+      if (!e.isMaster) {
+      e.reply("你没有权限✘"); // 发送权限提示
+      return false;
+    }
     let textToTranslate = e.msg.replace(/一键群发/g, "").trim();
     if (textToTranslate === "") {
       e.reply("请在指令后加上需要发送的内容");

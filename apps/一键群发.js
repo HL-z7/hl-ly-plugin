@@ -2,7 +2,7 @@ import plugin from '../../../lib/plugins/plugin.js';  // 导入插件
 export class example extends plugin {
   constructor () {
     super({
-      name: '',
+      name: 'HL一键群发',
       dsc: '一键pro',
       event: 'message',
       priority: -114514,

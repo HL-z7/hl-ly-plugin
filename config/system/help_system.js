@@ -146,7 +146,7 @@ export const helpList = [
     ]
   },
   {
-    "group": "JOJO！/快捷群管",
+    "group": "JOJO！/快捷群管/快捷发送",
     "list": [
       {
         "icon": 91,
@@ -167,6 +167,11 @@ export const helpList = [
         "icon": 49,
         "title": "解+被禁人",
         "desc": "解除被指定被禁言的用户"
+      },
+      {
+        "icon": 94,
+        "title": "一键群发+内容",
+        "desc": "详细功能可以发送【H群发帮助】查看）"
       }
     ]
   },

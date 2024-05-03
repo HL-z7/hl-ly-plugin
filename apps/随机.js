@@ -49,7 +49,7 @@ export class diaotu extends plugin {
           fnc: 'gc'
         },
         {
-          reg: '^(H随机壁纸|H随机bz|Hhs)$',
+          reg: '^(H随机壁纸|H随机bz)$',
           fnc: 'bz'
         }
       ]

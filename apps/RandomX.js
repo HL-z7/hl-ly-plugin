@@ -1,60 +1,141 @@
-// 引入插件基类和文件相关依赖
-import plugin from '../../../lib/plugins/plugin.js' // 引入父类plugin
-import fs from "fs"; // 引入node.js内置的文件系统模块
-import path from "path"; // 引入node.js内置的路径模块
+import plugin from '../../../lib/plugins/plugin.js';
+import fs from 'fs';
+import path from 'path';
+import https from 'https';
 
-// 获取当前目录路径
 const __dirname = path.resolve();
 
-// 引入YAML库
-import YAML from 'yaml'; // 引入YAML库解析配置文件
-
-// 定义RandomX类并继承plugin基类
 export class RandomX extends plugin {
-    constructor() {
-        // 调用父类构造函数初始化插件信息
-        super({
-            name: 'hl-随机二次元',  // 插件名称
-            dsc: '壁纸',  // 描述信息
-            event: 'message',  // 响应事件类型
-            priority: 5000,   // 优先级为5000
-            rule: [
-                {
-                    reg: null,  // 正则表达式初始化为空字符串，稍后从配置文件中读取
-                    fnc: 'Xx'   // 定义函数名为Xx
-                }
-            ]
-        });
-
-        // 读取配置文件
-        const configPath = path.join(__dirname, 'plugins/hl-ly-plugin/config/RandomX.yaml'); // 配置文件路径
-        const configFile = fs.readFileSync(configPath, 'utf-8'); // 读取配置文件
-
-        // 使用yaml库解析配置文件
-        const { reg } = YAML.parse(configFile); // 解析出正则表达式
-
-        // 将正则表达式更新为从配置文件中读取的值
-        this.rule[0].reg = new RegExp(`(${reg.join('|')})`);
-
-        // 设置图片文件夹路径
-        this.imageDirPath = path.join(__dirname, 'plugins/hl-ly-plugin/resources/hhh'); // 图片文件夹路径
-    }
-
-    // 定义处理函数Xx
-    async Xx(e) { 
-        const files = fs.readdirSync(this.imageDirPath).filter(file => file.endsWith('.png')); // 读取所有图片文件
-
-        // 若图片数量为0则返回false
-        if (files.length === 0) {
-            return false; // 没有找到图片则返回false
+  constructor() {
+    super({
+      name: 'hl-随机二次元',
+      dsc: '壁纸',
+      event: 'message',
+      priority: 5000,
+      rule: [
+        {
+          reg: "^H随机二次元$",
+          fnc: 'Xx',
+        },
+        // 添加新的规则
+        {
+          reg: "^H随机柴郡$",
+          fnc: 'X',
         }
-        
-        // 随机获取一张图片
-        const number = Math.floor(Math.random() * files.length); // 随机获取一个数字
-        const imagePath = path.join(this.imageDirPath, files[number]); // 获取对应的图片路径
+      ],
+    });
 
-        // 回复包含图片的消息
-        await this.reply(segment.image(imagePath)); // 发送图片消息
-        return; 
+    this.imageDirPath = path.join(__dirname, 'plugins/hl-ly-plugin/resources/hhh');
+  }
+
+  async Xx(e) {
+    const files = fs.readdirSync(this.imageDirPath).filter(file => file.endsWith('.png'));
+    if (files.length === 0) {
+      return false;
     }
+
+    const number = Math.floor(Math.random() * files.length);
+    const imagePath = path.join(this.imageDirPath, files[number]);
+
+    let buttons = [
+      [
+        {
+          text: '再来一张',
+          callback: 'H随机二次元',
+          send: true,
+        },
+        {
+          text: '柴郡',
+          callback: 'H随机柴郡',
+          send: true,
+        },
+      ],
+       [
+        {
+          text: '甘城猫猫',
+          callback: 'H随机猫猫',
+          send: true,
+        },
+        {
+          text: '心脏弱',
+          callback: 'H心脏弱',
+          send: true,
+        },
+      ],
+    ];
+
+    await this.reply([
+      segment.image(imagePath),
+      segment.button(...buttons),
+    ]);
+    return;
+  }
+
+  async X(e) {
+    const imageUrl = "https://image-api.api.luoyutianyang.icu/api/chaijun";
+    const tmpDir = "plugins/hl-ly-plugin/tmp";
+    const timestamp = Date.now();
+    const localPath = path.join(tmpDir, `${timestamp}`);
+
+    try {
+      await this.downloadImage(imageUrl, localPath);
+      let buttons = [
+        [
+          {
+            text: '二次元',
+            callback: 'H随机二次元',
+            send: true,
+          },
+          {
+            text: '再来一张',
+            callback: 'H随机柴郡',
+            send: true,
+          },
+        ],
+         [
+        {
+          text: '甘城猫猫',
+          callback: 'H随机猫猫',
+          send: true,
+        },
+        {
+          text: '心脏弱',
+          callback: 'H心脏弱',
+          send: true,
+        },
+      ],
+      ];
+
+      e.reply([
+        segment.image(localPath),
+        segment.button(...buttons),
+      ]);
+
+      fs.unlink(localPath, err => {
+        if (err) {
+          console.error('删除文件出错:', err);
+        } else {
+          console.log(`删除临时文件 ${timestamp}`);
+        }
+      });
+    } catch (err) {
+      console.error('下载图片出错:', err);
+    }
+  }
+
+  async downloadImage(url, localPath) {
+    return new Promise((resolve, reject) => {
+      const file = fs.createWriteStream(localPath);
+
+      https.get(url, response => {
+        response.pipe(file);
+        file.on('finish', () => {
+          file.close();
+          resolve();
+        });
+      }).on('error', err => {
+        fs.unlink(localPath, () => reject(err));
+      });
+    });
+  }
 }

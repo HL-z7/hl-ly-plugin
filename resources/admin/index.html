@@ -1,0 +1,47 @@
+{{extend defaultLayout}}
+{{block 'css'}}
+<link rel="stylesheet" type="text/css" href="{{_res_path}}/admin/index.css"/>
+{{/block}}
+{{block 'main'}}
+
+<div class="info_box">
+  <div class="head-box type{{bgType}}">
+    <div class="label">HL-LY-Plugin</div>
+    <div class="title">HL设置</div>
+  </div>
+</div>
+
+<div class="cfg-box">
+  <div class="cfg-group">基础功能设置</div>
+  <ul class="cfg-ul">
+
+    <li class="cfg-li">
+      <div class="cfg-line">
+          emoji戳一戳
+          <span class="cfg-hint">HL设置emoji戳一戳+开启/关闭</span>
+          {{@emocyc}}
+      </div>
+      <div class="cfg-desc">当有人被戳一戳后随机发送emoji</div>
+    </li>
+
+    <li class="cfg-li">
+      <div class="cfg-line">
+        重制版早苗戳一戳
+        <span class="cfg-hint">HL设置早苗戳一戳+开启/关闭</span>
+        {{@zmcyc}}
+      </div>
+      <div class="cfg-desc">戳一戳机器人会随机发送早苗文本（仅喵崽能用）</div>
+    </li>
+    
+    <li class="cfg-li">
+      <div class="cfg-line">
+        快捷下载
+        <span class="cfg-hint">开启/关闭私发</span>
+        {{@fatqt}}
+      </div>
+      <div class="cfg-desc">开启后文件只会发送至主人私信 关闭则发送至触发指令的群聊</div>
+    </li>
+ 
+  </ul>
+</div>
+{{/block}}

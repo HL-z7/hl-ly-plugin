@@ -196,7 +196,7 @@ export const helpList = [
     "list": [
       {
         "icon": 29,
-        "title": "hl设置/HL设置",
+        "title": "#HL设置",
         "desc": "设置HL插件"
       },
       {

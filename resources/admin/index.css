@@ -2,7 +2,7 @@ body {
   transform: scale(1);
 }
 .container {
-  background: url('./imgs/bg.jpg') top left no-repeat;
+  background: url('http://mm.zhilaohu.icu') top left no-repeat;
   background-size: 100% auto;
   width: 830px;
 }

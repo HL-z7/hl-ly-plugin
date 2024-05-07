@@ -19,7 +19,7 @@ export class setting extends plugin {
     constructor() {
         super({
             /** 功能名称 */
-            name: '跑路插件设置',
+            name: 'HL插件设置',
             /** 功能描述 */
             dsc: '',
             /** https://oicqjs.github.io/oicq/#events */

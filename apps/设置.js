@@ -7,6 +7,7 @@ const cfgMap = {
 
     'emoji戳一戳': 'sz.emocyc',
     '早苗戳一戳': 'sz.zmcyc',
+    'mys签到': 'sz.mysqd',
 
 
 
@@ -103,8 +104,8 @@ const getStatus = function (rote, def = false) {
         }
     }
     if (!value) {
-        if (rote == 'sz.cyclx') {
-            value = '白圣女';
+        if (rote == 'sz.cyc') {
+            value = '早苗';
         } else {
             _class = `${_class}  status-off`;
             value = '已关闭';

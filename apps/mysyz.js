@@ -75,6 +75,7 @@ export class bbsVerification extends plugin {
 
 
   async mysReqErrHandler (e, options, reject) {
+      if(!Config.getConfig('set','sz')['mysqd']){return false}
 
     let { mysApi, type, data } = options
 

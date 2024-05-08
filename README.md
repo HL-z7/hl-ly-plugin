@@ -72,9 +72,9 @@ Yunzai-Bot/plugins/hl-ly-plugin/config
 - 目前使用本地图库
 - 部分使用API形式
 
-# 🌐点击跳转适配官bot HL插件
+# 💬爱发电
 <p align="center">
-   <a href="https://gitee.com/fox-glaze/hl-qqbot-plugin/"><img src="./resources/Ztb/zzi.png" width="100%" /></a>
+   <a href="https://afdian.net/a/zhilaohu"><img src="./resources/Ztb/zzi.png" width="100%" /></a>
 </p>
 
 # 📞联系方式

@@ -14,7 +14,7 @@ class Tools {
   }
 
   get Cfg () {
-    let file = './plugins/hl-ly-plugin/config/config.yaml'
+    let file = './plugins/hl-ly-plugin/config/gt/config.yaml'
     this._cfg = this._cfg || YAML.parse(fs.readFileSync(file, 'utf8'))
     return this._cfg
   }

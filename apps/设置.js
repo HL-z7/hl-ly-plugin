@@ -8,6 +8,7 @@ const cfgMap = {
     'emoji戳一戳': 'sz.emocyc',
     '早苗戳一戳': 'sz.zmcyc',
     'mys签到': 'sz.mysqd',
+    '不可以': 'sz.zrcyc'
 
 
 

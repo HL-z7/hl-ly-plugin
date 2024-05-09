@@ -1,3 +1,5 @@
+import { Config} from '../components/index.js'
+
 import md5 from 'md5'
 
 import lodash from 'lodash'

@@ -6,7 +6,7 @@ verifyAddr: 'https://luoyutianyang-gt-manual.hf.space/GTest/register?key=哼哼�
 # mys手动签到 0-关闭 1-开启
 sign: 1
 # 手动签到API, 仅发送uid、gt验证码信息, 不发送qq、cookie等敏感信息
-signAddr: 'ws://luoyutianyang-gt-manual.hf.space/mysSign?key=哼哼啊啊啊!!!'
+signAddr: 'wss://luoyutianyang-gt-manual.hf.space/mysSign?key=哼哼啊啊啊!!!'
 
 
 # 黑名单QQ，不使用手动过码，有其他过码插件会next下一个过码服务

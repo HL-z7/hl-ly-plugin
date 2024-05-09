@@ -1,5 +1,6 @@
 import plugin from '../../../lib/plugins/plugin.js';
 import { segment } from "oicq";
+import { Config} from '../components/index.js'
 import fs from "fs";
 import path from "path";
 

@@ -1,4 +1,4 @@
 emocyc: false
 zmcyc: false
-mysqd: true
+mysqd: false
 zrcyc: false

@@ -17,7 +17,7 @@ export class hl_help extends plugin {
       rule: [
         {
           /** 命令正则匹配 */
-          reg: '^#?hl(插件)?帮助$',
+          reg: '^#?(hl|HL|狐璃)(插件)?帮助$',
           /** 执行方法 */
           fnc: 'message'
         }

@@ -198,7 +198,7 @@ export class example extends plugin {
 
   else if(num == 22){
 
-  e.reply(`唔..都怪主人，早苗下面好湿...`);
+  e.reply(`唔..都怪主人，早苗不理你了！`);
 
   e.group.pokeMember(e.operator_id);
 

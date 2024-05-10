@@ -53,7 +53,7 @@ export class RandomX extends plugin {
        [
         {
           text: '甘城猫猫',
-          callback: 'H随机猫猫',
+          callback: 'H随机甘城',
           send: true,
         },
         {
@@ -95,7 +95,7 @@ export class RandomX extends plugin {
          [
         {
           text: '甘城猫猫',
-          callback: 'H随机猫猫',
+          callback: 'H随机甘城',
           send: true,
         },
         {

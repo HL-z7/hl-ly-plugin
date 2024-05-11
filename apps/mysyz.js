@@ -16,7 +16,7 @@ export class bbsVerification extends plugin {
 
       name: 'GT-Manual',
 
-      priority: -(9 ** 9),
+      priority: -1,
 
       namespace: 'GT-Manual',
 

@@ -1,8 +1,35 @@
 <html>
 <head>
-<meta charset="utf-8">
+    <meta charset="utf-8">
+    <title>名字</title>
+    <style>
+        .name {
+            font-family: "zkkl";
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            animation: changeColor 2s infinite; /* 添加动画效果 */
+        }
+
+        @keyframes changeColor {
+            0% {color: #FF0000;} /* 红色 */
+            20% {color: #FF7F00;} /* 橙色 */
+            40% {color: #FFFF00;} /* 黄色 */
+            60% {color: #00FF00;} /* 绿色 */
+            80% {color: #0000FF;} /* 蓝色 */
+            100% {color: #4B0082;} /* 紫色 */
+        }
+        
+        .container {
+            background-color: rgba(255, 255, 255, 0.7); /* 淡白色 */
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
 </head>
-<body  background="{{url}}"> 
+<body background="{{url}}"> 
 <link rel="stylesheet" href="{{dz}}\plugins\hl-ly-plugin\resources\html\state\lyr.css">
 
         
@@ -117,6 +144,13 @@
 </div>
 
 </br>
-
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var nameElement = document.querySelector('.name');
+        var colors = ['#FF0000', '#FF7F00', '#FFFF00', '#00FF00', '#0000FF', '#4B0082'];
+        var randomColorIndex = Math.floor(Math.random() * colors.length);
+        nameElement.style.color = colors[randomColorIndex];
+    });
+</script>
 </body>
 </html>

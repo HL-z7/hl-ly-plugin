@@ -58,11 +58,14 @@ body{
   
 }
 .name {
-	font-family:"zkkl";
-    color: rgba(255, 255, 255, 1);
+	font-size: 110px;
+    -webkit-text-stroke: 3px rgba(173, 216, 230, 1);
+    background-color: rosybrown;
+    background-image: -webkit-linear-gradient(top, rgba(173, 216, 230, 1), #fd8403, yellow);
+    -webkit-background-clip: text;
+    color: transparent;
     justify-content: center;
     display: flex !important;
-    font-size: 33px;
 	display: flex;
     align-items: center;
     justify-content: center;

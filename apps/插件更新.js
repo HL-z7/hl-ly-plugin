@@ -18,7 +18,7 @@ export class Update extends plugin {
             priority: 10,
             rule: [
                 {
-                    reg: '^#*hl(插件)?(强制)?更新$',
+                    reg: '^#*(HL|hl)(插件)?(强制)?更新$',
                     fnc: 'update'
                 },
                                 {

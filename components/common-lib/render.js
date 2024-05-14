@@ -1,5 +1,6 @@
 import { Data, Version, Plugin_Name } from '../index.js'
 import fs from 'fs'
+import puppeteer from '../../../../lib/puppeteer/puppeteer.js'
 
 const _path = process.cwd()
 

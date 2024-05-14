@@ -4,6 +4,11 @@ import fs from 'node:fs'
 if (!global.segment) {
   global.segment = (await import("oicq")).segment
 }
+const apps = {};
+global.hl_plugin = {
+  apps: apps,
+  puppeteer: null
+};
 
 //输出提示
 logger.mark('---------HL---------')
@@ -23,7 +28,6 @@ files.forEach((file) => {
 
 ret = await Promise.allSettled(ret)
 
-let apps = {}
 for (let i in files) {
   let name = files[i].replace('.js', '')
 

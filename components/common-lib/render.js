@@ -40,7 +40,7 @@ export default async function (path, params, cfg) {
     data._app = app
     fs.writeFileSync(file, JSON.stringify(data))
   }
-  let img = await hl_plugin.puppeteer.screenshot(`${Plugin_Name}/${app}/${tpl}`, data)
+  let img = await puppeteer.screenshot(`${Plugin_Name}/${app}/${tpl}`, data)
   let ret = true
   if (img) {
     if (img?.type != 'image') img = segment.image(img)

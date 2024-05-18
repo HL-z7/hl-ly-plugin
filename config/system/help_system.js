@@ -28,7 +28,7 @@ export const helpList = [
       },
       {
         "icon": 23,
-        "title": "hl天气广东",
+        "title": "H天气广东",
         "desc": "使用方法：在天气后面加上名称即可，注意不要加#"
       },
       {

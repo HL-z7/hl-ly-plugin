@@ -76,7 +76,7 @@ export class example extends plugin {
 
     
 
-    let num = Math.ceil(Math.random() * 10);
+    let num = Math.floor(Math.random() * 29)+1;
 
     
 

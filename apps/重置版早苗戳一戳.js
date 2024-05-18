@@ -37,7 +37,7 @@ if(!Config.getConfig('set','sz')['zmcyc']){return false}
     if(e.target_id == cfg.qq){
       
     
-    let num = Math.floor(Math.random() * 29)+1;
+    let num = Math.floor(Math.random() * 28)+1;
     
  if(num == 1){
   e.reply(`小牙签还软趴趴～`);

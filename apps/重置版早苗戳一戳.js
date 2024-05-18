@@ -37,7 +37,7 @@ if(!Config.getConfig('set','sz')['zmcyc']){return false}
     if(e.target_id == cfg.qq){
       
     
-    let num = Math.ceil(Math.random() * 10);
+    let num = Math.floor(Math.random() * 29)+1;
     
  if(num == 1){
   e.reply(`小牙签还软趴趴～`);
@@ -98,7 +98,7 @@ if(!Config.getConfig('set','sz')['zmcyc']){return false}
   e.group.pokeMember(e.operator_id);
 }
   else if(num == 22){
-  e.reply(`唔..都怪主人，早苗下面好湿...`);
+  e.reply(`唔..都怪主人，早苗不理你了！`);
   e.group.pokeMember(e.operator_id);
 }else if(num == 23){
   e.reply(`唉？对不起！早苗喝牛奶不小心弄在主人身上了...`);

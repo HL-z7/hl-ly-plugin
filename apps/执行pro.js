@@ -1,8 +1,8 @@
 import { segment } from "oicq";
 import lodash from "lodash";
 import fs from "fs";
-import plugin from '../../lib/plugins/plugin.js';
-import common from '../../lib/common/common.js';
+import plugin from '../../../lib/plugins/plugin.js';
+import common from '../../../lib/common/common.js';
 
 // 项目路径
 const _path = process.cwd();

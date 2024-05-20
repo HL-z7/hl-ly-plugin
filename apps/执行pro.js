@@ -1,8 +1,8 @@
 import { segment } from "oicq";
 import lodash from "lodash";
 import fs from "fs";
-import plugin from '../../../lib/plugins/plugin.js';
-import common from '../../../lib/common/common.js';
+import plugin from '../../lib/plugins/plugin.js';
+import common from '../../lib/common/common.js';
 
 // 项目路径
 const _path = process.cwd();
@@ -29,7 +29,7 @@ export class kelitaocan extends plugin {
       priority: 600,
       rule: [
         {
-          reg: '^(你妈|cnm|草你妈|艹你妈|)$',
+          reg: '^(你妈|cnm|草你妈|艹你妈|你m)$',
           fnc: 'kelitaocan'
         }
       ],

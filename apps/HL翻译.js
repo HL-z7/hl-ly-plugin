@@ -9,7 +9,7 @@ export class GoogleTranslatePlugin extends plugin {  // 定义GoogleTranslatePlu
       priority: 5000,  // 本JS插件优先级 数字越低越高喔
       rule: [  // 规则数组
         {
-          reg: "^#(H|h)翻(.*)$",  // 正则表达式规则
+          reg: "^#?(H|h)翻(.*)$",  // 正则表达式规则
           fnc: 'translateText'  // 匹配规则后调用的方法
         }
       ]
@@ -17,7 +17,7 @@ export class GoogleTranslatePlugin extends plugin {  // 定义GoogleTranslatePlu
   }
 
   async translateText(e) {  // 声明异步函数translateText
-    let textToTranslate = e.msg.replace(/#(H|h)翻/g, "").trim();  // 提取要翻译的文本并去除首尾空格
+    let textToTranslate = e.msg.replace(/#?(H|h)翻/g, "").trim();  // 提取要翻译的文本并去除首尾空格
     logger.info(`收到翻译请求: ${textToTranslate}`);  // 输出日志信息
 
     let apiUrl = `https://findmyip.net/api/translate.php?text=${encodeURIComponent(textToTranslate)}`;  // 构造请求url

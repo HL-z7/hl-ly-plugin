@@ -18,31 +18,31 @@ export class example extends plugin {
           fnc: 'jieurl'
         },
         {
-          reg: "^Hbase64加密 (.*)$",
+          reg: "^Hbase64加密(.*)$",
           fnc: 'encodeBase64'
         },
         {
-          reg: "^Hbase64解密 (.*)$",
+          reg: "^Hbase64解密(.*)$",
           fnc: 'decodeBase64'
         },
         {
-          reg: "^Hb64加密 (.*)$",
+          reg: "^Hb64加密(.*)$",
           fnc: 'encodeHexToBase64'
         },
         {
-          reg: "^Hb64解密 (.*)$",
+          reg: "^Hb64解密(.*)$",
           fnc: 'decodeBase64ToHex'
         },
         {
-          reg: "^Hmd5加密 (.*)$",
+          reg: "^Hmd5加密(.*)$",
           fnc: 'encodeMD5'
         },
         {
-          reg: "^HUnicode加密 (.*)$",
+          reg: "^HUnicode加密(.*)$",
           fnc: 'encodeUnicode'
         },
         {
-          reg: "^HUnicode解密 (.*)$",
+          reg: "^HUnicode解密(.*)$",
           fnc: 'decodeUnicode'
         }
       ]

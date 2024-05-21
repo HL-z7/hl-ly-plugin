@@ -33,7 +33,7 @@ export const helpList = [
       },
       {
         "icon": 75,
-        "title": "#h翻+要翻译的内容",
+        "title": "H翻+要翻译的内容",
         "desc": "翻译指定文本"
       }
     ]
@@ -72,14 +72,8 @@ export const helpList = [
         "desc": "菜就多练！输不起就别玩！"
       },
       {
-        "icon": 90,
-        "title": "#运势",
-        "desc": "查询今日运势"
-
-      },
-      {
         "icon": 84,
-        "title": "厵神/随机真寻",
+        "title": "厵神/真寻",
         "desc": "发送其一即可触发"
       }
     ]
@@ -130,7 +124,7 @@ export const helpList = [
       },
       {
         "icon": 90,
-        "title": "随机柴郡",
+        "title": "柴郡",
         "desc": "随机发送柴郡猫猫图！"
       },
       {
@@ -142,6 +136,36 @@ export const helpList = [
         "icon": 60,
         "title": "Hcos",
         "desc": "发送随机cos图"
+      }
+    ]
+  },
+  {
+    "group": "各种加密/解密",
+    "list": [
+      {
+        "icon": 51,
+        "title": "Hurl加密/解密+内容",
+        "desc": "加密/解密url"
+      },
+      {
+        "icon": 51,
+        "title": "Hbase64加密/解密+内容",
+        "desc": "base64加密/解密"
+      },
+      {
+        "icon": 51,
+        "title": "Hb64加密/解密+内容",
+        "desc": "base64加密/解密Hex 16进制 不编码"
+      },
+      {
+        "icon": 51,
+        "title": "Hmd5加密+内容",
+        "desc": "MD5加密"
+      },
+      {
+        "icon": 51,
+        "title": "HUnicode加密/解密+内容",
+        "desc": "Unicode加密/解密"
       }
     ]
   },
@@ -164,14 +188,14 @@ export const helpList = [
         "desc": "列如“禁@xxx114514”那么该用户将会被禁言30天（因为QQ上限30天）"
       },
       {
+        "icon": 94,
+        "title": "一键群发+内容",
+        "desc": "详细功能可以发送【H群发帮助】查看"
+      },
+      {
         "icon": 49,
         "title": "解+被禁人",
         "desc": "解除被指定被禁言的用户"
-      },
-      {
-        "icon": 94,
-        "title": "一键群发+内容",
-        "desc": "详细功能可以发送【H群发帮助】查看）"
       }
     ]
   },
@@ -179,14 +203,14 @@ export const helpList = [
     "group": "其他功能",
     "list": [
       {
+        "icon": 10,
+        "title": "hl/HL状态",
+        "desc": "状态"
+      },
+      {
         "icon": 72,
         "title": "HL统计",
         "desc": "统计本地图库数量（目前还未更新其他）"
-      },
-      {
-          "icon": 23,
-          "title": "hl/HL状态",
-          "desc": "状态"
       }
     ]
   },
@@ -196,7 +220,7 @@ export const helpList = [
     "list": [
       {
         "icon": 29,
-        "title": "#HL设置",
+        "title": "hl设置/HL设置",
         "desc": "设置HL插件"
       },
       {

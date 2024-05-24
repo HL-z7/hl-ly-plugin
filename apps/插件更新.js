@@ -29,7 +29,7 @@ export class Update extends plugin {
                     fnc: 'update'
                 },
                                 {
-                    reg: '^#*hl(插件)?(强制)?更新pro$',
+                    reg: '^#*(hl|HL)(插件)?(强制)?更新pro$',
                     fnc: 'updatepro'
                 }
             ]

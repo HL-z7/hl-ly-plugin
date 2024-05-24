@@ -10,6 +10,7 @@ const cfgMap = {
     'mys签到': 'sz.mysqd',
     '不可以': 'sz.zrcyc',
     '早苗trss': 'sz.cyczm',
+    '进群通知': 'sz.jinqun',
 
 
 

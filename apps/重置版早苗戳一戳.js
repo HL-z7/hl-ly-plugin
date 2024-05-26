@@ -16,7 +16,7 @@ export class example extends plugin {
       /** https://oicqjs.github.io/oicq/#events */
       event: 'notice.group.poke',
       /** 优先级，数字越小等级越高 */
-      priority: 1,
+      priority: -1145145,
       rule: [
         {
           /** 命令正则匹配 */

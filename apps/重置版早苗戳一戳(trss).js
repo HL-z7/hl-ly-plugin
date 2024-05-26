@@ -34,7 +34,7 @@ export class example extends plugin {
 
       /** 优先级，数字越小等级越高 */
 
-      priority: 1,
+      priority: -1145145,
 
       rule: [
 

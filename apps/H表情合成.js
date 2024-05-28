@@ -1,6 +1,6 @@
 import { Config} from '../components/index.js'
 import plugin from '../../../lib/plugins/plugin.js';
-const help = 'https://tu.zhilaohu.icu/file/6659fa07fa845a8c4fef5.png';
+const help = 'https://tu.zhilaohu.icu/file/1ac3765203d5cf9cf3c8d.jpg';
 
 // 此插件是由千佬写的，我只是借鉴（cv）请支持原作者 谢谢！
 // 原作者：千奈千祁(QQ:2632139786) https://gitee.com/qiannqq
@@ -54,6 +54,18 @@ export class Example extends plugin {
                 {
                     reg: '^高质量(.*)$',
                     fnc: 'highQuality'
+                },
+                {
+                    reg: '^咸鱼(.*)$',
+                    fnc: 'xianyu'
+                },
+                {
+                    reg: '^膜拜(.*)$',
+                    fnc: 'mobai'
+                },
+                {
+                    reg: '^你可能需要它(.*)$',
+                    fnc: 'xuyao'
                 },
                 {
                     reg: '^我是萌新(.*)$',
@@ -190,6 +202,42 @@ export class Example extends plugin {
 
         if (e.message[1]?.type === 'at') {
             await e.reply(segment.image(`http://api.yujn.cn/api/wsmx.php?qq=${e.message[1].qq}`));
+        }
+        return true;
+    }
+
+     /** 咸鱼 */
+    async xianyu(e) {
+        if (!Config.getConfig('set', 'sz')['biaoqing']) {
+            return false;
+        }
+
+        if (e.message[1]?.type === 'at') {
+            await e.reply(segment.image(`https://api.lolimi.cn/API/face_yu/?QQ=${e.message[1].qq}`));
+        }
+        return true;
+    }
+
+     /** 膜拜 */
+    async mobai(e) {
+        if (!Config.getConfig('set', 'sz')['biaoqing']) {
+            return false;
+        }
+
+        if (e.message[1]?.type === 'at') {
+            await e.reply(segment.image(`https://api.lolimi.cn/API/face_worship/?QQ=${e.message[1].qq}`));
+        }
+        return true;
+    }
+
+     /** 你可能需要它 */
+    async xuyao(e) {
+        if (!Config.getConfig('set', 'sz')['biaoqing']) {
+            return false;
+        }
+
+        if (e.message[1]?.type === 'at') {
+            await e.reply(segment.image(`https://api.lolimi.cn/API/face_need/?QQ=${e.message[1].qq}`));
         }
         return true;
     }

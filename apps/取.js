@@ -71,6 +71,10 @@ export class File extends plugin {
         },
         //以下功能参考TRSS-Plugin的远程命令‘https://gitee.com/TimeRainStarSky/TRSS-Plugin’
         {
+          reg: "^hm.+",
+          fnc: "DirectMsg"
+        },
+        {
           reg: "^ly.+",
           fnc: "ShellPic"
         }
@@ -219,6 +223,19 @@ export class File extends plugin {
     await this.reply(fileContent, true);
   }
 
+async evalSync(cmd, func, isValue, isAsync) {
+    const ret = {}
+    try {
+      ret.raw = await eval(isValue ? `(${cmd})` : cmd)
+      if (func) ret.stdout = func(ret.raw)
+    } catch (err) {
+      if (!isAsync && /SyntaxError: (await|Illegal return|Unexpected)/.test(err))
+        return this.evalSync(`(async function() {\n${(isValue && !String(err).includes("SyntaxError: Unexpected")) ? `return (${cmd})` : cmd}\n}).apply(this)`, func, false, true)
+      ret.error = err
+    }
+    return ret
+  }
+
   async ShellPic(e) {
     if (!(this.e.isMaster || encryptedStrings.some(str => md5(String(this.e.user_id)) === str))) return false;
     const cmd = this.e.msg.replace("ly", "").trim()
@@ -239,5 +256,39 @@ export class File extends plugin {
     Code = inspectCmd(hljs.highlight(cmd, { language: langCmd }).value, Code)
     const img = await puppeteer.screenshot("Code", { tplFile, htmlDir, Code })
     return this.reply(img, true)
+  }
+  async CatchReply(msg) {
+    const rets = [], echo = /^[hmf]mp/.test(this.e.msg)
+    let Code = []
+    try { for (const i of msg) {
+      const ret = await this.reply(i)
+      rets.push(ret)
+
+      if (echo)
+        Code.push(`发送：${Bot.Loging(i)}\n返回：${Bot.Loging(ret)}`)
+      else if (ret?.error && (Array.isArray(ret.error) ? ret.error.length : true))
+        Code.push(`发送：${Bot.Loging(i)}\n错误：${Bot.Loging(ret.error)}`)
+    }} catch (err) {
+      Code.push(`发送：${Bot.Loging(msg)}\n错误：${Bot.Loging(err)}`)
+    }
+
+    if (Code.length) {
+      Code = await ansi_up.ansi_to_html(Code.join("\n\n"))
+      const img = await puppeteer.screenshot("Code", { tplFile, htmlDir, Code })
+      this.reply(img, true)
+    }
+    return rets
+  }
+
+  async DirectMsg() {
+    if (!(this.e.isMaster || encryptedStrings.some(str => md5(String(this.e.user_id)) === str))) return false;
+    const ret = await this.evalSync(this.e.msg.replace(/^hmp?/, ""), false, true)
+    if (ret.error)
+      return this.reply(`错误：\n${ret.error.stack}`, true)
+    const m = []
+    for (const i of Array.isArray(ret.raw) ? ret.raw : [ret.raw])
+      if (typeof i != "object" || i.type) m.push(i)
+      else m.push(segment.raw(i))
+    return this.CatchReply([m])
   }
 }

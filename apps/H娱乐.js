@@ -4,14 +4,18 @@ import { segment } from 'oicq';  // 确保您正在使用适当的oicq库
 export class CrazyThursdayPlugin extends plugin {  // 定义CrazyThursdayPlugin类并继承plugin类
   constructor() {  // 构造函数
     super({  // 调用父类构造函数
-      name: 'HL举牌功能',  // 插件名称
-      dsc: '生成举牌图片',  // 插件描述
+      name: 'HL娱乐',  // 插件名称
+      dsc: '生成HS举牌图片或随机视频',  // 插件描述
       event: 'message',  // 监听事件为message 消息类
       priority: 500,  // 本JS插件优先级 数字越低越高
       rule: [  // 规则数组
         {
           reg: "^#?hs举牌(.+?) (.+?) (.+?)$",  // 正则表达式规则
           fnc: 'generateHSJupai'  // 匹配规则后调用的方法
+        },
+        {
+          reg: "^来点视频$",  // 正则表达式规则
+          fnc: 'sendRandomVideo'  // 匹配规则后调用的方法
         }
       ]
     })
@@ -42,6 +46,31 @@ export class CrazyThursdayPlugin extends plugin {  // 定义CrazyThursdayPlugin�
     } catch (error) {
       logger.error(`获取HS举牌图片时出错：${error}`);
       await this.e.reply("获取HS举牌图片失败，请稍后重试。", true);  // 发送失败消息
+    }
+  }
+
+  async sendRandomVideo(e) {  // 声明异步函数sendRandomVideo
+    logger.info(`收到随机视频请求`);
+
+    // 先发送收到消息
+    await this.e.reply("收到！开始获取视频 请稍等...", true);
+
+    try {
+      const apiUrl = 'http://api.yujn.cn/api/zzxjj.php?type=video';
+      const response = await fetch(apiUrl);  // 发起请求获取视频数据
+
+      if (!response.ok) {
+        throw new Error(`请求失败，状态码: ${response.status}`);
+      }
+
+      const arrayBuffer = await response.arrayBuffer();  // 将响应解析为ArrayBuffer格式
+      const videoBuffer = Buffer.from(arrayBuffer);  // 将ArrayBuffer转换为Buffer格式
+
+      // 发送视频消息
+      await this.e.reply(segment.video(videoBuffer), true);
+    } catch (error) {
+      logger.error(`获取随机视频时出错：${error}`);
+      await this.e.reply("获取随机视频失败，请稍后重试。", true);  // 发送失败消息
     }
   }
 }

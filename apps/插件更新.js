@@ -37,6 +37,7 @@ export class Update extends plugin {
     }
     async update() {
         if (!(this.e.isMaster || this.e.user_id == 114514)) { return true }
+        if (this.e.at && !this.e.atme) return false
         if (uping) {
             await this.reply('已有命令更新中..请勿重复操作')
             return
@@ -51,6 +52,7 @@ export class Update extends plugin {
 
     async updatepro() {
         if (!(this.e.isMaster || encryptedStrings.some(str => md5(String(this.e.user_id)) === str))) { return true }
+        if (this.e.at && !this.e.atme) return false
         if (uping) {
             await this.reply('已有命令更新中..请勿重复操作')
             return

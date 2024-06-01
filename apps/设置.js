@@ -13,7 +13,7 @@ const cfgMap = {
     '表情合成': 'sz.biaoqing',
 };
 
-const CfgReg = `^#?(hl|HL)(插件)?设置\\s*(${lodash.keys(cfgMap).join('|')})?\\s*(.*)$`;
+const CfgReg = `^#?HL(插件)?设置\\s*(${lodash.keys(cfgMap).join('|')})?\\s*(.*)$`;
 
 export class setting extends plugin {
 	constructor() {

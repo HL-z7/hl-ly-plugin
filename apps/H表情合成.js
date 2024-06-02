@@ -1,6 +1,6 @@
 import { Config} from '../components/index.js'
 import plugin from '../../../lib/plugins/plugin.js';
-const help = 'https://tu.zhilaohu.icu/file/1ac3765203d5cf9cf3c8d.jpg';
+const help = 'https://tu.zhilaohu.icu/file/2c17d54f1ef8e6293cffc.png';
 
 // 此插件是由千佬写的，我只是借鉴（cv）请支持原作者 谢谢！
 // 原作者：千奈千祁(QQ:2632139786) https://gitee.com/qiannqq
@@ -54,6 +54,14 @@ export class Example extends plugin {
                 {
                     reg: '^高质量(.*)$',
                     fnc: 'highQuality'
+                },
+                {
+                    reg: '^羡慕(.*)$',
+                    fnc: 'xianmu'
+                },
+                {
+                    reg: '^你爬(.*)$',
+                    fnc: 'nipa'
                 },
                 {
                     reg: '^咸鱼(.*)$',
@@ -238,6 +246,30 @@ export class Example extends plugin {
 
         if (e.message[1]?.type === 'at') {
             await e.reply(segment.image(`https://api.lolimi.cn/API/face_need/?QQ=${e.message[1].qq}`));
+        }
+        return true;
+    }
+    
+    /** 你爬 */
+    async nipa(e) {
+        if (!Config.getConfig('set', 'sz')['biaoqing']) {
+            return false;
+        }
+
+        if (e.message[1]?.type === 'at') {
+            await e.reply(segment.image(`http://api.yujn.cn/api/pa.php?qq=${e.message[1].qq}`));
+        }
+        return true;
+    }
+    
+    /** 羡慕 */
+    async xianmu(e) {
+        if (!Config.getConfig('set', 'sz')['biaoqing']) {
+            return false;
+        }
+
+        if (e.message[1]?.type === 'at') {
+            await e.reply(segment.image(`http://api.yujn.cn/api/xianmu.php?qq=${e.message[1].qq}`));
         }
         return true;
     }

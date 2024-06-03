@@ -18,8 +18,8 @@ logger.mark('---------HL---------');
 logger.debug('\x1b[36m崽崽正在加载中...\x1b[0m');
 logger.info('\x1b[33mHL插件初始化~\x1b[0m');
 logger.mark(`
-           。 。 。 。
-           \＿|＿|＿/
+            。 。 。 。
+            \＿|＿|＿/
            |＿|＿|＿|     
 　　　　　／＞　　   フ
 　　　　　|    _　_  l

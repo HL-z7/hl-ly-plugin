@@ -39,14 +39,26 @@ export class CrazyThursdayPlugin extends plugin { // 定义CrazyThursdayPlugin�
           fnc: 'baisi'
         },
         {
+          reg: "^#?来点视频$",
+          fnc: 'shiping'
+        },
+        {
           reg: "^多来点视频(\\d+)$", // 正则表达式规则，匹配数字1-5
           fnc: 'sendRandomVideopro' // 匹配规则后调用的方法
+        },
+        {
+          reg: "^#?H喜报(.+?)$",
+          fnc: 'generateXibao'
+        },
+        {
+          reg: "^#?H悲报(.+?)$",
+          fnc: 'generateBeibao'
         }
       ]
-    })
+    });
   }
 
-async generateHSJupai(e) {  // 声明异步函数generateHSJupai
+  async generateHSJupai(e) {  // 声明异步函数generateHSJupai
     logger.info(`收到HS举牌请求`);
 
     const message = e.msg;  // 获取消息内容
@@ -74,6 +86,62 @@ async generateHSJupai(e) {  // 声明异步函数generateHSJupai
     }
   }
 
+  async generateXibao(e) {  // 声明异步函数generateXibao
+    logger.info(`收到喜报请求`);
+
+    const message = e.msg;  // 获取消息内容
+    const [, msg] = message.match(/^#?喜报(.+?)$/);
+
+    // 先发送收到消息
+    await this.e.reply("收到！开始生成喜报 请稍等...", true);
+
+    try {
+      const apiUrl = `https://www.oexan.cn/API/xb.php?msg=${encodeURIComponent(msg)}`;
+      const response = await fetch(apiUrl);  // 发起请求获取图片数据
+
+      if (!response.ok) {
+        throw new Error(`请求失败，状态码: ${response.status}`);
+      }
+
+      const arrayBuffer = await response.arrayBuffer();  // 将响应解析为ArrayBuffer格式
+      const imageBuffer = Buffer.from(arrayBuffer);  // 将ArrayBuffer转换为Buffer格式
+
+      // 发送图片消息
+      await this.e.reply(segment.image(imageBuffer), true);
+    } catch (error) {
+      logger.error(`获取喜报图片时出错：${error}`);
+      await this.e.reply("获取喜报图片失败，请稍后重试。", true);  // 发送失败消息
+    }
+  }
+
+  async generateBeibao(e) {  // 声明异步函数generateBeibao
+    logger.info(`收到悲报请求`);
+
+    const message = e.msg;  // 获取消息内容
+    const [, msg] = message.match(/^#?悲报(.+?)$/);
+
+    // 先发送收到消息
+    await this.e.reply("收到！开始生成悲报 请稍等...", true);
+
+    try {
+      const apiUrl = `https://www.oexan.cn/API/beibao.php?msg=${encodeURIComponent(msg)}`;
+      const response = await fetch(apiUrl);  // 发起请求获取图片数据
+
+      if (!response.ok) {
+        throw new Error(`请求失败，状态码: ${response.status}`);
+      }
+
+      const arrayBuffer = await response.arrayBuffer();  // 将响应解析为ArrayBuffer格式
+      const imageBuffer = Buffer.from(arrayBuffer);  // 将ArrayBuffer转换为Buffer格式
+
+      // 发送图片消息
+      await this.e.reply(segment.image(imageBuffer), true);
+    } catch (error) {
+      logger.error(`获取悲报图片时出错：${error}`);
+      await this.e.reply("获取悲报图片失败，请稍后重试。", true);  // 发送失败消息
+    }
+  }
+
   async sendRandomVideo(e) {  // 声明异步函数sendRandomVideo
     logger.info(`收到随机视频请求`);
 
@@ -98,6 +166,7 @@ async generateHSJupai(e) {  // 声明异步函数generateHSJupai
       await this.e.reply("获取随机视频失败，请稍后重试。", true);  // 发送失败消息
     }
   }
+
   async sendRandomVideopro(e) { // 声明异步函数sendRandomVideopro
     logger.info(`收到随机视频请求`);
 
@@ -139,6 +208,32 @@ async generateHSJupai(e) {  // 声明异步函数generateHSJupai
 
     // 等待所有视频请求完成
     await Promise.all(videoPromises);
+  }
+
+  /*单来点视频*/
+  async shiping(e) {  // 声明异步函数sendRandomVideo
+    logger.info(`收到随机视频请求`);
+
+    // 先发送收到消息
+    await this.e.reply("收到！开始获取视频 请稍等...", true);
+
+    try {
+      const apiUrl = 'http://api.yujn.cn/api/zzxjj.php?type=video';
+      const response = await fetch(apiUrl);  // 发起请求获取视频数据
+
+      if (!response.ok) {
+        throw new Error(`请求失败，状态码: ${response.status}`);
+      }
+
+      const arrayBuffer = await response.arrayBuffer();  // 将响应解析为ArrayBuffer格式
+      const videoBuffer = Buffer.from(arrayBuffer);  // 将ArrayBuffer转换为Buffer格式
+
+      // 发送视频消息
+      await this.e.reply(segment.video(videoBuffer), true);
+    } catch (error) {
+      logger.error(`获取视频时出错：${error}`);
+      await this.e.reply("获取视频失败，请稍后重试。", true);  // 发送失败消息
+    }
   }
   
   /*动漫视频*/

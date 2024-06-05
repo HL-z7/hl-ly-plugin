@@ -62,7 +62,14 @@ export class CrazyThursdayPlugin extends plugin { // 定义CrazyThursdayPlugin�
     logger.info(`收到HS举牌请求`);
 
     const message = e.msg;  // 获取消息内容
-    const [, msg, msg1, msg2] = message.match(/^#?hs举牌(.+?) (.+?) (.+?)$/);
+    const match = message.match(/^#?hs举牌(.+?) (.+?) (.+?)$/);
+
+    if (!match) {
+      await this.e.reply("消息格式不正确，请按照格式发送消息。", true);
+      return;
+    }
+
+    const [, msg, msg1, msg2] = match;
 
     // 先发送收到消息
     await this.e.reply("收到！开始制作图片 请稍等...", true);
@@ -90,7 +97,14 @@ export class CrazyThursdayPlugin extends plugin { // 定义CrazyThursdayPlugin�
     logger.info(`收到喜报请求`);
 
     const message = e.msg;  // 获取消息内容
-    const [, msg] = message.match(/^#?喜报(.+?)$/);
+    const match = message.match(/^#?H喜报(.+?)$/);
+
+    if (!match) {
+      await this.e.reply("消息格式不正确，请按照格式发送消息。", true);
+      return;
+    }
+
+    const [, msg] = match;
 
     // 先发送收到消息
     await this.e.reply("收到！开始生成喜报 请稍等...", true);
@@ -118,7 +132,14 @@ export class CrazyThursdayPlugin extends plugin { // 定义CrazyThursdayPlugin�
     logger.info(`收到悲报请求`);
 
     const message = e.msg;  // 获取消息内容
-    const [, msg] = message.match(/^#?悲报(.+?)$/);
+    const match = message.match(/^#?H悲报(.+?)$/);
+
+    if (!match) {
+      await this.e.reply("消息格式不正确，请按照格式发送消息。", true);
+      return;
+    }
+
+    const [, msg] = match;
 
     // 先发送收到消息
     await this.e.reply("收到！开始生成悲报 请稍等...", true);
@@ -191,204 +212,18 @@ export class CrazyThursdayPlugin extends plugin { // 定义CrazyThursdayPlugin�
     const videoPromises = [];
 
     for (let i = 0; i < num; i++) {
-      videoPromises.push(fetch(apiUrl).then(response => {
-        if (!response.ok) {
-          throw new Error(`请求失败，状态码: ${response.status}`);
-        }
-        return response.arrayBuffer();
-      }).then(arrayBuffer => {
-        return Buffer.from(arrayBuffer);
-      }).then(videoBuffer => {
-        return this.e.reply(segment.video(videoBuffer), true);
-      }).catch(error => {
-        logger.error(`获取随机视频时出错：${error}`);
-        return this.e.reply("获取随机视频失败，请稍后重试。", true);
-      }));
+      videoPromises.push(fetch(apiUrl).then(response => response.arrayBuffer()));
     }
 
-    // 等待所有视频请求完成
-    await Promise.all(videoPromises);
-  }
-
-  /*单来点视频*/
-  async shiping(e) {  // 声明异步函数sendRandomVideo
-    logger.info(`收到随机视频请求`);
-
-    // 先发送收到消息
-    await this.e.reply("收到！开始获取视频 请稍等...", true);
-
     try {
-      const apiUrl = 'http://api.yujn.cn/api/zzxjj.php?type=video';
-      const response = await fetch(apiUrl);  // 发起请求获取视频数据
-
-      if (!response.ok) {
-        throw new Error(`请求失败，状态码: ${response.status}`);
+      const videoBuffers = await Promise.all(videoPromises);
+      for (const buffer of videoBuffers) {
+        const videoBuffer = Buffer.from(buffer);
+        await this.e.reply(segment.video(videoBuffer), true);
       }
-
-      const arrayBuffer = await response.arrayBuffer();  // 将响应解析为ArrayBuffer格式
-      const videoBuffer = Buffer.from(arrayBuffer);  // 将ArrayBuffer转换为Buffer格式
-
-      // 发送视频消息
-      await this.e.reply(segment.video(videoBuffer), true);
     } catch (error) {
-      logger.error(`获取视频时出错：${error}`);
-      await this.e.reply("获取视频失败，请稍后重试。", true);  // 发送失败消息
-    }
-  }
-  
-  /*动漫视频*/
-  async dongman(e) {  // 声明异步函数sendRandomVideo
-    logger.info(`收到随机视频请求`);
-
-    // 先发送收到消息
-    await this.e.reply("收到！开始获取动漫视频 请稍等...", true);
-
-    try {
-      const apiUrl = 'http://api.yujn.cn/api/dmsp.php?type=video';
-      const response = await fetch(apiUrl);  // 发起请求获取视频数据
-
-      if (!response.ok) {
-        throw new Error(`请求失败，状态码: ${response.status}`);
-      }
-
-      const arrayBuffer = await response.arrayBuffer();  // 将响应解析为ArrayBuffer格式
-      const videoBuffer = Buffer.from(arrayBuffer);  // 将ArrayBuffer转换为Buffer格式
-
-      // 发送视频消息
-      await this.e.reply(segment.video(videoBuffer), true);
-    } catch (error) {
-      logger.error(`获取动漫视频时出错：${error}`);
-      await this.e.reply("获取动漫视频失败，请稍后重试。", true);  // 发送失败消息
-    }
-  }
-  
-  /*来点萝莉*/
-  async luoli(e) {  // 声明异步函数sendRandomVideo
-    logger.info(`收到随机视频请求`);
-
-    // 先发送收到消息
-    await this.e.reply("收到！开始获取萝莉视频 请稍等...", true);
-
-    try {
-      const apiUrl = 'http://api.yujn.cn/api/luoli.php?type=video';
-      const response = await fetch(apiUrl);  // 发起请求获取视频数据
-
-      if (!response.ok) {
-        throw new Error(`请求失败，状态码: ${response.status}`);
-      }
-
-      const arrayBuffer = await response.arrayBuffer();  // 将响应解析为ArrayBuffer格式
-      const videoBuffer = Buffer.from(arrayBuffer);  // 将ArrayBuffer转换为Buffer格式
-
-      // 发送视频消息
-      await this.e.reply(segment.video(videoBuffer), true);
-    } catch (error) {
-      logger.error(`获取萝莉视频时出错：${error}`);
-      await this.e.reply("获取萝莉视频失败，请稍后重试。", true);  // 发送失败消息
-    }
-  }
-  
-  /*来点甜妹*/
-  async tianmei(e) {  // 声明异步函数sendRandomVideo
-    logger.info(`收到随机视频请求`);
-
-    // 先发送收到消息
-    await this.e.reply("收到！开始获取甜妹视频 请稍等...", true);
-
-    try {
-      const apiUrl = 'http://api.yujn.cn/api/tianmei.php?type=video';
-      const response = await fetch(apiUrl);  // 发起请求获取视频数据
-
-      if (!response.ok) {
-        throw new Error(`请求失败，状态码: ${response.status}`);
-      }
-
-      const arrayBuffer = await response.arrayBuffer();  // 将响应解析为ArrayBuffer格式
-      const videoBuffer = Buffer.from(arrayBuffer);  // 将ArrayBuffer转换为Buffer格式
-
-      // 发送视频消息
-      await this.e.reply(segment.video(videoBuffer), true);
-    } catch (error) {
-      logger.error(`获取甜妹视频时出错：${error}`);
-      await this.e.reply("获取甜妹视频失败，请稍后重试。", true);  // 发送失败消息
-    }
-  }
-  
-  /*来点欲梦*/
-  async yumeng(e) {  // 声明异步函数sendRandomVideo
-    logger.info(`收到随机视频请求`);
-
-    // 先发送收到消息
-    await this.e.reply("收到！开始获取“你的欲梦”视频 请稍等...", true);
-
-    try {
-      const apiUrl = 'http://api.yujn.cn/api/ndym.php?type=video';
-      const response = await fetch(apiUrl);  // 发起请求获取视频数据
-
-      if (!response.ok) {
-        throw new Error(`请求失败，状态码: ${response.status}`);
-      }
-
-      const arrayBuffer = await response.arrayBuffer();  // 将响应解析为ArrayBuffer格式
-      const videoBuffer = Buffer.from(arrayBuffer);  // 将ArrayBuffer转换为Buffer格式
-
-      // 发送视频消息
-      await this.e.reply(segment.video(videoBuffer), true);
-    } catch (error) {
-      logger.error(`获取“你的欲梦”视频时出错：${error}`);
-      await this.e.reply("获取“你的欲梦”视频失败，请稍后重试。", true);  // 发送失败消息
-    }
-  }
-  
-  /*来点黑丝*/
-  async heisi(e) {  // 声明异步函数sendRandomVideo
-    logger.info(`收到随机视频请求`);
-
-    // 先发送收到消息
-    await this.e.reply("收到！开始获取黑丝视频 请稍等...", true);
-
-    try {
-      const apiUrl = 'http://api.yujn.cn/api/heisis.php?type=video';
-      const response = await fetch(apiUrl);  // 发起请求获取视频数据
-
-      if (!response.ok) {
-        throw new Error(`请求失败，状态码: ${response.status}`);
-      }
-
-      const arrayBuffer = await response.arrayBuffer();  // 将响应解析为ArrayBuffer格式
-      const videoBuffer = Buffer.from(arrayBuffer);  // 将ArrayBuffer转换为Buffer格式
-
-      // 发送视频消息
-      await this.e.reply(segment.video(videoBuffer), true);
-    } catch (error) {
-      logger.error(`获取黑丝视频时出错：${error}`);
-      await this.e.reply("获取黑丝视频失败，请稍后重试。", true);  // 发送失败消息
-    }
-  }
-  
-  /*来点白丝*/
-  async baisi(e) {  // 声明异步函数sendRandomVideo
-    logger.info(`收到随机视频请求`);
-
-    // 先发送收到消息
-    await this.e.reply("收到！开始获取白丝视频 请稍等...", true);
-
-    try {
-      const apiUrl = 'http://api.yujn.cn/api/baisis.php?type=video';
-      const response = await fetch(apiUrl);  // 发起请求获取视频数据
-
-      if (!response.ok) {
-        throw new Error(`请求失败，状态码: ${response.status}`);
-      }
-
-      const arrayBuffer = await response.arrayBuffer();  // 将响应解析为ArrayBuffer格式
-      const videoBuffer = Buffer.from(arrayBuffer);  // 将ArrayBuffer转换为Buffer格式
-
-      // 发送视频消息
-      await this.e.reply(segment.video(videoBuffer), true);
-    } catch (error) {
-      logger.error(`获取白丝视频时出错：${error}`);
-      await this.e.reply("获取白丝视频失败，请稍后重试。", true);  // 发送失败消息
+      logger.error(`获取视频pro时出错：${error}`);
+      await this.e.reply("获取视频pro失败，请稍后重试。", true);
     }
   }
 }

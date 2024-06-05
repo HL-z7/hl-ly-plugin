@@ -31,6 +31,10 @@ export class example extends plugin {
   async dggz (e) {
     logger.info('[HL-LY-Plugin]')
     let msg = "输入以下完整名称即可触发\n"+
+    "【图文表情合成列表】\n"+
+    "hs举牌内容1 内容2 内容3（需要空格）\n"+
+    "H喜报+内容\n"+
+    "H悲报+内容\n"+
     "【图片列表】\n"+
     "H随机三次元\n"+
     "随机柴郡\n"+

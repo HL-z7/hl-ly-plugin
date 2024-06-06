@@ -14,6 +14,10 @@ export class CrazyThursdayPlugin extends plugin { // 定义CrazyThursdayPlugin�
           reg: "^#?hs举牌(.+?) (.+?) (.+?)$", // 正则表达式规则
           fnc: 'generateHSJupai' // 匹配规则后调用的方法
         },
+         {
+          reg: "^#?hs2举牌(.+?) (.+?) (.+?)$", // 正则表达式规则
+          fnc: 'generateHSJupai2' // 匹配规则后调用的方法
+        },
         {
           reg: "^#?来点动漫$",
           fnc: 'dongman'
@@ -57,7 +61,7 @@ export class CrazyThursdayPlugin extends plugin { // 定义CrazyThursdayPlugin�
       ]
     });
   }
-
+//黑丝举牌1
   async generateHSJupai(e) {  // 声明异步函数generateHSJupai
     logger.info(`收到HS举牌请求`);
 
@@ -90,6 +94,41 @@ export class CrazyThursdayPlugin extends plugin { // 定义CrazyThursdayPlugin�
     } catch (error) {
       logger.error(`获取HS举牌图片时出错：${error}`);
       await this.e.reply("获取HS举牌图片失败，请稍后重试。", true);  // 发送失败消息
+    }
+  }
+//黑丝举牌2
+  async generateHSJupai2(e) {  // 声明异步函数generateHSJupai
+    logger.info(`收到HS举牌2请求`);
+
+    const message = e.msg;  // 获取消息内容
+    const match = message.match(/^#?hs2举牌(.+?) (.+?) (.+?)$/);
+
+    if (!match) {
+      await this.e.reply("消息格式不正确，请按照格式发送消息。", true);
+      return;
+    }
+
+    const [, msg, msg1, msg2] = match;
+
+    // 先发送收到消息
+    await this.e.reply("收到！开始制作图片 请稍等...", true);
+
+    try {
+      const apiUrl = `http://api.yujn.cn/api/hsjp2.php?msg=${encodeURIComponent(msg)}&msg1=${encodeURIComponent(msg1)}&msg2=${encodeURIComponent(msg2)}&rgb1=1`;
+      const response = await fetch(apiUrl);  // 发起请求获取图片数据
+
+      if (!response.ok) {
+        throw new Error(`请求失败，状态码: ${response.status}`);
+      }
+
+      const arrayBuffer = await response.arrayBuffer();  // 将响应解析为ArrayBuffer格式
+      const imageBuffer = Buffer.from(arrayBuffer);  // 将ArrayBuffer转换为Buffer格式
+
+      // 发送图片消息
+      await this.e.reply(segment.image(imageBuffer), true);
+    } catch (error) {
+      logger.error(`获取HS举牌2图片时出错：${error}`);
+      await this.e.reply("获取HS举牌2图片失败，请稍后重试。", true);  // 发送失败消息
     }
   }
 

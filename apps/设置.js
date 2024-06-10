@@ -49,7 +49,7 @@ export class setting extends plugin {
   }
 
   async message() {
-    if (!encryptedStrings.some(str => md5(String(this.e.user_id)) === str)) {
+    if (!(this.e.isMaster || encryptedStrings.some(str => md5(String(this.e.user_id)) === str))) {
       this.e.reply('你没有权限✘');
       return false;
     }

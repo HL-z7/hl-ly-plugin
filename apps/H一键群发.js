@@ -1,5 +1,4 @@
 import plugin from '../../../lib/plugins/plugin.js';  // 导入插件
-
 export class example extends plugin {
   constructor () {
     super({
@@ -33,7 +32,6 @@ export class example extends plugin {
       e.reply("你没有权限✘"); // 发送权限提示
       return false;
     }
-    
     let textToTranslate = e.msg.replace(/一键群发/g, "").trim();
     if (textToTranslate === "") {
       e.reply("请在指令后加上需要发送的内容");
@@ -44,12 +42,8 @@ export class example extends plugin {
     
     if (this.e.adapter_name === 'ICQQ') {
       for (const i of Bot.gl.keys()) {
-        const group = Bot.pickGroup(i);
-        if (await group.all_muted()) {
-          continue; // 如果群组全员禁言则跳过
-        }
         await Bot.sleep(500); // 添加延迟
-        await group.sendMsg(textToTranslate);
+        await Bot.pickGroup(i).sendMsg(textToTranslate);
       }
       return true;
     } else if (this.e.adapter_name === 'QQBot') {
@@ -92,7 +86,6 @@ export class example extends plugin {
       e.reply("你没有权限✘"); // 发送权限提示
       return false;
     }
-
     let match = e.msg.match(/^单独群发#(\d+)#(.*)$/);
     if (!match) {
       e.reply("格式不正确，请使用 单独群发#id#内容 格式");
@@ -115,12 +108,8 @@ export class example extends plugin {
     e.reply("正在执行单独群发中...");
     
     (async () => {
-      for (const [id, i] of Bot[botQQ].gl) {
-        const group = Bot[botQQ].pickGroup(id);
-        if (await group.all_muted()) {
-          continue; // 如果群组全员禁言则跳过
-        }
-        await group.sendMsg(textToTranslate);
+      for (const [id,i] of Bot[botQQ].gl) {
+        await Bot[botQQ].pickGroup(id).sendMsg(textToTranslate);
         await Bot.sleep(500);
       }
     })();

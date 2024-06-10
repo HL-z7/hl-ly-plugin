@@ -90,7 +90,7 @@ export class diaotu extends plugin {
   
   // 随机三次元
   async scy (e) {
-    await this.reply(segment.image('https://api.vvhan.com/api/girl'))
+    await this.reply(segment.image('http://dsyai.club/api/youhuotu.php'))
     return true // 返回true 阻挡消息不再往下
   }
 // 真寻

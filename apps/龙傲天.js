@@ -26,7 +26,7 @@ export class example extends plugin {
    segment.image('https://img.kookapp.cn/attachments/2024-06/12/o7yCTAm4Zj0fk0fk.jpeg'),
    segment.image('https://img.kookapp.cn/attachments/2024-06/12/bk3aiTtEHU06k06k.jpeg'),
 	]
-    e.reply(msg,true,{ at: true })
+    e.reply(msg,true)
 	return true
   }
 }

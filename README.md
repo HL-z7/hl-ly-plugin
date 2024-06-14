@@ -1,9 +1,6 @@
 
-<p align="center">
-  <a href="https://gitee.com/fox-glaze/hl-ly-plugin/">
-  <img src="./resources/Ztb/ZY.png" width="100%" height="100%" alt="useless-plugin">
-  </a>
-</p>
+## 不兼容Miao-Yunzai-v4  
+- 如已安装请立即卸载！
 
 
 <div align="center">

@@ -1,6 +1,6 @@
 import plugin from '../../../lib/plugins/plugin.js'; // 导入插件
 /* 作者：HL 插件名hl-ly-plugin 仓库链接https://gitee.com/fox-glaze/hl-ly-plugin  API接口均来自网络*/
-
+import { segment } from 'oicq';
 export class CrazyThursdayPlugin extends plugin { // 定义CrazyThursdayPlugin类并继承plugin类
   constructor() { // 构造函数
     super({ // 调用父类构造函数

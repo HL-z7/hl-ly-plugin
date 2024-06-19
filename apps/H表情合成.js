@@ -68,6 +68,14 @@ export class Example extends plugin {
                     fnc: 'paolu'
                 },
                 {
+                    reg: '^听不懂(.*)$',
+                    fnc: 'ting'
+                },
+                {
+                    reg: '^受害人(.*)$',
+                    fnc: 'shouhai'
+                },
+                {
                     reg: '^咸鱼(.*)$',
                     fnc: 'xianyu'
                 },
@@ -190,6 +198,30 @@ export class Example extends plugin {
 
         if (e.message[1]?.type === 'at') {
             await e.reply(segment.image(`https://api.mhimg.cn/api/biaoqingbao_paolu?qq=${e.message[1].qq}`));
+        }
+        return true;
+    }
+
+ /** 听不懂 */
+    async ting(e) {
+        if (!Config.getConfig('set', 'sz')['biaoqing']) {
+            return false;
+        }
+
+        if (e.message[1]?.type === 'at') {
+            await e.reply(segment.image(`https://api.mhimg.cn/api/biaoqingbao_smd?qq=${e.message[1].qq}`));
+        }
+        return true;
+    }
+
+ /** 受害人 */
+    async shouhai(e) {
+        if (!Config.getConfig('set', 'sz')['biaoqing']) {
+            return false;
+        }
+
+        if (e.message[1]?.type === 'at') {
+            await e.reply(segment.image(`https://api.mhimg.cn/api/biaoqingbao_shouhairen?qq=${e.message[1].qq}`));
         }
         return true;
     }

@@ -64,6 +64,10 @@ export class Example extends plugin {
                     fnc: 'nipa'
                 },
                 {
+                    reg: '^跑路(.*)$',
+                    fnc: 'paolu'
+                },
+                {
                     reg: '^咸鱼(.*)$',
                     fnc: 'xianyu'
                 },
@@ -174,6 +178,18 @@ export class Example extends plugin {
 
         if (e.message[1]?.type === 'at') {
             await e.reply(segment.image(`http://api.yujn.cn/api/gun.php?qq=${e.message[1].qq}`));
+        }
+        return true;
+    }
+
+ /** 跑路 */
+    async paolu(e) {
+        if (!Config.getConfig('set', 'sz')['biaoqing']) {
+            return false;
+        }
+
+        if (e.message[1]?.type === 'at') {
+            await e.reply(segment.image(`https://api.mhimg.cn/api/biaoqingbao_paolu?qq=${e.message[1].qq}`));
         }
         return true;
     }

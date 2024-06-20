@@ -1,7 +1,7 @@
 import plugin from '../../../lib/plugins/plugin.js'
 /* 作者：HL 插件名hl-ly-plugin 仓库链接https://gitee.com/fox-glaze/hl-ly-plugin*/
 /*因不想自己手写，所以写了个简单的随机魔法*/
-export class example extends plugin {
+export class tags extends plugin {
   constructor () {
     super({
       name: '来点魔法',

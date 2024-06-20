@@ -1,7 +1,7 @@
 import plugin from '../../../lib/plugins/plugin.js'
 import fs from 'node:fs'
 
-export class example extends plugin {
+export class cjdl extends plugin {
   constructor () {
     super({
       name: '菜就多练',

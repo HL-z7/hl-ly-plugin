@@ -2,7 +2,7 @@
 import plugin from '../../../lib/plugins/plugin.js'
 import fs from "fs";
 
-export class example extends plugin {
+export class yylx extends plugin {
     constructor () {
       super({
         name: '遥遥领先',

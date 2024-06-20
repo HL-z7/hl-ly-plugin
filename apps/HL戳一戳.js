@@ -1,5 +1,5 @@
 import { Config} from '../components/index.js'
-export class example extends plugin {
+export class HLcyc extends plugin {
   constructor () {
     super({
       /** 功能名称 */

@@ -14,7 +14,7 @@ const __dirname = path.resolve(); // 获取当前文件运行的目录
 
 
 
-export class example extends plugin {
+export class zmcyctrss extends plugin {
 
   constructor () {
 

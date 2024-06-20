@@ -1,4 +1,4 @@
-export class example extends plugin {
+export class lat extends plugin {
   constructor () {
     super({
       name: '龙傲天',

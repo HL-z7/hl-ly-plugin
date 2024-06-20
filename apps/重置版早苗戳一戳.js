@@ -6,7 +6,7 @@ import path from "path"; // Node.js的处理文件路径的模块
 const __dirname = path.resolve(); // 获取当前文件运行的目录
 
 
-export class example extends plugin {
+export class zmcyc extends plugin {
   constructor () {
     super({
       /** 功能名称 */

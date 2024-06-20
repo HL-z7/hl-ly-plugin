@@ -2,7 +2,7 @@ import plugin from '../../../lib/plugins/plugin.js';
 
 import { createHash } from 'crypto';
 
-export class example extends plugin {
+export class jyj extends plugin {
   constructor() {
     super({
       name: '解与加',

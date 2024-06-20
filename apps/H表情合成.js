@@ -5,7 +5,7 @@ const help = 'https://tu.zhilaohu.icu/file/2c17d54f1ef8e6293cffc.png';
 // 此插件是由千佬写的，我只是借鉴（cv）请支持原作者 谢谢！
 // 原作者：千奈千祁(QQ:2632139786) https://gitee.com/qiannqq
 
-export class Example extends plugin {
+export class bqhc extends plugin {
     constructor() {
         super({
             /** 功能名称 */

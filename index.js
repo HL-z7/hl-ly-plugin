@@ -1,26 +1,33 @@
-import fs from 'node:fs';
+import fs from 'fs/promises';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-
+let AppName = 'hl-ly-plugin'
+const moduleCache = new Map();
+let loadedFilesCount = 0;
+let loadedFilesCounterr = 0;
+let apps;
 if (!global.segment) {
   const oicq = await import("oicq");
   global.segment = oicq.segment;
 }
 
-const apps = {};
 global.hl_plugin = {
   apps: apps,
   puppeteer: null
 };
 
-// 输出提示
+const startTime = Date.now();
 logger.mark('---------HL---------');
 logger.debug('\x1b[36m崽崽正在加载中...\x1b[0m');
 logger.info('\x1b[33mHL插件初始化~\x1b[0m');
+const { apps: loadedApps, loadedFilesCount: count, loadedFilesCounterr: counterr } = await appsOut({ AppsName: 'apps' });
+const endTime = Date.now();
+apps = loadedApps;
+loadedFilesCount = count;
+loadedFilesCounterr = counterr;
 logger.mark(`
-            。 。 。 。
-            ≧======≤
-           |＿|＿|＿|     
+  。 。 。 。
+  ≧======≤
+ |＿|＿|＿|     
 　　　　　／＞　　   フ
 　　　　　|    _　_  l
 　 　　　／\` ミ ꒳  ノ
@@ -32,26 +39,68 @@ logger.mark(`
 　＼二つ
 `);
 logger.mark('---------HL---------');
+logger.info(logger.yellow(`[${AppName}] 共加载了 ${loadedFilesCount} 个插件文件 ${loadedFilesCounterr} 个失败 耗时 ${endTime - startTime} 毫秒`))
+export { apps };
 
-// 获取当前文件的目录名
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+async function appsOut({ AppsName }) {
+  const firstName = path.join('plugins', AppName);
+  const filepath = path.resolve(firstName, AppsName);
+  let loadedFilesCount = 0;
+  let loadedFilesCounterr = 0;
+  const apps = {};
 
-// 加载插件
-const pluginsDir = path.resolve(__dirname, './apps');
-const files = fs.readdirSync(pluginsDir).filter(file => file.endsWith('.js'));
+  try {
+    const jsFilePaths = await traverseDirectory(filepath);
+    await Promise.all(jsFilePaths.map(async (item) => {
+      try {
+        const allExport = moduleCache.has(item)
+          ? moduleCache.get(item)
+          : await import(`file://${item}`);
 
-const ret = await Promise.allSettled(files.map(file => import(`file://${path.join(pluginsDir, file)}`)));
-
-for (let i = 0; i < files.length; i++) {
-  const name = files[i].replace('.js', '');
-
-  if (ret[i].status !== 'fulfilled') {
-    logger.error(`载入插件错误：${name}`);
-    logger.error(ret[i].reason);
-    continue;
+        for (const key of Object.keys(allExport)) {
+          if (typeof allExport[key] === 'function' && allExport[key].prototype) {
+            let className = key;
+            if (Object.prototype.hasOwnProperty.call(apps, className)) {
+              let counter = 1;
+              while (Object.prototype.hasOwnProperty.call(apps, `${className}_${counter}`)) {
+                counter++;
+              }
+              className = `${className}_${counter}`;
+              logger.info(`[${AppName}] 同名导出 ${key} 重命名为 ${className} : ${item}`);
+            }
+            apps[className] = allExport[key];
+            loadedFilesCount++;
+          }
+        }
+      } catch (error) {
+        logger.error(`[${AppName}] 加载 ${item} 文件失败: ${error.message}`);
+        loadedFilesCounterr++;
+      }
+    }));
+  } catch (error) {
+    logger.error('读取插件目录失败:', error.message);
   }
-  apps[name] = ret[i].value[Object.keys(ret[i].value)[0]];
+
+  return { apps, loadedFilesCount, loadedFilesCounterr };
 }
 
-export { apps };
+
+async function traverseDirectory(dir) {
+  try {
+    const files = await fs.readdir(dir, { withFileTypes: true });
+    const jsFiles = [];
+    for await (const file of files) {
+      const pathname = path.join(dir, file.name);
+      if (file.isDirectory()) {
+        jsFiles.push(...await traverseDirectory(pathname));
+      } else if (file.name.endsWith('.js')) {
+        jsFiles.push(pathname);
+      }
+    }
+    return jsFiles;
+  } catch (error) {
+    logger.error('读取插件目录失败:', error.message);
+    return [];
+  }
+}
+

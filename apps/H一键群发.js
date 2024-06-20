@@ -1,5 +1,5 @@
 import plugin from '../../../lib/plugins/plugin.js';  // 导入插件
-export class example extends plugin {
+export class yjqf extends plugin {
   constructor () {
     super({
       name: 'HL一键群发',

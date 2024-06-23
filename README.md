@@ -94,7 +94,7 @@ Yunzai-Bot/plugins/hl-ly-plugin/config
 
 > [QQ频道](https://pd.qq.com/s/8aaab6ipw)
 
-> [QQ群](https://qm.qq.com/q/zZDbAHejvM)
+> [QQ群](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=L3w-2Smyr3CEE5TXy4AnrnNfc3RKWqHU&authKey=XslcQ%2B3mdS7WKusKE2YM69CeW0s4qYnzGKe01894K3DSqTEgSx1tCwt4RQOq19ny&noverify=0&group_code=158649349)
 
 # QQ机器人
 <p align="center">

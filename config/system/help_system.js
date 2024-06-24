@@ -13,7 +13,7 @@ export const helpCfg = {
   theme: 'all',
   themeExclude: ['default'],
   style: {
-    fontColor: '#428E7C',
+    fontColor: '#140D02',
     descColor: '#000000',
     contBgColor: 'rgba(255, 255, 255, 0)',
     contBgBlur: 4,

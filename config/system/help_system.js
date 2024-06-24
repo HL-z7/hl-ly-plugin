@@ -6,18 +6,22 @@
 * */
 
 export const helpCfg = {
-  "themeSet": true,
-  "title": "HL帮助",
-  "subTitle": "Yunzai-Bot & hl-ly-Plugin",
-  "colWidth": 265,
-  "theme": [
-    "default"
-  ],
-  "themeExclude": [
-    "default"
-  ],
-  "bgBlur": true,
-  "colCount": 3
+  title: 'HL帮助',
+  subTitle: 'Yunzai-Bot & hl-ly-Plugin',
+  columnCount: 3,
+  colWidth: 265,
+  theme: 'all',
+  themeExclude: ['default'],
+  style: {
+    fontColor: '#428E7C',
+    descColor: '#000000',
+    contBgColor: 'rgba(255, 255, 255, 0)',
+    contBgBlur: 4,
+    headerBgColor: 'rgba(137, 185, 213, 0.25)',
+    rowBgColor1: 'rgba(255, 255, 255, 0)',
+    rowBgColor2: 'rgba(0, 0, 0, 0)'
+  },
+  bgBlur: false
 }
 export const helpList = [
   {

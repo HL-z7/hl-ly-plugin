@@ -6,15 +6,17 @@
 * */
 
 export const helpCfg = {
-  "themeSet": false,
+  "themeSet": true,
   "title": "HL帮助",
   "subTitle": "Yunzai-Bot & hl-ly-Plugin",
   "colWidth": 265,
-  "theme": "all",
+  "theme": [
+    "default"
+  ],
   "themeExclude": [
     "default"
   ],
-  "bgBlur": false,
+  "bgBlur": true,
   "colCount": 3
 }
 export const helpList = [
@@ -22,7 +24,7 @@ export const helpList = [
     "group": "实用功能",
     "list": [
       {
-        "icon": 71,
+        "icon": 21,
         "title": "米游社手动过验证码",
         "desc": "当遇到原神验证码时触发"
       },
@@ -32,7 +34,7 @@ export const helpList = [
         "desc": "使用方法：在天气后面加上名称即可，注意不要加#"
       },
       {
-        "icon": 75,
+        "icon": 2,
         "title": "H翻+要翻译的内容",
         "desc": "翻译指定文本"
       }
@@ -47,17 +49,17 @@ export const helpList = [
         "desc": "发送疯狂星期四文案"
       },
       {
-        "icon": 71,
+        "icon": 39,
         "title": "emoji戳一戳",
         "desc": "戳所有人都可触发并发送emoji"
       },
       {
-        "icon": 74,
+        "icon": 31,
         "title": "重制版早苗戳一戳",
         "desc": "戳一戳机器人即可触发（仅喵崽可用）"
       },
       {
-        "icon": 82,
+        "icon": 36,
         "title": "H随机语音",
         "desc": "随机发送一条奇怪的语音～"
       },
@@ -67,19 +69,19 @@ export const helpList = [
         "desc": "怎么感觉有好强烈的杂音"
       },
       {
-        "icon": 51,
+        "icon": 7,
         "title": "菜就多练",
         "desc": "菜就多练！输不起就别玩！"
       },
       {
-        "icon": 84,
-        "title": "厵神/真寻",
-        "desc": "发送其一即可触发"
+        "icon": 37,
+        "title": "厵神",
+        "desc": "OP"
       },
-       {
-        "icon": 71,
+      {
+        "icon": 33,
         "title": "H表情帮助",
-        "desc": "表情合成"
+        "desc": "表情合成（第一次使用请发送#HL设置表情合成开启）"
       }
     ]
   },
@@ -88,34 +90,29 @@ export const helpList = [
     "desc": "需要绑定cookie",
     "list": [
       {
-        "icon": 6,
-        "title": "hl列表",
-        "desc": "可立即查看所有图片列表"
-      },
-      {
-        "icon": 86,
+        "icon": 34,
         "title": "#H随机二次元",
         "desc": "发送随机一张二次元图片"
       },
       {
-        "icon": 78,
+        "icon": 34,
         "title": "H随机猫猫",
         "desc": "发送随机猫猫图片"
       },
       {
-        "icon": 88,
+        "icon": 30,
         "title": "H随机三次元",
         "desc": "发送随机三次元图片"
       },
       {
-        "icon": 79,
+        "icon": 10,
         "title": "H随机甘城",
         "desc": "发送随机甘城图片"
       },
       {
         "icon": 27,
         "title": "H心脏弱",
-        "desc": "随机发送心脏弱系列漫画（需要开代理才能访问api）"
+        "desc": "随机发送心脏弱系列漫画"
       },
       {
         "icon": 35,
@@ -123,12 +120,12 @@ export const helpList = [
         "desc": "与随机二次元截然不同啦～"
       },
       {
-        "icon": 57,
+        "icon": 23,
         "title": "美女/小姐姐",
-        "desc": "字面意思【温馨提 示：少看点，小心虚了]"
+        "desc": "字面意思"
       },
       {
-        "icon": 90,
+        "icon": 24,
         "title": "随机柴郡",
         "desc": "随机发送柴郡猫猫图！"
       },
@@ -138,7 +135,7 @@ export const helpList = [
         "desc": "随机发送jojo奇妙冒险的弔图！"
       },
       {
-        "icon": 60,
+        "icon": 10,
         "title": "Hcos",
         "desc": "发送随机cos图"
       }
@@ -148,27 +145,27 @@ export const helpList = [
     "group": "各种加密/解密",
     "list": [
       {
-        "icon": 51,
+        "icon": 13,
         "title": "Hurl加密/解密+内容",
         "desc": "加密/解密url"
       },
       {
-        "icon": 51,
+        "icon": 29,
         "title": "Hbase64加密/解密+内容",
         "desc": "base64加密/解密"
       },
       {
-        "icon": 51,
+        "icon": 3,
         "title": "Hb64加密/解密+内容",
         "desc": "base64加密/解密Hex 16进制 不编码"
       },
       {
-        "icon": 51,
+        "icon": 21,
         "title": "Hmd5加密+内容",
         "desc": "MD5加密"
       },
       {
-        "icon": 51,
+        "icon": 6,
         "title": "HUnicode加密/解密+内容",
         "desc": "Unicode加密/解密"
       }
@@ -178,27 +175,27 @@ export const helpList = [
     "group": "JOJO！/快捷群管/快捷发送",
     "list": [
       {
-        "icon": 91,
+        "icon": 37,
         "title": "时间暂停",
         "desc": "全体禁言（不用加#）"
       },
       {
-        "icon": 91,
+        "icon": 24,
         "title": "时间开始流动",
         "desc": "全体解禁（记住不用加# ！）"
       },
       {
-        "icon": 51,
+        "icon": 19,
         "title": "禁+艾特被禁人+禁言时间",
         "desc": "列如“禁@xxx114514”那么该用户将会被禁言30天（因为QQ上限30天）"
       },
       {
-        "icon": 94,
+        "icon": 25,
         "title": "一键群发+内容",
         "desc": "详细功能可以发送【H群发帮助】查看"
       },
       {
-        "icon": 49,
+        "icon": 36,
         "title": "解+被禁人",
         "desc": "解除被指定被禁言的用户"
       },
@@ -218,7 +215,12 @@ export const helpList = [
         "desc": "状态"
       },
       {
-        "icon": 72,
+        "icon": 3,
+        "title": "HL列表",
+        "desc": "查看其他功能帮助"
+      },
+      {
+        "icon": 15,
         "title": "HL统计",
         "desc": "统计本地图库数量（目前还未更新其他）"
       }
@@ -230,7 +232,7 @@ export const helpList = [
     "list": [
       {
         "icon": 29,
-        "title": "hl设置/HL设置",
+        "title": "#HL设置",
         "desc": "设置HL插件"
       },
       {

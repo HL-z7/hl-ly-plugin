@@ -1,11 +1,11 @@
 export const style = {
   // 主文字颜色
-  fontColor: '#77B2DF',
+  fontColor: '#140D02',
   // 主文字阴影： 横向距离 垂直距离 阴影大小 阴影颜色
   // fontShadow: '0px 0px 1px rgba(6, 21, 31, .9)',
   fontShadow: 'none',
   // 描述文字颜色
-  descColor: '#9CDCC8',
+  descColor: '#000000',
 
   /* 面板整体底色，会叠加在标题栏及帮助行之下，方便整体帮助有一个基础底色
   *  若无需此项可将rgba最后一位置为0即为完全透明

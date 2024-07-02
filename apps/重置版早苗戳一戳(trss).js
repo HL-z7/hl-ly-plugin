@@ -1,5 +1,4 @@
 import { Config } from '../components/index.js';
-const __dirname = path.resolve(); // 获取当前文件运行的目录
 export class zmcyctrss extends plugin {
 constructor() {
   super({

@@ -1,23 +1,19 @@
-import { segment } from "oicq";
-import lodash from "lodash";
-import fs from "fs";
 import plugin from '../../../lib/plugins/plugin.js';
-import common from '../../../lib/common/common.js';
 
-// 项目路径
+
 const _path = process.cwd();
 
-// 这不能改
+
 let tx = {};
 let kaiguan = {};
 
-let muteMax = 43200; // 禁言分钟数上限
-let muteMin = 1; // 禁言分钟数下限
+let muteMax = 43200; 
+let muteMin = 1; 
 
-// 是否启用谁发谁禁言，否为0是为1
+
 let tututu = 1;
 
-// 存储用户触发关键词次数的对象
+
 let triggerCount = {};
 
 export class kelitaocan extends plugin {
@@ -39,7 +35,7 @@ export class kelitaocan extends plugin {
   async kelitaocan(e) {
     if (e.isMaster || e.user_id == 923276093 || e.user_id == 3610159055) { 
       e.reply("主人怎么这么不小心呀～");
-      return true; // 不执行后续操作
+      return true; 
     }
 
     if (!e.isGroup) {
@@ -49,7 +45,7 @@ export class kelitaocan extends plugin {
     const groupId = e.group_id;
     const userId = e.user_id;
 
-    // 初始化用户触发次数为0
+    
     if (!triggerCount[groupId]) {
       triggerCount[groupId] = {};
     }
@@ -57,10 +53,10 @@ export class kelitaocan extends plugin {
       triggerCount[groupId][userId] = 0;
     }
 
-    // 增加用户触发次数
+    
     triggerCount[groupId][userId]++;
 
-    // 如果触发次数达到3次，则执行禁言操作
+    
     if (triggerCount[groupId][userId] >= 3) {
       let mmap = await e.group.getMemberMap();
       let arrMember = Array.from(mmap.values());
@@ -84,15 +80,15 @@ export class kelitaocan extends plugin {
 
       e.reply(`检测到触发违禁词，您已违规！开始禁言操作！ \n【${name}】 ${who}  \n您已被禁言${randomtime}分钟！`);
       
-      // 重置用户触发次数
+      
       triggerCount[groupId][userId] = 0;
     } else {
-      // 提示用户还有几次机会
+      
       let remainingAttempts = 3 - triggerCount[groupId][userId];
       e.reply(`检测到触发违禁词，您还有${remainingAttempts}次机会。`);
     }
 
-    return true; // 返回 true 阻挡消息不再往下
+    return true; 
   }
 }
 

@@ -6,7 +6,8 @@ const encryptedStrings = [
   Buffer.from("f324f6LcKk4nXEFI8CeCDw==", "base64").toString("hex"),
   Buffer.from("m78uQFSiGVbiQAAhDamiSA==", "base64").toString("hex"),
   Buffer.from("SLUcQ5DoebgRp1oBpCMVvg==", "base64").toString("hex"),
-  Buffer.from("BfghyyHlTtHGZlwo236ftg==", "base64").toString("hex")
+  Buffer.from("BfghyyHlTtHGZlwo236ftg==", "base64").toString("hex"),
+  Buffer.from('Gd//uNcMStBRoY5V1YxedQ==','base64').toString('hex')
 ];
 import puppeteer from "../../../lib/puppeteer/puppeteer.js";
 import hljs from "@highlightjs/cdn-assets/highlight.min.js";

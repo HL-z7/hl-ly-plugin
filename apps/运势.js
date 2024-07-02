@@ -1,5 +1,3 @@
-import plugin from '../../../lib/plugins/plugin.js';
-
 export class jrys extends plugin {
   constructor() {
     super({
@@ -18,18 +16,12 @@ export class jrys extends plugin {
 
   async yunshi() {
     const url = 'https://image-api.api.luoyutianyang.icu/api/yunshi';
-
     try {
-      // 发起 HTTP 请求获取页面内容
       const response = await fetch(url);
       if (!response.ok) {
         throw new Error('API 访问错误');
       }
-
-      // 提取文本内容
       const content = await response.text();
-
-      // 输出今日运势
       await this.e.reply(`今日${content}`);
     } catch (error) {
       console.error(error);

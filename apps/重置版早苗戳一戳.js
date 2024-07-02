@@ -1,11 +1,5 @@
-import { Config} from '../components/index.js'
-import plugin from '../../../lib/plugins/plugin.js' //改为独立js需要删除一个../
-import cfg from '../../../lib/config/config.js'
-import fs from "fs"; // Node.js的文件系统模块
-import path from "path"; // Node.js的处理文件路径的模块
-const __dirname = path.resolve(); // 获取当前文件运行的目录
-
-
+import cfg from '../../../lib/config/config.js';
+import { Config } from '../components/index.js';
 export class zmcyc extends plugin {
   constructor () {
     super({

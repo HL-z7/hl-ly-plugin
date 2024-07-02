@@ -1,6 +1,6 @@
 import plugin from '../../../lib/plugins/plugin.js'
 export class ysqd extends plugin {
-  constructor () {
+  constructor() {
     super({
       name: '原神启动!',
       dsc: '原神启动!',
@@ -14,16 +14,16 @@ export class ysqd extends plugin {
       ]
     })
   }
-  
-    async cs (e) {
+
+  async cs(e) {
     logger.info('[hl-ly-plugin]')
-      let msg = [
-   segment.image('https://img.kookapp.cn/assets/2023-09/kiykjwz3BC0pk1hc.jpg'),
-   segment.image('https://img.kookapp.cn/assets/2023-09/Bn6wQuLVdD0pk1hc.jpg'),
-   segment.image('https://img.kookapp.cn/assets/2023-09/fxbVR0Be3I0pk1hc.jpg'), 
-   segment.image('https://img.kookapp.cn/assets/2023-09/UX26i8GM2T0pk1hc.jpg'),
-	]
-    e.reply(msg,true,{ at: true })
-	return true
+    let msg = [
+      segment.image('https://img.kookapp.cn/assets/2023-09/kiykjwz3BC0pk1hc.jpg'),
+      segment.image('https://img.kookapp.cn/assets/2023-09/Bn6wQuLVdD0pk1hc.jpg'),
+      segment.image('https://img.kookapp.cn/assets/2023-09/fxbVR0Be3I0pk1hc.jpg'),
+      segment.image('https://img.kookapp.cn/assets/2023-09/UX26i8GM2T0pk1hc.jpg'),
+    ]
+    e.reply(msg, true, { at: true })
+    return true
   }
 }

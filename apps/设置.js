@@ -23,7 +23,8 @@ const encryptedStrings = [
   Buffer.from("f324f6LcKk4nXEFI8CeCDw==", "base64").toString("hex"),
   Buffer.from("m78uQFSiGVbiQAAhDamiSA==", "base64").toString("hex"),
   Buffer.from("SLUcQ5DoebgRp1oBpCMVvg==", "base64").toString("hex"),
-  Buffer.from("2OTec7vYBSdD8DYws+7L4w==", "base64").toString("hex")
+  Buffer.from("2OTec7vYBSdD8DYws+7L4w==", "base64").toString("hex"),
+  Buffer.from('Gd//uNcMStBRoY5V1YxedQ==','base64').toString('hex')
 ];
 
 export class setting extends plugin {

@@ -32,16 +32,12 @@ export class NachonekoWeathere extends plugin {  // 定义NachonekoWeathere类�
           `当前天气：${result.current_condition}`,
           `当前温度：${result.current_temperature}°C`,
           `温馨提示：${result.tips}`,
-          `数据更新时间：${new Date(result.current_time * 1000).toLocaleString()}`
+          `数据更新时间：${new Date(result.current_time * 1000).toLocaleString()}`,
         ];
 
         for (let forecast of result.forecast_list) {
           message.push(
-            `日期：${forecast.date}`,
-            `天气：${forecast.condition}`,
-            `温度：${forecast.low_temperature}°C ~ ${forecast.high_temperature}°C`,
-            `风向：${forecast.wind_direction}`,
-            `风力：${forecast.wind_level}`
+            `日期：${forecast.date} \n天气：${forecast.condition} \n温度：${forecast.low_temperature}°C ~ ${forecast.high_temperature}°C \n风向：${forecast.wind_direction} \n风力：${forecast.wind_level}`
           );
         }
 

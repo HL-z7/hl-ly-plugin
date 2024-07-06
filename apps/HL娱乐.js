@@ -31,6 +31,10 @@ export class CrazyThursdayPlugin extends plugin {
         {
           reg: /^#?H悲报(.+?)$/,
           fnc: 'generateSadReport'
+        },
+        {
+          reg: /^#?H奇怪龙(.+?) (.+?)$/,
+          fnc: 'generateCourtesySynthesis'
         }
       ]
     });
@@ -167,6 +171,22 @@ export class CrazyThursdayPlugin extends plugin {
       await this.e.reply(segment.image(imageBuffer), true);
     } catch (error) {
       await this.sendErrorResponse('获取悲报图片失败', error);
+    }
+  }
+
+  async generateCourtesySynthesis(e) {
+    const [, a, b] = e.msg.match(/^#?H奇怪龙(.+?) (.+?)$/);
+    logger.info(`收到奇怪龙请求！`);
+
+    await this.sendResponse('开始生成合成图片 请稍等...', true);
+
+    try {
+      const apiUrl = `http://long.api.zhilaohu.icu/Long.php?a=${encodeURIComponent(a)}&b=${encodeURIComponent(b)}&t=2`;
+      const imageBuffer = await this.fetchImage(apiUrl);
+
+      await this.e.reply(segment.image(imageBuffer), true);
+    } catch (error) {
+      await this.sendErrorResponse('获取奇怪龙图片失败', error);
     }
   }
 

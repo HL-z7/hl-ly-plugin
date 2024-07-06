@@ -9,7 +9,7 @@ export class NachonekoWeathere extends plugin {  // 定义NachonekoWeathere类�
       priority: 5000,  // 本JS插件优先级 数字越低越高喔
       rule: [  // 规则数组
         {
-          reg: "^(H|h)天气(.*)$",  // 正则表达式规则
+          reg: "^#?(H|h)天气(.*)$",  // 正则表达式规则
           fnc: 'Nachoneko'  // 匹配规则后调用的方法
         }
       ]
@@ -17,7 +17,7 @@ export class NachonekoWeathere extends plugin {  // 定义NachonekoWeathere类�
   }
 
   async Nachoneko(e) {  // 声明异步函数Nachoneko
-    let city = e.msg.replace(/(H|h)天气/g, "").trim();  // 提取城市名称并去除首尾空格
+    let city = e.msg.replace(/#?(H|h)天气/g, "").trim();  // 提取城市名称并去除首尾空格
     logger.info(`HL天气收到查询: ${city}`);  // 输出日志信息
     let apiUrl = `https://api.oioweb.cn/api/weather/weather?city_name=${encodeURIComponent(city)}`;  // 构造请求url
 

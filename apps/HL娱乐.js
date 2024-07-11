@@ -13,7 +13,7 @@ export class CrazyThursdayPlugin extends plugin {
           fnc: 'generateHSJupai'
         },
         {
-          reg: /^#?hs2举牌 (.+?) (.+?) (.+?)$/,
+          reg: /^#?hs2举牌(.+?) (.+?) (.+?)$/,
           fnc: 'generateHS2Jupai'
         },
         {
@@ -35,6 +35,10 @@ export class CrazyThursdayPlugin extends plugin {
         {
           reg: /^#?H奇怪龙(.+?) (.+?)$/,
           fnc: 'generateCourtesySynthesis'
+        },
+        {
+          reg: /^#?H鸭鸭举牌(.+?) ?(\d?)$/,
+          fnc: 'generateYayaJupai'
         }
       ]
     });
@@ -44,7 +48,7 @@ export class CrazyThursdayPlugin extends plugin {
     const apiUrl = 'http://api.yujn.cn/api/hsjp1.php?';
     logger.info('收到HS举牌请求');
 
-    const [, msg, msg1, msg2] = e.msg.match(/^#?hs举牌 (.+?) (.+?) (.+?)$/);
+    const [, msg, msg1, msg2] = e.msg.match(/^#?hs举牌(.+?) (.+?) (.+?)$/);
 
     await this.sendResponse('开始制作图片 请稍等...', true);
 
@@ -187,6 +191,23 @@ export class CrazyThursdayPlugin extends plugin {
       await this.e.reply(segment.image(imageBuffer), true);
     } catch (error) {
       await this.sendErrorResponse('获取奇怪龙图片失败', error);
+    }
+  }
+
+  async generateYayaJupai(e) {
+    const [, msg, type] = e.msg.match(/^#?H鸭鸭举牌(.+?) ?(\d?)$/);
+    const imgType = type ? parseInt(type, 10) : 1;
+    logger.info('收到H鸭鸭举牌请求');
+
+    await this.sendResponse('开始制作图片 请稍等...', true);
+
+    try {
+      const apiUrl = `https://yaya.api.zhilaohu.icu/yaya.php?a=${encodeURIComponent(msg)}&b=&t=2&img=${imgType}`;
+      const imageBuffer = await this.fetchImage(apiUrl);
+
+      await this.e.reply(segment.image(imageBuffer), true);
+    } catch (error) {
+      await this.sendErrorResponse('获取H鸭鸭举牌图片失败', error);
     }
   }
 

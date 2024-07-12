@@ -91,12 +91,12 @@ export class diaotu extends plugin {
     return true // 返回true 阻挡消息不再往下
   }
   // 宇佐纪
-  async gc (e) {
+  async yzj (e) {
     await this.reply(segment.image('https://api.zhilaohu.icu/yzj'))
     return true // 返回true 阻挡消息不再往下
   }
   // miku/初音
-  async gc (e) {
+  async cy (e) {
     await this.reply(segment.image('https://api.zhilaohu.icu/miku'))
     return true // 返回true 阻挡消息不再往下
   }

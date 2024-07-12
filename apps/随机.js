@@ -49,6 +49,14 @@ export class diaotu extends plugin {
           fnc: 'zx'
         },
         {
+          reg: '^H?随机宇佐纪$',
+          fnc: 'yzj'
+        },
+        {
+          reg: '^H?随机(miku|初音)$',
+          fnc: 'cy'
+        },
+        {
           reg: '^H随机甘城$',
           fnc: 'gc'
         },
@@ -79,18 +87,28 @@ export class diaotu extends plugin {
   }
 // 甘城
   async gc (e) {
-    await this.reply(segment.image('https://mm.zhilaohu.icu/'))
+    await this.reply(segment.image('https://api.zhilaohu.icu/mm'))
+    return true // 返回true 阻挡消息不再往下
+  }
+  // 宇佐纪
+  async gc (e) {
+    await this.reply(segment.image('https://api.zhilaohu.icu/yzj'))
+    return true // 返回true 阻挡消息不再往下
+  }
+  // miku/初音
+  async gc (e) {
+    await this.reply(segment.image('https://api.zhilaohu.icu/miku'))
     return true // 返回true 阻挡消息不再往下
   }
 //jojo
  async jojo (e) {
-    await this.reply(segment.image('https://jo.zhilaohu.icu/'))
+    await this.reply(segment.image('https://api.zhilaohu.icu/jojo'))
     return true // 返回true 阻挡消息不再往下
   }
   
   // 随机三次元
   async scy (e) {
-    await this.reply(segment.image('http://dsyai.club/api/youhuotu.php'))
+    await this.reply(segment.image('https://api.lolimi.cn/API/tup/xjj.php'))
     return true // 返回true 阻挡消息不再往下
   }
 // 真寻
@@ -119,13 +137,13 @@ export class diaotu extends plugin {
 
 // 心脏弱
   async xzr (e) {
-    await this.reply(segment.image('https://xin.zhilaohu.icu/'))
+    await this.reply(segment.image('http://api.zhilaohu.icu/xin'))
     return true // 返回true 阻挡消息不再往下
   }
   
   // 随机cos
   async cos (e) {
-    await this.reply(segment.image('https://api.lolimi.cn/API/tup/xjj.php'))
+    await this.reply(segment.image('http://api.zhilaohu.icu/cos'))
     return true // 返回true 阻挡消息不再往下
   }
 }

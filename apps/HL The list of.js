@@ -48,6 +48,8 @@ export class HLlist extends plugin {
     "H随机猫猫\n"+
     "H随机原神\n"+
     "随机jo\n"+
+    "H随机初音/miku\n"+
+    "H随机宇佐纪\n"+
     "H随机cos/Hcos\n"+
     "H随机壁纸\n"+
     "H随机甘城\n"+

@@ -26,7 +26,7 @@ let Theme = {
     let name = lodash.sample(ret)
     let resPath = '{{_res_path}}/help/theme/'
     return {
-      main: 'http://mm.zhilaohu.icu',
+      main: 'http://api.zhilaohu.icu/mm',
       bg: fs.existsSync(`${dirPath}${name}/bg.jpg`) ? `${resPath}${name}/bg.jpg` : `${resPath}default/bg.jpg`,
       style: (await Data.importModule(`resources/help/theme/${name}/config.js`)).style || {}
     }

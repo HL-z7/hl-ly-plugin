@@ -152,7 +152,7 @@ export class NewState extends plugin {
         "botVersion": botVersion
       }) 
     }
-    let url = "https://mm.zhilaohu.icu/"
+    let url = "https://api.zhilaohu.icu/mm"
 
 
 

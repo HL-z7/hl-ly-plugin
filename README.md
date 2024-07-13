@@ -102,6 +102,11 @@ Yunzai-Bot/plugins/hl-ly-plugin/config
    <a href="https://afdian.net/a/zhilaohu"><img src="./resources/Ztb/zzi.png" width="100%" /></a>
 </p>
 
+# 适用于QQbot的HL游戏插件
+<p align="center">
+   <a href="https://gitee.com/fox-glaze/hl-qqbot-plugin/"><img src="./resources/Ztb/zzi.png" width="100%" /></a>
+</p>
+
 # 📞联系方式
 ↓↓↓
 

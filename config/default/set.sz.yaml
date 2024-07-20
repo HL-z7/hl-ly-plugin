@@ -1,8 +1,23 @@
+# emoji戳一戳
 emocyc: false
+
+# 早苗戳一戳
 zmcyc: false
+
+# 米游社手动签到
 mysqd: false
+
+# 戳一戳主人
 zrcyc: false
+
+# 早苗戳一戳TRSS
 cyczm: false
+
+# 进群通知
 jinqun: false
+
+# 表情合成
 biaoqing: false
+
+# 图库统计
 hhh: false

@@ -70,11 +70,7 @@ export function supportGuoba() {
                     label: '表情合成',
                     component: 'Switch',
                 },
-                {
-                    field: 'hhh',
-                    label: '图库统计',
-                    component: 'Switch',
-                },
+                
                 
             ],
             async getConfigData() {

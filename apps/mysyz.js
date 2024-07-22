@@ -77,7 +77,7 @@ export class bbsVerification extends plugin {
 
 
   async mysReqErrHandler (e, options, reject) {
-      if(!Config.getConfig('set','sz')['mysqd']){return false}
+     
 
     let { mysApi, type, data } = options
 
@@ -180,6 +180,7 @@ export class bbsVerification extends plugin {
 
 
   async sign (e) {
+       if(!Config.getConfig('set','sz')['mysqd']){return false}
 
     let msg = e.msg.replace(/＃|#|原神|星铁|米游社|签到/g, '')
 

@@ -112,10 +112,6 @@ Yunzai-Bot/plugins/hl-ly-plugin/config
 
 > [点击进入HL官网](https://zhilaohu.icu/)
 
-> [Discord](https://discord.gg/a88njEYT)
-
-> [Telegram](https://t.me/zhilaohu114514)
-
 > [KOOK](https://kook.top/pQaB47)
 
 > [QQ频道](https://pd.qq.com/s/8aaab6ipw)

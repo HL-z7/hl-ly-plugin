@@ -17,6 +17,10 @@ export class HLlist extends plugin {
           fnc: 'hbz'
         },
         {
+          reg: '^poke(\\d*)$',
+          fnc: 'hbz'
+        },
+        {
           reg: '^(#HL插件|#hl插件)$',
           fnc: 'hl'
         }
@@ -41,6 +45,7 @@ export class HLlist extends plugin {
     "H表情帮助（第一次安装本插件请先将表情合成打开‘#HL设置表情合成开启’）\n"+
     "【娱乐列表】\n"+
     "发送‘Htag帮助’即可查看功能\n"+
+     "发送‘poke’即可,可加数字1~6发送对应表情\n"+
     "【图片列表】\n"+
     "H随机三次元\n"+
     "随机柴郡\n"+
@@ -82,4 +87,16 @@ async hbz (e) {
     e.reply(`https://gitee.com/fox-glaze/hl-ly-plugin`)
     return true
   }
+/*手动emoji*/
+async emocyc (e) {
+    logger.info('[HL戳一戳]');
+
+    let match = e.msg.match(/^poke(\d*)$/);
+    let i = match[1] ? parseInt(match[1], 10) : Math.floor(Math.random() * 6) + 1;
+   
+    Array.from({ length: 1 }, () => this.reply({ type: 'poke', id: i }));
+
+    return true
+  }
+
 }

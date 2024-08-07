@@ -17,7 +17,7 @@ export class HLlist extends plugin {
           fnc: 'hbz'
         },
         {
-          reg: '^poke(\\d*)$',
+          reg: /^poke([1-6])$/,
           fnc: 'emocyc'
         },
         {
@@ -88,12 +88,13 @@ async hbz (e) {
     return true
   }
 /*手动emoji*/
-async emocyc (e) {
+async emocyc(e) {
     logger.info('[HL戳一戳]');
-    let match = e.msg.match(/^poke(\d*)$/);
-    let i = (match[1] && (Number(match[1])>6||Number(match[1])<=0))? parseInt(match[1], 10) : Math.floor(Math.random() * 6) + 1;
-    this.reply({ type: 'poke', id: i }));
-    return true
-  }
+    let match = e.msg.match(/^poke([1-6])$/);
+    let i = parseInt(match[1], 10);
+    this.reply({ type: 'poke', id: i });
+    return true;
+}
+
 
 }

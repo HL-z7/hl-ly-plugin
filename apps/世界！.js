@@ -2,20 +2,16 @@ import plugin from '../../../lib/plugins/plugin.js';
 import { segment } from "oicq";
 import path from 'path';
 import md5 from "md5";
+
 import fetch from "node-fetch";
 import moment from "moment";
 import cfg from '../../../lib/config/config.js';
 import { Config } from '../components/index.js';
-
-const encryptedStrings = [
-  Buffer.from("2Kx7sLdhQdNKXvQJDxwXMw==", "base64").toString("hex"),
-  Buffer.from("f324f6LcKk4nXEFI8CeCDw==", "base64").toString("hex"),
-  Buffer.from("m78uQFSiGVbiQAAhDamiSA==", "base64").toString("hex"),
-  Buffer.from("cbrFUrt19DirWLCxrG/CBA==", "base64").toString("hex")
-];
+import { isVIP } from '../model/vipCheck.js';
 const __dirname = path.resolve();
 const time = 24; // 设置at数据保留多久, 默认24小时后清除, 单位:小时
-
+const encryptedStrings = [
+Buffer.from("2Kx7sLdhQdNKXvQJDxwXMw==", "base64").toString("hex")];
 Bot.on("message.group", async (e) => {
   let isAt = false;
   let imgUrls = [];
@@ -126,7 +122,7 @@ export class CombinedPlugin extends plugin {
    this.reply('人家不是管理员做不到嘛！')
    return true
    }
-    if (!(e.isMaster || encryptedStrings.some(str => md5(String(e.user_id)) === str))) {
+    if (!isVIP(e)) {
       await e.reply('您尚未觉醒替身！');
       return false;
     }
@@ -147,7 +143,7 @@ export class CombinedPlugin extends plugin {
    this.reply('人家不是管理员做不到嘛！')
    return true
    }
-    if (!(e.isMaster || encryptedStrings.some(str => md5(String(e.user_id)) === str))) {
+    if (!isVIP(e)) {
       await e.reply('您尚未觉醒替身！');
       return false;
     }
@@ -173,8 +169,8 @@ export class CombinedPlugin extends plugin {
    this.reply('人家不是管理员做不到嘛！')
    return true
    }
-    if (!(e.isMaster || encryptedStrings.some(str => md5(String(e.user_id)) === str))) {
-      e.reply('你没有权限✘');
+    if (!isVIP(e)) {
+      await e.reply('你没有权限✘');
       return false;
     }
 
@@ -220,8 +216,8 @@ export class CombinedPlugin extends plugin {
    this.reply('人家不是管理员做不到嘛！')
    return true
    }
-    if (!(e.isMaster || encryptedStrings.some(str => md5(String(e.user_id)) === str))) {
-      e.reply("你没有权限✘");
+    if (!isVIP(e)) {
+      await e.reply('你没有权限✘');
       return false;
     }
 
@@ -379,8 +375,8 @@ if (
     }
 
     // 权限判断
-    if (!(e.isMaster || encryptedStrings.some(str => md5(String(e.user_id)) === str))) {
-      this.reply('你没有权限');
+   if (!isVIP(e)) {
+      await e.reply('你没有权限✘');
       return false;
     }
 

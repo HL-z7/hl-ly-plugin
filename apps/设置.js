@@ -1,6 +1,7 @@
 import plugin from '../../../lib/plugins/plugin.js'
 import lodash from 'lodash'
 import { Config, Common } from '../components/index.js'
+import { isVIP } from '../model/vipCheck.js';
 import loader from '../../../lib/plugins/loader.js'
 import moment from 'moment'
 import md5 from 'md5';
@@ -18,14 +19,6 @@ const cfgMap = {
 
 const CfgReg = `^#?HL(插件)?设置\\s*(${lodash.keys(cfgMap).join('|')})?\\s*(.*)$`;
 
-const encryptedStrings = [
-  Buffer.from("2Kx7sLdhQdNKXvQJDxwXMw==", "base64").toString("hex"),
-  Buffer.from("f324f6LcKk4nXEFI8CeCDw==", "base64").toString("hex"),
-  Buffer.from("m78uQFSiGVbiQAAhDamiSA==", "base64").toString("hex"),
-  Buffer.from("SLUcQ5DoebgRp1oBpCMVvg==", "base64").toString("hex"),
-  Buffer.from("2OTec7vYBSdD8DYws+7L4w==", "base64").toString("hex"),
-  Buffer.from('Gd//uNcMStBRoY5V1YxedQ==','base64').toString('hex')
-];
 
 export class setting extends plugin {
   constructor() {
@@ -50,8 +43,8 @@ export class setting extends plugin {
   }
 
   async message() {
-    if (!(this.e.isMaster || encryptedStrings.some(str => md5(String(this.e.user_id)) === str))) {
-      this.e.reply('你没有权限✘');
+    if (!isVIP(e)) {
+      await e.reply('你没有权限✘');
       return false;
     }
     return await set(this.e);

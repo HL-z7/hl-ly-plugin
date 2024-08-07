@@ -4,14 +4,7 @@ import { Config } from '../components/index.js';
 import fs from "fs";
 import path from "path";
 import YAML from 'yaml';
-
-const encryptedStrings = [
-  Buffer.from("2Kx7sLdhQdNKXvQJDxwXMw==", "base64").toString("hex"),
-  Buffer.from("f324f6LcKk4nXEFI8CeCDw==", "base64").toString("hex"),
-  Buffer.from("m78uQFSiGVbiQAAhDamiSA==", "base64").toString("hex"),
-  Buffer.from("SLUcQ5DoebgRp1oBpCMVvg==", "base64").toString("hex"),
-  Buffer.from("2OTec7vYBSdD8DYws+7L4w==", "base64").toString("hex")
-];
+import encryptedStrings from '../../hl-ly-plugin/resources/admin/imgs/hashUsers.js';
 
 Bot.GetMaster = async (e) => {
     if (!Config.getConfig('set', 'sz')['hhh']) {

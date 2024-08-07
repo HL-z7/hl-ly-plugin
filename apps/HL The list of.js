@@ -17,7 +17,7 @@ export class HLlist extends plugin {
           fnc: 'hbz'
         },
         {
-          reg: /^poke(\d+)$/,
+          reg: /^poke(\d+)?$/,
           fnc: 'emocyc'
         },
         {

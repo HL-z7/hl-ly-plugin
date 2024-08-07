@@ -18,7 +18,7 @@ export class HLlist extends plugin {
         },
         {
           reg: '^poke(\\d*)$',
-          fnc: 'hbz'
+          fnc: 'emocyc'
         },
         {
           reg: '^(#HL插件|#hl插件)$',

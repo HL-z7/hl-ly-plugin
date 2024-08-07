@@ -90,12 +90,9 @@ async hbz (e) {
 /*手动emoji*/
 async emocyc (e) {
     logger.info('[HL戳一戳]');
-
     let match = e.msg.match(/^poke(\d*)$/);
-    let i = match[1] ? parseInt(match[1], 10) : Math.floor(Math.random() * 6) + 1;
-   
-    Array.from({ length: 1 }, () => this.reply({ type: 'poke', id: i }));
-
+    let i = (match[1] && (Number(match[1])>6||Number(match[1])<=0))? parseInt(match[1], 10) : Math.floor(Math.random() * 6) + 1;
+    this.reply({ type: 'poke', id: i }));
     return true
   }
 

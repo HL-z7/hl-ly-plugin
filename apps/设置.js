@@ -41,12 +41,12 @@ export class setting extends plugin {
     });
   }
 
-  async message() {
-    if (!isVIP(this.e)) {  
-      await this.e.reply('你没有权限✘');
+  async message(e) { 
+    if (!isVIP(e)) {  
+      await e.reply('你没有权限✘');
       return false;
     }
-    return await set(this.e);  
+    return await set(e);
   }
 }
 

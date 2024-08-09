@@ -118,14 +118,16 @@ export class CombinedPlugin extends plugin {
   }
 
   async pauseTime(e) {
-      if (!e.group.is_admin){
-   this.reply('人家不是管理员做不到嘛！')
-   return true
-   }
+      
     if (!isVIP(e)) {
       await e.reply('您尚未觉醒替身！');
       return false;
     }
+
+if (!e.group.is_admin){
+   this.reply('人家不是管理员做不到嘛！')
+   return true
+   }
 
     logger.info('[HL]');
 
@@ -139,14 +141,16 @@ export class CombinedPlugin extends plugin {
   }
 
   async resumeTime(e) {
-      if (!e.group.is_admin){
-   this.reply('人家不是管理员做不到嘛！')
-   return true
-   }
+      
     if (!isVIP(e)) {
       await e.reply('您尚未觉醒替身！');
       return false;
     }
+
+if (!e.group.is_admin){
+   this.reply('人家不是管理员做不到嘛！')
+   return true
+   }
 
     logger.info('[HL]');
 
@@ -165,14 +169,13 @@ export class CombinedPlugin extends plugin {
   }
 
   async jinyan(e) {
-      if (!e.group.is_admin){
+      
+     if (!isVIP(e)) return false
+
+if (!e.group.is_admin){
    this.reply('人家不是管理员做不到嘛！')
    return true
    }
-    if (!isVIP(e)) {
-      await e.reply('你没有权限✘');
-      return false;
-    }
 
     let msg = e.msg;
     let qq = null;
@@ -212,14 +215,13 @@ export class CombinedPlugin extends plugin {
   }
 
   async jiejin(e) {
-      if (!e.group.is_admin){
+      
+    if (!isVIP(e)) return false
+
+if (!e.group.is_admin){
    this.reply('人家不是管理员做不到嘛！')
    return true
    }
-    if (!isVIP(e)) {
-      await e.reply('你没有权限✘');
-      return false;
-    }
 
     let msg = e.msg;
     let qq = null;

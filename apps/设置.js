@@ -42,11 +42,11 @@ export class setting extends plugin {
   }
 
   async message() {
-    if (!isVIP(this.e)) {  // 修改: 使用 this.e 而不是 e
+    if (!isVIP(this.e)) {  
       await this.e.reply('你没有权限✘');
       return false;
     }
-    return await set(this.e);  // 修改: 使用 this.e 而不是 e
+    return await set(this.e);  
   }
 }
 

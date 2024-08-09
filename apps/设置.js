@@ -19,7 +19,6 @@ const cfgMap = {
 
 const CfgReg = `^#?HL(插件)?设置\\s*(${lodash.keys(cfgMap).join('|')})?\\s*(.*)$`;
 
-
 export class setting extends plugin {
   constructor() {
     super({
@@ -43,11 +42,11 @@ export class setting extends plugin {
   }
 
   async message() {
-    if (!isVIP(e)) {
-      await e.reply('你没有权限✘');
+    if (!isVIP(this.e)) {  // 修改: 使用 this.e 而不是 e
+      await this.e.reply('你没有权限✘');
       return false;
     }
-    return await set(this.e);
+    return await set(this.e);  // 修改: 使用 this.e 而不是 e
   }
 }
 

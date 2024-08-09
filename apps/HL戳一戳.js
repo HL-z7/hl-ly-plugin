@@ -23,6 +23,7 @@ export class HLcyc extends plugin {
   
   async emocyc (e) {
 if(!Config.getConfig('set','sz')['emocyc']){return false}
+if(e.target_id !== e.self_id)return false;
     logger.info('[HL戳一戳]');
 
     // 生成随机数

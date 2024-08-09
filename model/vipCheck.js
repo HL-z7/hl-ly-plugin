@@ -2,7 +2,7 @@ import cfg from '../../../lib/config/config.js';
 import md5 from 'md5';
 import encryptedStrings from '../../hl-ly-plugin/resources/admin/imgs/hashUsers.js';
 
-let allowMaster = true;
+let allowMaster = false;
 
 export function setAllowMaster(value) {
   allowMaster = value;

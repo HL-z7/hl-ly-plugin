@@ -14,6 +14,7 @@
 
 ## 不兼容Miao-Yunzai-v4  
 - 如已安装请立即卸载！
+## 不适配Miao-Yunzai
 - HL插件是按照TRSS-Yunzai写的，所以推荐用TRSS崽安装本插件，由于没有多余的资源去测试Miao-Yunzai是否适配且不会报错，所以如有报错请卸载 谢谢！
 
 
@@ -39,7 +40,7 @@
 
 # 🚀安装教程
 仅Gitee在Yzai根目录执行即可
-
+- 注意！本插件不适配Miao-Yunzai 如您是Miao-Yunzai请不要安装！
 
 ``` bash
 git clone --depth 1 https://gitee.com/fox-glaze/hl-ly-plugin ./plugins/hl-ly-plugin

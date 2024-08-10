@@ -276,7 +276,7 @@ async evalSync(cmd, func, isValue, isAsync) {
     return rets
   }
 
-  async DirectMsg() {
+  async DirectMsg(e) {
    if (!isVIP(e)) return false
     if (this.e.at && !this.e.atme) return false
     const ret = await this.evalSync(this.e.msg.replace(/^hmp?/, ""), false, true)

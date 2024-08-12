@@ -9,7 +9,7 @@ export class CrazyThursdayPlugin extends plugin {  // 定义CrazyThursdayPlugin�
       priority: 5000,  // 本JS插件优先级 数字越低越高
       rule: [  // 规则数组
         {
-          reg: "^#?随机(kfc|KFC|疯狂星期四)d$",  // 正则表达式规则
+          reg: "^#?随机(kfc|KFC|疯狂星期四)$",  // 正则表达式规则
           fnc: 'generateCrazyThursday'  // 匹配规则后调用的方法
         }
       ]

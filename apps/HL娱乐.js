@@ -206,7 +206,7 @@ export class CrazyThursdayPlugin extends plugin {
     await this.sendResponse('开始制作图片 请稍等...', true);
 
     try {
-      const apiUrl = `https://yaya.api.zhilaohu.icu/yaya.php?a=${encodeURIComponent(msg)}&b=&t=2&img=${imgType}`;
+      const apiUrl = `http://yaya.api.zhilaohu.icu/yaya.php?a=${encodeURIComponent(msg)}&b=&t=2&img=${imgType}`;
       const imageBuffer = await this.fetchImage(apiUrl);
 
       await this.e.reply(segment.image(imageBuffer), true);
@@ -223,7 +223,7 @@ export class CrazyThursdayPlugin extends plugin {
     await this.sendResponse('开始制作图片 请稍等...', true);
 
     try {
-      const apiUrl = `https://maoyu.api.zhilaohu.icu/mao.php?a=${encodeURIComponent(msg)}&b=&t=2&img=${imgType}`;
+      const apiUrl = `http://maoyu.api.zhilaohu.icu/mao.php?a=${encodeURIComponent(msg)}&b=&t=2&img=${imgType}`;
       const imageBuffer = await this.fetchImage(apiUrl);
 
       await this.e.reply(segment.image(imageBuffer), true);

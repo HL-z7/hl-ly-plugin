@@ -39,6 +39,10 @@ export class CrazyThursdayPlugin extends plugin {
         {
           reg: /^#?H鸭鸭举牌(.+?) ?(\d?)$/,
           fnc: 'generateYayaJupai'
+        },
+        {
+          reg: /^#?H(猫羽雫|猫羽)举牌(.+?) ?(\d?)$/,
+          fnc: 'maoyujupai'
         }
       ]
     });
@@ -208,6 +212,23 @@ export class CrazyThursdayPlugin extends plugin {
       await this.e.reply(segment.image(imageBuffer), true);
     } catch (error) {
       await this.sendErrorResponse('获取H鸭鸭举牌图片失败', error);
+    }
+  }
+
+  async generateYayaJupai(e) {
+    const [, msg, type] = e.msg.match(/^#?H(猫羽雫|猫羽)举牌(.+?) ?(\d?)$/);
+    const imgType = type ? parseInt(type, 10) : 1;
+    logger.info('收到H猫羽雫举牌请求');
+
+    await this.sendResponse('开始制作图片 请稍等...', true);
+
+    try {
+      const apiUrl = `https://maoyu.api.zhilaohu.icu/mao.php?a=${encodeURIComponent(msg)}&b=&t=2&img=${imgType}`;
+      const imageBuffer = await this.fetchImage(apiUrl);
+
+      await this.e.reply(segment.image(imageBuffer), true);
+    } catch (error) {
+      await this.sendErrorResponse('获取H猫羽雫举牌图片失败', error);
     }
   }
 

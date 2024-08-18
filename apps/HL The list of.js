@@ -4,7 +4,7 @@ export class HLlist extends plugin {
   constructor () {
     super({
       name: 'HL列表',
-      dsc: '^hl列表$',
+      dsc: 'HL',
       event: 'message',
       priority: -114514,
       rule: [
@@ -37,11 +37,12 @@ export class HLlist extends plugin {
     let msg = "输入以下完整名称即可触发\n"+
     "【图文/表情合成列表】\n"+
     "hs举牌内容1 内容2 内容3（需要空格）\n"+
-     "hs2举牌内容1 内容2 内容3（需要空格）\n"+
+    "hs2举牌内容1 内容2 内容3（需要空格）\n"+
     "H喜报+内容\n"+
     "H悲报+内容\n"+
     "H奇怪龙+内容(空格)+内容\n"+
     "H鸭鸭举牌+内容（后面可以空格后输入类型，类型有1,2）\n"+
+    "H猫羽雫/H猫羽举牌+内容（后面可以空格后输入类型，类型有1,2）\n"+
     "H表情帮助（第一次安装本插件请先将表情合成打开‘#HL设置表情合成开启’）\n"+
     "【娱乐列表】\n"+
     "发送‘Htag帮助’即可查看功能\n"+

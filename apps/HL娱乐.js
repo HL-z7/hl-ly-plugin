@@ -215,7 +215,7 @@ export class CrazyThursdayPlugin extends plugin {
     }
   }
 
-  async generateYayaJupai(e) {
+  async maoyujupai(e) {
     const [, msg, type] = e.msg.match(/^#?H(猫羽雫|猫羽)举牌(.+?) ?(\d?)$/);
     const imgType = type ? parseInt(type, 10) : 1;
     logger.info('收到H猫羽雫举牌请求');

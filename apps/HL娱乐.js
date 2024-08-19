@@ -41,7 +41,7 @@ export class CrazyThursdayPlugin extends plugin {
           fnc: 'generateYayaJupai'
         },
         {
-          reg: /^#?H(猫羽雫|猫羽)举牌(.+?) ?(\d?)$/,
+          reg: /^#?H猫羽举牌(.+?) ?(\d?)$/,
           fnc: 'generateMaoYuJupai'
         }
       ]
@@ -216,7 +216,7 @@ export class CrazyThursdayPlugin extends plugin {
   }
 
   async generateMaoYuJupai(e) {
-    const [, msg, type] = e.msg.match(/^#?H(猫羽雫|猫羽)举牌(.+?) ?(\d?)$/);
+    const [, msg, type] = e.msg.match(/^#?H猫羽举牌(.+?) ?(\d?)$/);
     const imgType = type ? parseInt(type, 10) : 1;
     logger.info('收到H猫羽举牌请求');
 

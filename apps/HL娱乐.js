@@ -42,7 +42,7 @@ export class CrazyThursdayPlugin extends plugin {
         },
         {
           reg: /^#?H(猫羽雫|猫羽)举牌(.+?) ?(\d?)$/,
-          fnc: 'maoyujupai'
+          fnc: 'generateMaoYuJupai'
         }
       ]
     });
@@ -215,10 +215,10 @@ export class CrazyThursdayPlugin extends plugin {
     }
   }
 
-  async maoyujupai(e) {
-    const [, msg, type] = e.msg.match(/^#?H(猫羽雫|猫羽)举牌(.+?) ?(\d?)$/);
+  async generateMaoYuJupai(e) {
+    const [, msg, type] = e.msg.match(/^#?H猫羽举牌(.+?) ?(\d?)$/);
     const imgType = type ? parseInt(type, 10) : 1;
-    logger.info('收到H猫羽雫举牌请求');
+    logger.info('收到H猫羽举牌请求');
 
     await this.sendResponse('开始制作图片 请稍等...', true);
 
@@ -228,10 +228,11 @@ export class CrazyThursdayPlugin extends plugin {
 
       await this.e.reply(segment.image(imageBuffer), true);
     } catch (error) {
-      await this.sendErrorResponse('获取H猫羽雫举牌图片失败', error);
+      await this.sendErrorResponse('获取H猫羽举牌图片失败', error);
     }
   }
 
+  // 公共方法
   async fetchImage(url) {
     const response = await fetch(url);
 
@@ -250,27 +251,6 @@ export class CrazyThursdayPlugin extends plugin {
 
     const arrayBuffer = await response.arrayBuffer();
     return Buffer.from(arrayBuffer);
-  }
-
-  async fetchVideo(url) {
-    const response = await fetch(url);
-
-    if (!response.ok) {
-      throw new Error(`请求失败，状态码: ${response.status}`);
-    }
-
-    const arrayBuffer = await response.arrayBuffer();
-    return Buffer.from(arrayBuffer);
-  }
-
-  async fetchVideos(url, num) {
-    const videoPromises = [];
-
-    for (let i = 0; i < num; i++) {
-      videoPromises.push(this.fetchVideo(url));
-    }
-
-    return Promise.all(videoPromises);
   }
 
   async sendResponse(message, isPrivate) {

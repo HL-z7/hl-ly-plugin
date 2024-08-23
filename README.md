@@ -100,7 +100,7 @@ Yunzai-Bot/plugins/hl-ly-plugin/config
 
 # 💬爱发电
 <p align="center">
-   <a href="https://afdian.net/a/zhilaohu"><img src="./resources/Ztb/zzi.png" width="100%" /></a>
+   <a href="https://afdian.com/a/zhilaohu"><img src="./resources/Ztb/zzi.png" width="100%" /></a>
 </p>
 
 # 适用于QQbot的HL游戏插件

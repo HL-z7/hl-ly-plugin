@@ -14,7 +14,7 @@ export class RandomX extends plugin {
       priority: 5000,
       rule: [
         {
-          reg: "^H随机二次元$",
+          reg: "^#?H随机二次元$",
           fnc: 'Xx',
         },
         // 添加新的规则

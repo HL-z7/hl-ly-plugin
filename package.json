@@ -1,15 +1,17 @@
 {
-    "name": "hl-ly-plugin",
-    "version": "1.0.0",
-    "author": "狐璃",
-    "type": "module",
-    "dependencies": {
-        "node-fetch": "^3.3.1",
-        "yaml": "^2.2.1",
-        "ws": "^8.16.0",
-        "@highlightjs/cdn-assets": "^11.9.0",
-        "archiver": "^7.0.1",
-        "ansi_up": "^6.0.2",
-         "systeminformation":"^5.21.18"
-    }
-}
+        "name": "hl-ly-plugin",
+        "version": "1.0.1",
+        "author": "狐璃",
+        "type": "module",
+        "dependencies": {
+            "node-fetch": "^3.3.1",
+            "yaml": "^2.2.1",
+            "ws": "^8.16.0",
+            "@highlightjs/cdn-assets": "^11.9.0",
+            "archiver": "^7.0.1",
+            "ansi_up": "^6.0.2",
+            "gif-frames": "^1.0.1",
+            "sharp": "^0.33.5",
+            "systeminformation":"^5.21.18"
+     }
+} 

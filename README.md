@@ -12,7 +12,7 @@
 
 如果你对具体的查询流程不太了解，可以 ☛[点击这里](https://www.guahao.com/nav)☚ 快速预约正规医院挂号。
 
-## 不兼容Miao-Yunzai-v4  
+## 不兼容Yunzai Next
 - 如已安装请立即卸载！
 ## 不适配Miao-Yunzai
 - HL插件是按照TRSS-Yunzai写的，所以推荐用TRSS崽安装本插件，由于没有多余的资源去测试Miao-Yunzai是否适配且不会报错，所以如有报错请卸载 谢谢！

@@ -1,4 +1,3 @@
-import cfg from '../../../lib/config/config.js';
 import md5 from 'md5';
 import encryptedStrings from '../../hl-ly-plugin/resources/admin/imgs/hashUsers.js';
 
@@ -9,18 +8,12 @@ export function setAllowMaster(value) {
 }
 
 export function isVIP(e) {
-  let isMaster = false;
-  if (allowMaster) {
-    for (let botId in cfg.master) {
-      if (cfg.master[botId].includes(String(e.user_id))) {
-        isMaster = true;
-        break;
-      }
-    }
+  
+  if (allowMaster && e.isMaster) {
+    return true;
   }
-
-  if (!(isMaster || encryptedStrings.some(str => md5(String(e.user_id)) === str))) {
-    return false;
+  if (encryptedStrings.some(str => md5(String(e.user_id)) === str)) {
+    return true;
   }
-  return true;
+  return false;
 }

@@ -8,11 +8,11 @@ export class ysqd extends plugin {
       priority: -114514,
       rule: [
         {
-          reg: '龙傲天',
+          reg: '^#?龙傲天$',
           fnc: 'lat'
         },
         {
-          reg: '原神启动',
+          reg: '^#?原神启动$',
           fnc: 'cs'
         }
       ]

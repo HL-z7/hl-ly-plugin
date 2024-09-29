@@ -113,7 +113,7 @@ export class diaotu extends plugin {
   }
 // 真寻
   async zx (e) {
-    await this.reply(segment.image('https://image-api.api.luoyutianyang.icu/api/zhenxun'))
+    await this.reply(segment.image('https://luoyutianyang-api.hf.space/api/zhenxun'))
     return true // 返回true 阻挡消息不再往下
   }
 
@@ -125,13 +125,13 @@ export class diaotu extends plugin {
 
   // 随机柴郡
   async cj (e) {
-    await this.reply(segment.image('https://image-api.api.luoyutianyang.icu/api/chaijun'))
+    await this.reply(segment.image('https://luoyutianyang-api.hf.space/api/chaijun'))
     return true // 返回true 阻挡消息不再往下
   }
 
   // 美女/小姐姐
   async mn (e) {
-    await this.reply(segment.image('https://image-api.api.luoyutianyang.icu/api/meinv'))
+    await this.reply(segment.image('https://luoyutianyang-api.hf.space/api/meinv'))
     return true // 返回true 阻挡消息不再往下
   }
 

@@ -17,6 +17,10 @@ export class HLlist extends plugin {
           fnc: 'hbz'
         },
         {
+          reg: '^遥遥领先$',
+          fnc: '60'
+        },
+        {
           reg: /^poke(\d+)?$/,
           fnc: 'emocyc'
         },
@@ -88,6 +92,14 @@ async hbz (e) {
     e.reply(`https://gitee.com/fox-glaze/hl-ly-plugin`)
     return true
   }
+
+ async 60(e) {
+    logger.info('[hl-ly-plugin]')
+    let url = encodeURI(`https://img.kookapp.cn/attachments/2023-09/14/65027028d1a83.mp3`)
+    await this.e.reply(segment.record(url))
+    return;
+  }
+
 /*手动emoji*/
 async emocyc(e) {
     logger.info('[HL戳一戳]');

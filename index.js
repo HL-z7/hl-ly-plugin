@@ -17,7 +17,7 @@ global.hl_plugin = {
 
 const startTime = Date.now();
 logger.mark('---------HL---------');
-logger.debug('\x1b[36m崽崽正在加载中...\x1b[0m');
+logger.debug('\x1b[36mhl-ly-plugin正在加载中...\x1b[0m');
 logger.info('\x1b[33mHL插件初始化~\x1b[0m');
 const { apps: loadedApps, loadedFilesCount: count, loadedFilesCounterr: counterr } = await appsOut({ AppsName: 'apps' });
 const endTime = Date.now();
@@ -25,9 +25,7 @@ apps = loadedApps;
 loadedFilesCount = count;
 loadedFilesCounterr = counterr;
 logger.mark(`
-  。 。 。 。
-  ≧======≤
- |＿|＿|＿|     
+             _______   
 　　　　　／＞　　   フ
 　　　　　|    _　_  l
 　 　　　／\` ミ ꒳  ノ

@@ -17,6 +17,10 @@ export class diaotu extends plugin {
           fnc: 'cj'
         },
         {
+          reg: '^H(BA|随机BA|随机蔚蓝档案|蔚蓝档案)$',
+          fnc: 'BA'
+        },
+        {
           reg: '^(美女|小姐姐)$',
           fnc: 'mn'
         },
@@ -93,6 +97,11 @@ export class diaotu extends plugin {
   // 宇佐纪
   async yzj (e) {
     await this.reply(segment.image('https://api.zhilaohu.icu/yzj'))
+    return true // 返回true 阻挡消息不再往下
+  }
+   // 蔚蓝档案
+  async BA (e) {
+    await this.reply(segment.image('https://api.zhilaohu.icu/BA'))
     return true // 返回true 阻挡消息不再往下
   }
   // miku/初音

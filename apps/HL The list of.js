@@ -25,6 +25,10 @@ export class HLlist extends plugin {
           fnc: 'emocyc'
         },
         {
+          reg: '^H违禁词帮助$',
+          fnc: 'ban'
+        },
+        {
           reg: '^(#HL插件|#hl插件)$',
           fnc: 'hl'
         }
@@ -87,6 +91,26 @@ async hbz (e) {
     e.reply(msg,true)
     return true
   }
+
+
+async ban (e) {
+    logger.info('[HL-LY-Plugin]')
+    let msg = "【违禁词帮助】\n"+
+    "H违禁词开启/关闭\n"+
+    "H违禁词切换模式1/2\n"+
+    "（1为警告模式|2为直接禁言模式）\n"+
+    "H新增违禁词+要加的违禁词\n"+
+    "H新增模糊违禁词+要加的违禁词\n"+
+    "H删除违禁词+要删的违禁词\n"+
+    "H删除模糊违禁词+要删的违禁词\n"+
+    "H违禁词设置时间+1~43200\n"+
+    "(如果设置的时间为0，所禁言的时间为随机时间)\n"+
+    "H违禁词列表"
+    e.reply(msg,true)
+    return true
+  }
+
+
 
   async hl (e) {
     logger.info('[hl-ly-plugin]')

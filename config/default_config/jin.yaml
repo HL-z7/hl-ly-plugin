@@ -1,0 +1,16 @@
+banWords:
+  default:
+    exact:  # 精准匹配的违禁词
+      - 你妈
+      - cnm
+      - 草你妈
+      - 艹你妈
+    fuzzy:  # 模糊匹配的违禁词
+      - 你妈逼
+      - 草你妈
+groupBanWords: {}  # 每个群组单独配置的违禁词，群号作为key
+mode: 1  # 1: 提示模式, 2: 直接禁言模式
+muteMin: 1   # 最小禁言时间（分钟）
+muteMax: 43200  # 最大禁言时间（分钟）
+triggerCount: {}
+banWordSwitch: false  # 全局违禁词开关

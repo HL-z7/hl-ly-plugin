@@ -96,7 +96,7 @@ async hbz (e) {
 async ban (e) {
     logger.info('[HL-LY-Plugin]')
     let msg = "【违禁词帮助】\n"+
-    "H违禁词开启/关闭\n"+
+    "H违禁词开启/关闭(默认关闭)\n"+
     "H违禁词切换模式1/2\n"+
     "（1为警告模式|2为直接禁言模式）\n"+
     "H新增违禁词+要加的违禁词\n"+

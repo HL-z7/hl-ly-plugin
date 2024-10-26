@@ -2,11 +2,11 @@ import plugin from '../../../lib/plugins/plugin.js';
 import fs from 'fs';
 import yaml from 'js-yaml';
 import path from 'path';
-import fetch from 'node-fetch';
 
 const _path = process.cwd();
 const configPath = path.join(_path, 'plugins/hl-ly-plugin/config/jin.yaml');
 const defaultConfigPath = path.join(_path, 'plugins/hl-ly-plugin/config/default_config/jin.yaml');
+
 
 function loadConfig() {
   try {
@@ -34,7 +34,6 @@ function loadGroupConfig(groupId) {
   return config.groupBanWords[groupId];
 }
 
-
 function saveGroupConfig(groupId, groupConfig) {
   config.groupBanWords[groupId] = groupConfig;
   saveConfig(config);
@@ -47,6 +46,18 @@ function checkPermission(e) {
     return false;
   }
   return true;
+}
+
+function checkBanWords(message, groupConfig, mode) {
+  if (mode === 'exact') {
+    return groupConfig.exact.some(word => {
+      const exactPattern = new RegExp(`(?<!\\S)${word}(?!\\S)`, 'i'); 
+      return exactPattern.test(message);
+    });
+  } else if (mode === 'fuzzy') {
+    return groupConfig.fuzzy.some(word => message.includes(word)); 
+  }
+  return false;
 }
 
 export class kelitaocan extends plugin {
@@ -68,30 +79,36 @@ export class kelitaocan extends plugin {
   async kelitaocan(e) {
     if (!e.isGroup || !e.group.is_admin) return true;
 
-    if (!config.banWordSwitch) return true;  
+    
+    if (!config.banWordSwitch) return true;
 
     const groupId = e.group_id;
     const userId = e.user_id;
     const message = e.msg;
-    const groupConfig = loadGroupConfig(groupId);  
+    const groupConfig = loadGroupConfig(groupId);
 
+    
     if (!config.triggerCount[groupId]) config.triggerCount[groupId] = {};
     if (!config.triggerCount[groupId][userId]) config.triggerCount[groupId][userId] = 0;
 
     const isPrivileged = e.member?.is_owner || e.member?.is_admin || e.isMaster;
 
+    
     if (checkBanWords(message, groupConfig, 'exact') || checkBanWords(message, groupConfig, 'fuzzy')) {
       if (isPrivileged) {
+        
         if (e.member?.is_owner) e.reply("群主大大怎么这么不小心鸭～");
         else if (e.member?.is_admin) e.reply("管理酱怎么这么不小心鸭～");
         else if (e.isMaster) e.reply("主人怎么这么不小心呀～");
       } else {
+        
         config.triggerCount[groupId][userId]++;
         if (config.triggerCount[groupId][userId] >= 3 || config.mode === 2) {
-          let muteTime = Math.random() * (config.muteMax - config.muteMin) + config.muteMin;
-          e.group.muteMember(userId, Math.round(muteTime) * 60);
-          e.reply(`检测到触发违禁词，您已被禁言${Math.round(muteTime)}分钟！`);
-          config.triggerCount[groupId][userId] = 0;
+          
+          let muteTime = Math.round(Math.random() * (config.muteMax - config.muteMin) + config.muteMin);
+          e.group.muteMember(userId, muteTime * 60);
+          e.reply(`检测到触发违禁词，您已被禁言${muteTime}分钟！`);
+          config.triggerCount[groupId][userId] = 0; 
         } else if (config.mode === 1) {
           let remainingAttempts = 3 - config.triggerCount[groupId][userId];
           e.reply(`检测到触发违禁词，您还有${remainingAttempts}次机会！`);
@@ -102,7 +119,6 @@ export class kelitaocan extends plugin {
     return true;
   }
 }
-
 
 export class banWordManager extends plugin {
   constructor() {
@@ -256,17 +272,4 @@ export class banWordManager extends plugin {
     saveConfig(config);
     e.reply(`违禁词模式已切换为${mode === 1 ? '提示模式' : '直接禁言模式'}`);
   }
-}
-
-
-function checkBanWords(message, groupConfig, mode) {
-  if (mode === 'exact') {
-    return groupConfig.exact.some(word => {
-      const exactPattern = new RegExp(`\\b${word}\\b`, 'i');
-      return exactPattern.test(message);
-    });
-  } else if (mode === 'fuzzy') {
-    return groupConfig.fuzzy.some(word => message.includes(word));
-  }
-  return false;
 }

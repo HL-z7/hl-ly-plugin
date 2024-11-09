@@ -42,7 +42,7 @@
 # 🚀安装教程
 - gitee和Gihub二选一
 - 如网络不好请选择gitee
-gitee
+
 ``` bash
 git clone --depth 1 https://gitee.com/fox-glaze/hl-ly-plugin ./plugins/hl-ly-plugin
 ```

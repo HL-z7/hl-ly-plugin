@@ -12,8 +12,16 @@ export class ysqd extends plugin {
           fnc: 'lat'
         },
         {
+          reg: '#?菜就多练$',
+          fnc: 'caijiuduolian'
+        },
+        {
           reg: '^#?原神启动$',
           fnc: 'cs'
+        },
+        {
+          reg: '厵神',
+          fnc: 'yuanshen'
         }
       ]
     })
@@ -47,4 +55,18 @@ export class ysqd extends plugin {
     e.reply(msg,true)
 	return true
   }
+  async caijiuduolian (e) {
+    logger.info('[hl-ly-plugin]')
+    let url = encodeURI(`https://img.kookapp.cn/attachments/2024-01/04/6596d4960a65a.mp4`)
+    await this.e.reply(segment.video(url))
+    let msg = "输不起就别玩"
+    await this.e.reply(msg,true,{at:true})
+    return true
+  }
+  async yuanshen (e) {
+    logger.info('[yuanlainiyewanyuanshena.js插件]')
+    let url = encodeURI(`https://img.kookapp.cn/attachments/2023-09/16/65054d60df30a.mp4`)
+    await this.e.reply(segment.video(url))
+  }
+
 }

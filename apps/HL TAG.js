@@ -20,6 +20,14 @@ export class tags extends plugin {
         {
           reg: '^#?来点魔法$',
           fnc: 'magic'
+        },
+        {
+          reg: "^#?随机(kfc|KFC|疯狂星期四)$",  
+          fnc: 'generateCrazyThursday'  
+        },
+        {
+          reg: "^#?(H|h)翻(.*)$",  
+          fnc: 'translateText' 
         }
       ]
     })
@@ -99,5 +107,62 @@ export class tags extends plugin {
     const randomTags = getRandomTags(20, 150);
     e.reply(`看吧！涩批！惊喜的魔法盲盒！ ${randomTags}`);
     return true;
+  }
+
+//KFC
+  async generateCrazyThursday(e) {  
+    logger.info(`收到疯狂星期四请求`);
+
+    try {
+      const apiUrl = 'http://kfc.api.zhilaohu.icu/index.php?type=json&hh=%3Cbr%3E'; 
+      const response = await fetch(apiUrl);  
+      if (!response.ok) {
+        throw new Error(`请求失败，状态码: ${response.status}`);
+      }
+
+      const data = await response.json();  
+      logger.info(`API响应数据: ${JSON.stringify(data)}`);
+
+      
+      if (data && data.msg) {
+        const crazyThursdayMessage = data.msg.trim();  
+        await this.e.reply(crazyThursdayMessage, true);  
+      } else {
+        await this.e.reply("获取疯狂星期四文案失败，请联系开发者修复。", true);  
+      }
+    } catch (error) {
+      logger.error(`获取疯狂星期四文案时出错：${error}`);
+      await this.e.reply("获取疯狂星期四文案失败，请联系开发者修复。", true);  
+    }
+  }
+
+  //翻译
+  async translateText(e) {  
+    let textToTranslate = e.msg.replace(/#?(H|h)翻/g, "").trim();  
+    logger.info(`收到翻译请求: ${textToTranslate}`);  
+
+    let apiUrl = `https://findmyip.net/api/translate.php?text=${encodeURIComponent(textToTranslate)}`;  
+    logger.info(`API请求URL: ${apiUrl}`);
+
+    try {
+      const response = await fetch(apiUrl);  
+      if (!response.ok) {
+        throw new Error(`请求失败，状态码: ${response.status}`);
+      }
+      
+      const data = await response.json();  
+      logger.info(`API响应数据: ${JSON.stringify(data)}`);
+
+      
+      if (data && data.code === 200 && data.data && data.data.translate_result) {
+        const translationResult = data.data.translate_result;
+        await this.e.reply(translationResult, true);  
+      } else {
+        await this.e.reply("翻译失败，请稍后重试。", true);  
+      }
+    } catch (error) {
+      logger.error(`翻译时出错：${error}`);
+      await this.e.reply("翻译失败，请稍后重试。", true); 
+    }
   }
 }

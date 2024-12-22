@@ -15,10 +15,6 @@ export class waixian extends plugin {
         {
           reg: /^#?hl(设置|增加|删除|取消)外显(\s+)?(.+)?$/i,
           fnc: 'waixian'
-        },
-        {
-          reg: /^#?星怒艾草$/,
-          fnc: 'xn'
         }
       ]
     });

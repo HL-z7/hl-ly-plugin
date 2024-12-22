@@ -21,7 +21,7 @@ export class waixian extends plugin {
   }
 
   async waixian(e) {
-    if(this.e.isMaster){return true;}
+    if(this.e.isMaster){return true}
     const [, action, , summary] = e.msg.match(this.rule[0].reg);
     if (['设置','增加','添加'].includes(action)) {
       summarymsg = summary;

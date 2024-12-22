@@ -15,13 +15,17 @@ export class waixian extends plugin {
         {
           reg: /^#?hl(设置|增加|删除|取消)外显(\s+)?(.+)?$/i,
           fnc: 'waixian'
+        },
+        {
+          reg: /^#?星怒艾草$/,
+          fnc: 'xn'
         }
       ]
     });
   }
 
   async waixian(e) {
-    if(this.e.isMaster){return true}
+    if(!this.e.isMaster){return true}
     const [, action, , summary] = e.msg.match(this.rule[0].reg);
     if (['设置','增加','添加'].includes(action)) {
       summarymsg = summary;
@@ -33,6 +37,10 @@ export class waixian extends plugin {
     fs.writeFileSync(summaryFile, summarymsg);
     return e.reply(`已经删除外显`);
   }
+}
+async xn (e){
+ let v = segment.at(2867698764,'撅')
+ await this.e.reply(v)
 }
 }
 segment.image = (file, name) => {

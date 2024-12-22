@@ -38,10 +38,6 @@ export class waixian extends plugin {
     return e.reply(`已经删除外显`);
   }
 }
-async xn (e){
- let v = segment.at(2867698764,'撅')
- await this.e.reply(v)
-}
 }
 segment.image = (file, name) => {
   return {

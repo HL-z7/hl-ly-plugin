@@ -8,19 +8,19 @@ export class yjqf extends plugin {
       priority: -114514,
       rule: [
         {
-          reg: '^一键群发(.*)$',
+          reg: '^#?一键群发(.*)$',
           fnc: 'cs'
         },
         {
-          reg: '^官bot群发(.*)$',
+          reg: '^#?官bot群发(.*)$',
           fnc: 'qqBotGroupSend'
         },
         {
-          reg: '^单独群发#(\\d+)#(.*)$',
+          reg: '^#?单独群发#(\\d+)#(.*)$',
           fnc: 'sendToSingleGroup'
         },
         {
-          reg: '^全局群发(.*)$',
+          reg: '^#?全局群发(.*)$',
           fnc: 'globalGroupSend'
         }
       ]
@@ -32,7 +32,7 @@ export class yjqf extends plugin {
       e.reply("你没有权限✘"); // 发送权限提示
       return false;
     }
-    let textToTranslate = e.msg.replace(/一键群发/g, "").trim();
+    let textToTranslate = e.msg.replace(/#?一键群发/g, "").trim();
     if (textToTranslate === "") {
       e.reply("请在指令后加上需要发送的内容");
       return false;
@@ -60,7 +60,7 @@ export class yjqf extends plugin {
       return false;
     }
     if (this.e.adapter_name === 'QQBot') {
-      let textToTranslate = e.msg.replace(/官bot群发/g, "").trim();
+      let textToTranslate = e.msg.replace(/#?官bot群发/g, "").trim();
       if (textToTranslate === "") {
         e.reply("请在指令后加上需要发送的内容");
         return false;
@@ -86,7 +86,7 @@ export class yjqf extends plugin {
       e.reply("你没有权限✘"); // 发送权限提示
       return false;
     }
-    let match = e.msg.match(/^单独群发#(\d+)#(.*)$/);
+    let match = e.msg.match(/^#?单独群发#(\d+)#(.*)$/);
     if (!match) {
       e.reply("格式不正确，请使用 单独群发#id#内容 格式");
       return false;
@@ -123,7 +123,7 @@ export class yjqf extends plugin {
       return false;
     }
     
-    let textToTranslate = e.msg.replace(/全局群发/g, "").trim();
+    let textToTranslate = e.msg.replace(/#?全局群发/g, "").trim();
     if (textToTranslate === "") {
       e.reply("请在指令后加上需要发送的内容");
       return false;

@@ -23,7 +23,6 @@ export class zmcyc extends plugin {
   }
  
   
-
   async chuochuo (e) {
 if(!Config.getConfig('set','sz')['zmcyc']){return false}
     

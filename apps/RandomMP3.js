@@ -25,6 +25,7 @@ export class RandomMP3 extends plugin {
                 }
             ]
         });
+        
 
         // 读取配置文件
         const configPath = path.join(__dirname, 'plugins/hl-ly-plugin/config/RandomMP3.yaml'); // 配置文件路径

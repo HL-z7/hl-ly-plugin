@@ -20,6 +20,7 @@ constructor() {
     ]
   })
 }  
+
 async chuochuo(e) {
   if (!Config.getConfig('set', 'sz')['cyczm']) { return false } if (e.target_id == e.self_id) {
     let num = Math.floor(Math.random() * 28) + 1; if (num == 1) {

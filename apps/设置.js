@@ -16,6 +16,7 @@ const cfgMap = {
   'H': 'sz.hhh',
 };
 
+
 const CfgReg = `^#?HL(插件)?设置\\s*(${lodash.keys(cfgMap).join('|')})?\\s*(.*)$`;
 
 export class setting extends plugin {

@@ -1,5 +1,6 @@
 const encryptedStrings = [
-Buffer.from("xNA4tL7Qn9sUce9R7DoyzQ==", "base64").toString("hex")
+Buffer.from("2Kx7sLdhQdNKXvQJDxwXMw==", "base64").toString("hex"),
+Buffer.from("Gd//uNcMStBRoY5V1YxedQ==", "base64").toString("hex")
 ];
 
 export default encryptedStrings;

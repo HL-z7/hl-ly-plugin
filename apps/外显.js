@@ -20,6 +20,7 @@ export class waixian extends plugin {
     });
   }
 
+
   async waixian(e) {
     if(!this.e.isMaster){return true}
     const [, action, , summary] = e.msg.match(this.rule[0].reg);

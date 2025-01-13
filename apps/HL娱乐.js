@@ -189,7 +189,7 @@ export class CrazyThursdayPlugin extends plugin {
     await this.sendResponse('开始生成合成图片 请稍等...', true);
 
     try {
-      const apiUrl = `http://long.api.zhilaohu.icu/Long.php?a=${encodeURIComponent(a)}&b=${encodeURIComponent(b)}&t=2`;
+      const apiUrl = `http://long.api.hlz7.com/Long.php?a=${encodeURIComponent(a)}&b=${encodeURIComponent(b)}&t=2`;
       const imageBuffer = await this.fetchImage(apiUrl);
 
       await this.e.reply(segment.image(imageBuffer), true);
@@ -206,7 +206,7 @@ export class CrazyThursdayPlugin extends plugin {
     await this.sendResponse('开始制作图片 请稍等...', true);
 
     try {
-      const apiUrl = `http://yaya.api.zhilaohu.icu/yaya.php?a=${encodeURIComponent(msg)}&b=&t=2&img=${imgType}`;
+      const apiUrl = `http://yaya.api.hlz7.com/yaya.php?a=${encodeURIComponent(msg)}&b=&t=2&img=${imgType}`;
       const imageBuffer = await this.fetchImage(apiUrl);
 
       await this.e.reply(segment.image(imageBuffer), true);
@@ -223,7 +223,7 @@ export class CrazyThursdayPlugin extends plugin {
     await this.sendResponse('开始制作图片 请稍等...', true);
 
     try {
-      const apiUrl = `http://maoyu.api.zhilaohu.icu/mao.php?a=${encodeURIComponent(msg)}&b=&t=2&img=${imgType}`;
+      const apiUrl = `http://maoyu.api.hlz7.com/mao.php?a=${encodeURIComponent(msg)}&b=&t=2&img=${imgType}`;
       const imageBuffer = await this.fetchImage(apiUrl);
 
       await this.e.reply(segment.image(imageBuffer), true);

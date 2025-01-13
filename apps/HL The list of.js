@@ -68,6 +68,11 @@ export class HLlist extends plugin {
     "H随机cos/Hcos\n"+
     "H随机壁纸\n"+
     "H随机甘城\n"+
+    "H玛丽\n"+
+    "H流萤\n"+
+    "H小楠梁\n"+
+    "H凉\n"+
+    "H萝莉\n"+
     "H心脏弱\n"+
     "【视频列表】\n"+
     "多来点视频1～5（数字代表视频数量）\n"+
@@ -84,10 +89,10 @@ export class HLlist extends plugin {
 async hbz (e) {
     logger.info('[HL-LY-Plugin]')
     let msg = "【一键群发帮助】\n"+
-    "一键群发+内容（只发送适配器为ICQQ）\n"+
-    "官bot群发+内容（只发送适配器为ICQQ与QQBot）\n"+
-    "单独群发#机器人QQ号#内容（指定QQ号执行群发）\n"+
-    "全局群发+内容（发送全平台）"
+    "#一键群发+内容（只发送适配器为ICQQ）\n"+
+    "#官bot群发+内容（只发送适配器为ICQQ与QQBot）\n"+
+    "#单独群发#机器人QQ号#内容（指定QQ号执行群发）\n"+
+    "#全局群发+内容（发送全平台）"
     e.reply(msg,true)
     return true
   }

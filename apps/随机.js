@@ -65,6 +65,26 @@ export class diaotu extends plugin {
           fnc: 'gc'
         },
         {
+          reg: '^(Hloli|H随机loli|H随机萝莉)$',
+          fnc: 'loli'
+        },
+        {
+          reg: '^(H凉|H随机凉|H随机liang)$',
+          fnc: 'liang'
+        },
+        {
+          reg: '^(Hxnn|H随机xnn|Hxnl|H随机小楠梁)$',
+          fnc: 'loli'
+        },
+        {
+          reg: '^(H流萤|H随机流萤)$',
+          fnc: 'ly'
+        },
+        {
+          reg: '^(H玛丽|H随机玛丽)$',
+          fnc: 'mali'
+        },
+        {
           reg: '^(H随机壁纸|H随机bz)$',
           fnc: 'bz'
         }
@@ -91,27 +111,27 @@ export class diaotu extends plugin {
   }
 // 甘城
   async gc (e) {
-    await this.reply(segment.image('https://api.zhilaohu.icu/mm'))
+    await this.reply(segment.image('https://api.hlz7.com/mm'))
     return true // 返回true 阻挡消息不再往下
   }
   // 宇佐纪
   async yzj (e) {
-    await this.reply(segment.image('https://api.zhilaohu.icu/yzj'))
+    await this.reply(segment.image('https://api.hlz7.com/yzj'))
     return true // 返回true 阻挡消息不再往下
   }
    // 蔚蓝档案
   async BA (e) {
-    await this.reply(segment.image('https://api.zhilaohu.icu/BA'))
+    await this.reply(segment.image('https://api.hlz7.com/BA'))
     return true // 返回true 阻挡消息不再往下
   }
   // miku/初音
   async cy (e) {
-    await this.reply(segment.image('https://api.zhilaohu.icu/miku'))
+    await this.reply(segment.image('https://api.hlz7.com/miku'))
     return true // 返回true 阻挡消息不再往下
   }
 //jojo
  async jojo (e) {
-    await this.reply(segment.image('https://api.zhilaohu.icu/jojo'))
+    await this.reply(segment.image('https://api.hlz7.com/jojo'))
     return true // 返回true 阻挡消息不再往下
   }
   
@@ -146,13 +166,41 @@ export class diaotu extends plugin {
 
 // 心脏弱
   async xzr (e) {
-    await this.reply(segment.image('http://api.zhilaohu.icu/xin'))
+    await this.reply(segment.image('http://api.hlz7.com/xin'))
+    return true // 返回true 阻挡消息不再往下
+  }
+// 萝莉
+  async loli (e) {
+    await this.reply(segment.image('http://api.hlz7.com/loli'))
+    return true // 返回true 阻挡消息不再往下
+  }
+
+  // 凉
+  async liang (e) {
+    await this.reply(segment.image('http://api.hlz7.com/liang'))
+    return true // 返回true 阻挡消息不再往下
+  }
+
+  // 小楠梁
+  async xnn (e) {
+    await this.reply(segment.image('http://api.hlz7.com/xnn'))
+    return true // 返回true 阻挡消息不再往下
+  }
+
+  // 流萤
+  async ly (e) {
+    await this.reply(segment.image('http://api.hlz7.com/ly'))
+    return true // 返回true 阻挡消息不再往下
+  }
+  //玛丽
+  async mali (e) {
+    await this.reply(segment.image('http://api.hlz7.com/mali'))
     return true // 返回true 阻挡消息不再往下
   }
   
   // 随机cos
   async cos (e) {
-    await this.reply(segment.image('http://api.zhilaohu.icu/cos'))
+    await this.reply(segment.image('http://api.hlz7.com/cos'))
     return true // 返回true 阻挡消息不再往下
   }
 }

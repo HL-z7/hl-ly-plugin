@@ -114,7 +114,7 @@ export class tags extends plugin {
     logger.info(`收到疯狂星期四请求`);
 
     try {
-      const apiUrl = 'http://kfc.api.zhilaohu.icu/index.php?type=json&hh=%3Cbr%3E'; 
+      const apiUrl = 'http://kfc.api.hlz7.com/index.php?type=json&hh=%3Cbr%3E'; 
       const response = await fetch(apiUrl);  
       if (!response.ok) {
         throw new Error(`请求失败，状态码: ${response.status}`);

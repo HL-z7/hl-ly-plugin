@@ -31,7 +31,7 @@ export class jrys extends plugin {
 
   async yunshi() {
     const { qq, mentionUserId } = this.getMentionedInfo();
-    const url = `http://jrys.api.zhilaohu.icu/?qq=${qq}&starRating=0&changeFate=false`;
+    const url = `http://jrys.api.hlz7.com/?qq=${qq}&starRating=0&changeFate=false`;
     try {
       const response = await fetch(url);
       if (!response.ok) {
@@ -56,7 +56,7 @@ export class jrys extends plugin {
 
   async changeFate() {
     const { qq, mentionUserId } = this.getMentionedInfo();
-    const url = `http://jrys.api.zhilaohu.icu/?qq=${qq}&starRating=7&changeFate=true`;
+    const url = `http://jrys.api.hlz7.com/?qq=${qq}&starRating=7&changeFate=true`;
     try {
       const response = await fetch(url);
       if (!response.ok) {

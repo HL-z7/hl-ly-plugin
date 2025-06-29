@@ -28,6 +28,17 @@ let config = loadConfig();
 
 
 function loadGroupConfig(groupId) {
+  if (!config.groupBanWords) {
+    config.groupBanWords = {};
+  }
+  if (!config.banWords) {
+    config.banWords = {
+      default: {
+        exact: [],
+        fuzzy: []
+      }
+    };
+  }
   if (!config.groupBanWords[groupId]) {
     config.groupBanWords[groupId] = JSON.parse(JSON.stringify(config.banWords.default)); 
   }

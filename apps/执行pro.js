@@ -60,13 +60,16 @@ function checkPermission(e) {
 }
 
 function checkBanWords(message, groupConfig, mode) {
+  if (!groupConfig) return false;
   if (mode === 'exact') {
+    if (!Array.isArray(groupConfig.exact)) return false;
     return groupConfig.exact.some(word => {
       const exactPattern = new RegExp(`(?<!\\S)${word}(?!\\S)`, 'i'); 
       return exactPattern.test(message);
     });
   } else if (mode === 'fuzzy') {
-    return groupConfig.fuzzy.some(word => message.includes(word)); 
+    if (!Array.isArray(groupConfig.fuzzy)) return false;
+    return groupConfig.fuzzy.some(word => typeof message === 'string' && message.includes(word)); 
   }
   return false;
 }

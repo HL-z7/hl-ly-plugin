@@ -1,156 +1,171 @@
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>名字</title>
-    <style>
-        .name {
-            font-family: "zkkl";
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            animation: changeColor 2s infinite; /* 添加动画效果 */
-        }
-
-        @keyframes changeColor {
-            0% {color: #FF0000;} /* 红色 */
-            20% {color: #FF7F00;} /* 橙色 */
-            40% {color: #FFFF00;} /* 黄色 */
-            60% {color: #00FF00;} /* 绿色 */
-            80% {color: #0000FF;} /* 蓝色 */
-            100% {color: #4B0082;} /* 紫色 */
-        }
-        
-        .container {
-            background-color: rgba(255, 255, 255, 0.7); /* 淡白色 */
-            background-position: center top;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-    </style>
+    <title>Kawaii Status Final Color</title>
+    <link rel="stylesheet" href="{{dz}}/plugins/hl-ly-plugin/resources/html/state/lyr.css">
 </head>
-<body background="{{url}}"> 
-<link rel="stylesheet" href="{{dz}}\plugins\hl-ly-plugin\resources\html\state\lyr.css">
+<body>
 
-        
-<div class="box"> 
+<div class="main-container">
 
-
-</br>
-
-
-{{each data.shuju sj i}}
-
-<div class="nbox"> 
-    <div class="zt1"><img class="zt" src="{{sj.avatar}}"  width="200" height="200"></div>
-    <h1 class="name">{{sj.nickname}}</h1>
-	<div class="zhuangtai"><img src="{{dz}}\plugins\hl-ly-plugin\resources\html\state\zt\状态.png" class="ztd">-{{sj.platform}}</div>
-<table class="bg"><tbody>
-<tr >
-    <td class="biaoge"><img src="{{dz}}\plugins\hl-ly-plugin\resources\html\state\zt\收.png" class="bgtu"></br>{{sj.recv}}</td>
-    <td class="biaoge"><img src="{{dz}}\plugins\hl-ly-plugin\resources\html\state\zt\发.png" class="bgtu"></br>{{sj.sent}}</td>
-    <td class="biaoge"><img src="{{dz}}\plugins\hl-ly-plugin\resources\html\state\zt\图片.png" class="bgtu"></br>{{sj.screenshot}}</td>
-     <td class="biaoge"><img src="{{dz}}\plugins\hl-ly-plugin\resources\html\state\zt\人.png" class="bgtu"></br>{{sj.friendQuantity}}</td>
-    <td class="biaoge"><img src="{{dz}}\plugins\hl-ly-plugin\resources\html\state\zt\人群.png" class="bgtu"></br>{{sj.groupQuantity}}</td>
-</tr>
-
-</tbody>
-</table>
-
-
-</div>
-
-
-{{/each}}
-
-<div class="nbox"> 
     
-	<table class="bg2"><tbody>
-<tr >
-    <th class="biaoge2"><img src="{{dz}}\plugins\hl-ly-plugin\resources\html\state\zt\机器人.png" class="bgtu2"><td class="biaoge2">{{data.shuju[0].runTime}}</td></th><tr >
-    <th class="biaoge2"><img src="{{dz}}\plugins\hl-ly-plugin\resources\html\state\zt\电脑.png" class="bgtu2"><td class="biaoge2">{{data.shuju[0].systime}}</td></th><tr >
-    <th class="biaoge2"><img src="{{dz}}\plugins\hl-ly-plugin\resources\html\state\zt\设置.png" class="bgtu2"><td class="biaoge2">{{data.shuju[0].calendar}}</td></th><tr >
-    <th class="biaoge2"><td class="biaoge22">{{data.shuju[0].time}}</td></th><tr >
-</tr>
-
-</tbody>
-</table>
-	
-	
-<table class="bg3"><tbody>
-<tr >
-<tr >
-    <td class="biaoge3"><img src="{{dz}}\plugins\hl-ly-plugin\resources\html\state\zt\CPU.png" class="bgtu3" ></br><a class="bfb">{{data.visualData[0].inner}}</a></br></br>{{data.visualData[0].info[0]}}</br>{{data.visualData[0].info[1]}}</br>{{data.visualData[0].info[2]}}</td>
-    <td class="biaoge3"><img src="{{dz}}\plugins\hl-ly-plugin\resources\html\state\zt\内存.png" class="bgtu3" ></br><a class="bfb">{{data.visualData[1].inner}}</a></br></br>{{data.visualData[1].info[0]}}</br>{{data.visualData[1].info[1]}}</br>{{data.visualData[1].info[2]}}</td>
-    <td class="biaoge3"><img src="{{dz}}\plugins\hl-ly-plugin\resources\html\state\zt\设置.png" class="bgtu3" ></br><a class="bfb">{{data.visualData[2].inner}}</a></br></br>{{data.visualData[2].info[0]}}</br>{{data.visualData[2].info[1]}}</br>{{data.visualData[2].info[2]}}</td>
-
-</tr>
-
-</tr>
-
-</tbody>
-</table>
-
-
-</div>
-
-{{if HardDisk}}
-<div class="nbox2"> 
-<div class="memory">
-    <ul>
-        {{each HardDisk}}
-        <div class="HardDisk_li">
-            <div class="progress">
-                <div class="word">{{$value.mount}}   {{$value.use}}%    {{$value.used}} / {{$value.size}}</div>
-                <div class="current" style="width:{{$value.use}}%;background:{{$value.color}}"></div>
-            </div>
+    {{each data.shuju sj i}}
+    <div class="bot-profile-card">
         
+        <div class="card-bg-image" style="background-image: url('{{url}}')"></div>
+        
+        <div class="profile-content">
+            
+            <div class="profile-header">
+                <div class="avatar-box">
+                    <img class="avatar" src="{{sj.avatar}}">
+                    <div class="status-dot"></div>
+                </div>
+                <div class="text-info">
+                    <div class="nickname">{{sj.nickname}}</div>
+                    <div class="tags-row">
+                        <span class="tag-badge">{{sj.BotName}}</span>
+                        <span class="tag-ver">Ver: {{sj.platform}}</span>
+                    </div>
+                    <div class="runtime-info">
+                        <img src="{{dz}}/plugins/hl-ly-plugin/resources/html/state/zt/机器人.png" class="mini-icon">
+                        已运行 {{sj.runTime}}
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <img src="{{dz}}/plugins/hl-ly-plugin/resources/html/state/zt/人.png">
+                    <div class="stat-num">{{sj.friendQuantity}}</div>
+                    <div class="stat-name">好友</div>
+                </div>
+                <div class="stat-item">
+                    <img src="{{dz}}/plugins/hl-ly-plugin/resources/html/state/zt/人群.png">
+                    <div class="stat-num">{{sj.groupQuantity}}</div>
+                    <div class="stat-name">群聊</div>
+                </div>
+                <div class="stat-item">
+                    <img src="{{dz}}/plugins/hl-ly-plugin/resources/html/state/zt/发.png">
+                    <div class="stat-num">{{sj.sent}}</div>
+                    <div class="stat-name">发送</div>
+                </div>
+                <div class="stat-item">
+                    <img src="{{dz}}/plugins/hl-ly-plugin/resources/html/state/zt/收.png">
+                    <div class="stat-num">{{sj.recv}}</div>
+                    <div class="stat-name">接收</div>
+                </div>
+            </div>
         </div>
-		
-		
-        {{/each}}
-    </ul>
-</div>
-</div>
-{{/if}}
-
-<div class="nbox">
-<table class="bg4">
-
-    {{each data.otherInfo Info i}}
-
-    <td ><div class="biao1" >{{Info.first}}</div></td>
-    <td ><div class="biao2" >{{Info.tail}}</div></td></tr>
-
+    </div>
     {{/each}}
 
 
-	</table>
+    
+    <div class="system-status-card">
+        <div class="system-title">SYSTEM STATUS</div>
+        
+        
+        <div class="dials-row">
+            
+            <div class="dial-item">
+                <div class="circular-progress" data-percent="{{data.visualData[0].inner.replace('%','')}}">
+                    <svg class="progress-ring" width="120" height="120">
+                        <circle class="progress-ring-bg" cx="60" cy="60" r="52"></circle>
+                        <circle class="progress-ring-fill" cx="60" cy="60" r="52"></circle>
+                    </svg>
+                    <div class="progress-content">
+                        <img src="{{dz}}/plugins/hl-ly-plugin/resources/html/state/zt/CPU.png" class="dial-icon">
+                        <div class="dial-val">{{data.visualData[0].inner}}</div>
+                    </div>
+                </div>
+                <div class="dial-label">CPU</div>
+            </div>
 
-</div>
-<div class="nbox">
-<table class="bg4">
+            
+            <div class="dial-item">
+                <div class="circular-progress" data-percent="{{data.visualData[1].inner.replace('%','')}}">
+                    <svg class="progress-ring" width="120" height="120">
+                        <circle class="progress-ring-bg" cx="60" cy="60" r="52"></circle>
+                        <circle class="progress-ring-fill" cx="60" cy="60" r="52"></circle>
+                    </svg>
+                    <div class="progress-content">
+                        <img src="{{dz}}/plugins/hl-ly-plugin/resources/html/state/zt/内存.png" class="dial-icon">
+                        <div class="dial-val">{{data.visualData[1].inner}}</div>
+                    </div>
+                </div>
+                <div class="dial-label">RAM</div>
+            </div>
 
-    {{@data.FastFetch}}
+            
+            {{if HardDisk && HardDisk.length > 0}}
+            <div class="dial-item">
+                <div class="circular-progress" data-percent="{{HardDisk[0].use}}">
+                    <svg class="progress-ring" width="120" height="120">
+                        <circle class="progress-ring-bg" cx="60" cy="60" r="52"></circle>
+                        <circle class="progress-ring-fill" cx="60" cy="60" r="52"></circle>
+                    </svg>
+                    <div class="progress-content">
+                        <img src="{{dz}}/plugins/hl-ly-plugin/resources/html/state/zt/电脑.png" class="dial-icon">
+                        <div class="dial-val">{{HardDisk[0].use}}%</div>
+                    </div>
+                </div>
+                <div class="dial-label">DISK</div>
+            </div>
+            {{/if}}
+        </div>
+
+        
+        <div class="info-list">
+            {{each data.otherInfo info}}
+            <div class="info-line">
+                <span class="label">{{info.first}}</span>
+                <span class="val">{{info.tail}}</span>
+            </div>
+            {{/each}}
+
+            {{if data.visualData[0] && data.visualData[0].info}}
+            <div class="info-line">
+                <span class="label">CPU Model</span>
+                <span class="val">{{data.visualData[0].info[0]}}</span>
+            </div>
+            {{/if}}
+        </div>
+    </div>
 
     
-
-	</table>
-
-
-</div>
-
+    <div class="footer-copyright">
+        <div class="footer-text">Created by HL-Plugin · Pro Edition</div>
+        <div class="footer-time">{{data.shuju[0].time}}</div>
+    </div>
 
 </div>
 
-</br>
 <script>
-    document.addEventListener("DOMContentLoaded", function(event) {
-        var nameElement = document.querySelector('.name');
-        var colors = ['#FF0000', '#FF7F00', '#FFFF00', '#00FF00', '#0000FF', '#4B0082'];
-        var randomColorIndex = Math.floor(Math.random() * colors.length);
-        nameElement.style.color = colors[randomColorIndex];
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.circular-progress').forEach(progress => {
+            const percent = parseFloat(progress.dataset.percent);
+            const fill = progress.querySelector('.progress-ring-fill');
+            const radius = 52;
+            const circumference = 2 * Math.PI * radius;
+            
+            fill.style.strokeDasharray = circumference;
+            fill.style.strokeDashoffset = circumference;
+            
+            let color = '#a8e6cf'; 
+            if (percent > 60) color = '#ffd3b6';
+            if (percent > 85) color = '#ffaaa5';
+            fill.style.stroke = color;
+            
+            setTimeout(() => {
+                const offset = circumference - (percent / 100) * circumference;
+                fill.style.strokeDashoffset = offset;
+            }, 100);
+        });
     });
 </script>
+
 </body>
 </html>

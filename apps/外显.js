@@ -13,7 +13,7 @@ export class waixian extends plugin {
       priority: -114514,
       rule: [
         {
-          reg: /^#?(hl|HL)(设置|增加|删除|取消)外显(\s+)?(.+)?$/i,
+          reg: /^#?(hl|HL)?(设置|增加|删除|取消)外显(\s+)?(.+)?$/i,
           fnc: 'waixian'
         }
       ]
